@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creativity as a Lifestyle — B1 English Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #8B5CF6;
+    --deep: #5B3BB0;
+    --coral: #E76F51;
+    --pink: #EC4899;
+    --yellow: #F4C430;
+    --cream: #FAF6F0;
+    --sand: #F0E8D5;
+    --ink: #1C1B2E;
+    --cloud: #ffffff;
+    --soft: #F3ECFD;
+    --blush: #FFE0EC;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(139,92,246,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(236,72,153,0.08) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+
+  header {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 18px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow: 6px 6px 0 var(--ink);
+    overflow: hidden;
+  }
+  header::before {
+    content: "✦";
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    font-size: 180px;
+    color: var(--soft);
+    z-index: 0;
+  }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label {
+    display: inline-block;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    background: var(--ink);
+    color: var(--yellow);
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(38px, 6.5vw, 62px);
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -1px;
+  }
+  h1 .accent { color: var(--pink); font-style: italic; }
+  .sub {
+    font-size: 17px;
+    color: var(--deep);
+    margin-top: 10px;
+    max-width: 620px;
+  }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--sand);
+    border: 1.5px solid var(--ink);
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .tab {
+    padding: 12px 16px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--ink);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .tab:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .tab.active { background: var(--ink); color: var(--cream); }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .section-title .emoji { margin-right: 10px; }
+  .instr {
+    color: var(--deep);
+    margin-bottom: 22px;
+    font-size: 15px;
+    padding: 10px 14px;
+    background: var(--soft);
+    border-left: 4px solid var(--purple);
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* READING */
+  .reading {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    padding: 32px 36px;
+    box-shadow: 6px 6px 0 var(--ink);
+    margin-bottom: 24px;
+  }
+  .reading h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .reading .byline {
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--coral);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .reading p {
+    font-size: 16.5px;
+    line-height: 1.85;
+    margin-bottom: 14px;
+    color: #2a3441;
+  }
+  .reading b, .reading strong {
+    background: linear-gradient(transparent 55%, rgba(244,196,48,0.55) 55%);
+    padding: 0 2px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .reading .dialogue {
+    background: var(--soft);
+    padding: 14px 18px;
+    border-radius: 10px;
+    border-left: 4px solid var(--purple);
+    margin: 16px 0;
+    font-style: italic;
+  }
+
+  /* VOCAB LIST */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .vocab-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .vocab-term {
+    font-weight: 700;
+    color: var(--coral);
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+  .vocab-def {
+    font-size: 13.5px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .vocab-ex {
+    font-style: italic;
+    font-size: 13px;
+    color: var(--deep);
+    padding-top: 6px;
+    border-top: 1px dashed var(--sand);
+  }
+
+  /* IDIOMS */
+  .idiom-card {
+    background: linear-gradient(135deg, var(--cloud) 0%, var(--soft) 100%);
+    border: 2px solid var(--ink);
+    border-left: 5px solid var(--pink);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .idiom-term {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--pink);
+    margin-bottom: 4px;
+  }
+  .idiom-def { font-size: 14px; margin-bottom: 8px; }
+  .idiom-ex {
+    font-style: italic;
+    font-size: 13.5px;
+    background: rgba(255,255,255,0.7);
+    padding: 8px 12px;
+    border-radius: 6px;
+    border-left: 3px solid var(--coral);
+  }
+
+  /* MATCHING */
+  .match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .match-col h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: var(--deep);
+  }
+  .match-item {
+    padding: 12px 14px;
+    border: 2px solid var(--ink);
+    background: var(--cloud);
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 14.5px;
+    border-radius: 8px;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .match-item:hover { background: var(--soft); }
+  .match-item.selected { background: var(--purple); color: var(--cloud); border-color: var(--deep); }
+  .match-item.matched { background: #a8d5a2; border-color: #2d6a2a; color: #1a3d17; cursor: default; pointer-events: none; }
+  .match-item.wrong { background: var(--coral); color: var(--cloud); animation: shake 0.4s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+
+  /* FILL */
+  .fill-item {
+    padding: 14px 18px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .fill-item p { font-size: 15px; }
+  .fill-item .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .fill-input {
+    padding: 6px 10px;
+    border: 2px solid var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    background: var(--sand);
+    width: 190px;
+    border-radius: 5px;
+  }
+  .fill-input.wide { width: 280px; }
+  .fill-input:focus { outline: none; border-color: var(--purple); background: var(--cream); }
+  .fill-input.correct { background: #d1f0cc; border-color: #2d6a2a; color: #1a3d17; }
+  .fill-input.wrong { background: #ffd5cc; border-color: var(--coral); }
+
+  .word-bank {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    box-shadow: 4px 4px 0 var(--coral);
+  }
+  .word-bank strong {
+    display: block;
+    color: var(--yellow);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-family: 'Courier Prime', monospace;
+  }
+
+  /* MC */
+  .mc-item {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .mc-q { font-size: 15px; margin-bottom: 10px; font-weight: 500; }
+  .mc-q .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .mc-options { display: grid; gap: 6px; }
+  .mc-opt {
+    padding: 9px 12px;
+    border: 2px solid var(--sand);
+    background: var(--cream);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    font-family: inherit;
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .mc-opt:hover:not(:disabled) { border-color: var(--purple); }
+  .mc-opt.correct { background: #d1f0cc; border-color: #2d6a2a; color: #1a3d17; font-weight: 600; }
+  .mc-opt.wrong { background: #ffd5cc; border-color: var(--coral); }
+  .mc-opt:disabled { cursor: default; }
+
+  .check-btn {
+    background: var(--coral);
+    color: var(--cream);
+    border: 2px solid var(--ink);
+    padding: 12px 24px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 14px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .check-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .check-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+
+  .score {
+    display: inline-block;
+    margin-left: 12px;
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    padding: 8px 14px;
+    background: var(--ink);
+    color: var(--yellow);
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  /* SPEAKING */
+  .speak-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-left: 6px solid var(--pink);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .speak-num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .speak-prompt {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .speak-help {
+    font-size: 13.5px;
+    color: var(--deep);
+    background: var(--soft);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+  .speak-help strong { color: var(--pink); }
+
+  /* GRAMMAR BOX */
+  .grammar-box {
+    background: var(--soft);
+    border: 2px dashed var(--deep);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 22px;
+  }
+  .grammar-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--deep);
+    margin-bottom: 10px;
+  }
+  .grammar-box ul { padding-left: 20px; margin-bottom: 10px; }
+  .grammar-box li { margin-bottom: 4px; font-size: 14px; }
+  .grammar-box code {
+    background: var(--cloud);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    border: 1px solid var(--sand);
+  }
+  .grammar-box .formula {
+    background: var(--cloud);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    margin: 6px 0;
+    border-left: 3px solid var(--purple);
+  }
+
+  footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--deep);
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 650px) {
+    .match-grid { grid-template-columns: 1fr; }
+    .reading { padding: 22px; }
+    header { padding: 22px; }
+    .fill-input, .fill-input.wide { width: 100%; margin-top: 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">✦ CREATIVE LIFE · B1 ENGLISH</div>
+      <h1>Creativity <span class="accent">as a Lifestyle</span></h1>
+      <div class="sub">Art, music, cinema and fashion — the language of creative people and the way creativity shapes their everyday life.</div>
+      <div class="tags">
+        <span class="tag">CEFR B1</span>
+        <span class="tag">Art · Music · Cinema · Fashion</span>
+        <span class="tag">Idioms & Collocations</span>
+        <span class="tag">Grammar x 2</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="t1">① Reading</button>
+    <button class="tab" data-tab="t2">② Vocabulary</button>
+    <button class="tab" data-tab="t3">③ Idioms</button>
+    <button class="tab" data-tab="t4">④ Matching</button>
+    <button class="tab" data-tab="t5">⑤ Fill the gaps</button>
+    <button class="tab" data-tab="t6">⑥ Multiple choice</button>
+    <button class="tab" data-tab="t7">⑦ Speaking 🎤</button>
+    <button class="tab" data-tab="t8">⑧ Grammar: Past tenses</button>
+    <button class="tab" data-tab="t9">⑨ Grammar: Articles</button>
+  </nav>
+
+  <!-- ============== READING ============== -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading text</h2>
+    <p class="instr">Maya tells us about her creative life in Berlin. Target words and expressions are highlighted in <b>yellow</b> — watch out for them in the exercises.</p>
+
+    <article class="reading">
+      <h3>"Creativity Isn't a Job — It's How I Live"</h3>
+      <div class="byline">★ Maya, 26 · graphic designer, part-time DJ, full-time Berliner</div>
+
+      <p>People often ask me, "Maya, what do you actually do?" And honestly, I never know how to answer. By day, I'm a <b>graphic designer</b> at a small studio. By night, I'm a DJ. On weekends, I paint, or I go to the cinema, or I hunt for vintage clothes in flea markets. For me, creativity isn't something I do — it's the <b>way I live my life</b>.</p>
+
+      <p>I <b>grew up in a creative household</b>. My mother was a <b>costume designer</b> for the theatre, and my dad was a jazz pianist. When I was little, I remember our house was always full of music, books and half-finished projects. While my friends were watching cartoons, I was <b>sketching</b> in my notebook or <b>making collages</b> out of old magazines. My parents never told me to "get a real job." They just said, "Do what makes you come alive."</p>
+
+      <p>These days, my mornings usually start with a coffee and about twenty minutes of sketching — <b>doodling</b>, really. It <b>sets the tone</b> for the whole day. I genuinely believe you have to <b>feed your creativity</b> every single day, even in small ways. Sometimes it's listening to a new album on Spotify while I work. Sometimes it's watching a weird old film on a Sunday afternoon.</p>
+
+      <p class="dialogue">"Maya, you watch such strange films," my flatmate once told me. "That's the whole point," I said.</p>
+
+      <p>I'm really into <b>indie cinema</b> — <b>low-budget films</b> with strong <b>soundtracks</b>, unusual <b>plots</b> and characters that stay with you. Hollywood <b>blockbusters</b> are fine, but I prefer stories that <b>push boundaries</b>. The last film I <b>fell in love with</b> was a black-and-white Polish drama I saw at a tiny arthouse cinema. The <b>cinematography</b> was stunning — every single shot looked like a painting. I walked home that night completely <b>blown away</b>.</p>
+
+      <p>Music is the other side of my world. I've been DJing for about three years now. I <b>got into it</b> almost by accident. A friend was supposed to play at a small bar and he <b>fell ill</b>, so I <b>stepped in</b>. I was terrified. My hands were shaking. But when I saw people dancing to the first track I dropped, something clicked. Now I play at least twice a month. My sets mix <b>old-school</b> house, deep electronica and weird Japanese jazz. People either love it or hate it — which, honestly, is a good sign.</p>
+
+      <p>And then there's fashion. This one gets me in trouble sometimes, because I <b>refuse to follow trends</b>. I'd rather wear a weird second-hand jacket from 1978 than something everyone's wearing on Instagram. I've been <b>into vintage</b> since I was a teenager. There's something magical about wearing a piece of clothing that has a history, that someone else loved before you. I call it <b>slow fashion</b> — the opposite of fast fashion. It's kinder to the planet, and honestly, it <b>looks way cooler</b>.</p>
+
+      <p>The funny thing is, people sometimes say to me, "Must be nice to be so creative. I don't have a creative bone in my body." And I always disagree. I think <b>everyone is creative</b> — they just <b>express it differently</b>. Maybe you cook amazing food. Maybe you tell brilliant stories. Maybe you make the most beautiful Instagram stories in your friend group. That's creativity too.</p>
+
+      <p>If I could give one piece of advice, it would be this: don't wait for inspiration to find you. <b>Chase it</b>. Go to galleries. Listen to weird music. Watch films in languages you don't speak. Try on strange clothes. <b>Get out of your comfort zone</b>. Because at the end of the day, a creative life is <b>a richer life</b>. And you only get one.</p>
+    </article>
+  </section>
+
+  <!-- ============== VOCAB ============== -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">💬</span>Vocabulary & collocations</h2>
+    <p class="instr">Key words and expressions from art, music, cinema and fashion. Example sentences show how to use them naturally.</p>
+
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">a graphic designer</div><div class="vocab-def">someone who creates visual designs (logos, posters, websites)</div><div class="vocab-ex">"She works as a graphic designer at a small studio."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a costume designer</div><div class="vocab-def">someone who creates clothes for films, theatre, TV</div><div class="vocab-ex">"My mother was a costume designer for the theatre."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to sketch / a sketch</div><div class="vocab-def">to make a quick drawing / a rough drawing</div><div class="vocab-ex">"I always sketch in my notebook in the morning."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to doodle</div><div class="vocab-def">to draw little things casually while thinking</div><div class="vocab-ex">"He doodles all over his notes during meetings."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to make a collage</div><div class="vocab-def">to create art by sticking images or paper together</div><div class="vocab-ex">"We made collages from old magazines."</div></div>
+      <div class="vocab-card"><div class="vocab-term">indie cinema / an indie film</div><div class="vocab-def">films made outside big Hollywood studios, often more artistic</div><div class="vocab-ex">"I'm really into indie cinema."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a low-budget film</div><div class="vocab-def">a film made with little money</div><div class="vocab-ex">"It's a low-budget film but incredibly powerful."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a blockbuster</div><div class="vocab-def">a big, expensive Hollywood film</div><div class="vocab-ex">"Marvel blockbusters aren't really my thing."</div></div>
+      <div class="vocab-card"><div class="vocab-term">soundtrack</div><div class="vocab-def">the music used in a film</div><div class="vocab-ex">"The soundtrack was incredible."</div></div>
+      <div class="vocab-card"><div class="vocab-term">plot</div><div class="vocab-def">the story of a film or book</div><div class="vocab-ex">"I love films with unusual plots."</div></div>
+      <div class="vocab-card"><div class="vocab-term">cinematography</div><div class="vocab-def">how a film is filmed — the visual style</div><div class="vocab-ex">"The cinematography in that film is stunning."</div></div>
+      <div class="vocab-card"><div class="vocab-term">arthouse (cinema)</div><div class="vocab-def">a small cinema showing unusual / artistic films</div><div class="vocab-ex">"There's a little arthouse cinema near my flat."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to DJ / a DJ set</div><div class="vocab-def">to play music at a party / a DJ's selection of tracks</div><div class="vocab-ex">"I DJ at a small bar twice a month."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to drop a track</div><div class="vocab-def">to start playing a song (especially as a DJ)</div><div class="vocab-ex">"When I dropped that track, the whole room went crazy."</div></div>
+      <div class="vocab-card"><div class="vocab-term">old-school</div><div class="vocab-def">traditional, classic style from the past</div><div class="vocab-ex">"I mix old-school house with modern electronica."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to feed your creativity</div><div class="vocab-def">to give yourself creative inspiration regularly</div><div class="vocab-ex">"You have to feed your creativity every day."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to push boundaries</div><div class="vocab-def">to try new, unusual or challenging things</div><div class="vocab-ex">"Good art always pushes boundaries."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to follow trends</div><div class="vocab-def">to copy popular styles</div><div class="vocab-ex">"I refuse to follow trends blindly."</div></div>
+      <div class="vocab-card"><div class="vocab-term">vintage (clothes / items)</div><div class="vocab-def">old clothes or items that are valuable or stylish</div><div class="vocab-ex">"I love hunting for vintage jackets."</div></div>
+      <div class="vocab-card"><div class="vocab-term">second-hand</div><div class="vocab-def">previously owned by someone else, but still good</div><div class="vocab-ex">"Most of my wardrobe is second-hand."</div></div>
+      <div class="vocab-card"><div class="vocab-term">slow fashion vs fast fashion</div><div class="vocab-def">high-quality, sustainable clothes vs cheap, quick, throwaway clothes</div><div class="vocab-ex">"Slow fashion is kinder to the planet."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a flea market</div><div class="vocab-def">a street market selling old, used or unusual things</div><div class="vocab-ex">"I spend Sundays at flea markets."</div></div>
+      <div class="vocab-card"><div class="vocab-term">an exhibition / a gallery</div><div class="vocab-def">a show of art / a building where art is displayed</div><div class="vocab-ex">"There's a great exhibition at the Tate."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a masterpiece</div><div class="vocab-def">an outstanding work of art</div><div class="vocab-ex">"That painting is a masterpiece."</div></div>
+    </div>
+  </section>
+
+  <!-- ============== IDIOMS ============== -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">💡</span>Idioms & expressions</h2>
+    <p class="instr">These B1 idioms are the kind of natural English native speakers use when talking about art, music, films or fashion.</p>
+
+    <div class="idiom-card"><div class="idiom-term">to be blown away (by something)</div><div class="idiom-def">to be extremely impressed or amazed</div><div class="idiom-ex">"I was completely blown away by that film."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to fall in love with (something)</div><div class="idiom-def">to love something from the first moment</div><div class="idiom-ex">"I fell in love with that album the first time I heard it."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be into (something)</div><div class="idiom-def">to really enjoy / be interested in</div><div class="idiom-ex">"I'm really into vintage fashion these days."</div></div>
+    <div class="idiom-card"><div class="idiom-term">not my thing / not really my cup of tea</div><div class="idiom-def">I don't enjoy it / it's not for me</div><div class="idiom-ex">"Action films aren't really my cup of tea."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to get into (something)</div><div class="idiom-def">to start being interested in it</div><div class="idiom-ex">"I got into DJing almost by accident."</div></div>
+    <div class="idiom-card"><div class="idiom-term">it sets the tone</div><div class="idiom-def">it creates the atmosphere for what follows</div><div class="idiom-ex">"A good morning routine sets the tone for the day."</div></div>
+    <div class="idiom-card"><div class="idiom-term">something clicked</div><div class="idiom-def">to suddenly understand or feel something</div><div class="idiom-ex">"When I saw people dancing, something clicked."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to get out of your comfort zone</div><div class="idiom-def">to try something new and a bit scary</div><div class="idiom-ex">"You only grow when you get out of your comfort zone."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to chase inspiration</div><div class="idiom-def">to actively look for creative ideas</div><div class="idiom-ex">"Don't wait for inspiration — chase it."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to stay with you</div><div class="idiom-def">(a film / song) to continue to affect you after</div><div class="idiom-ex">"That film really stays with you."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to make you come alive</div><div class="idiom-def">to make you feel full of energy and joy</div><div class="idiom-ex">"Do what makes you come alive."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to have a creative bone in your body</div><div class="idiom-def">to be creative (usually used in negative)</div><div class="idiom-ex">"I don't have a creative bone in my body!"</div></div>
+    <div class="idiom-card"><div class="idiom-term">to step in (for someone)</div><div class="idiom-def">to replace someone at short notice</div><div class="idiom-ex">"My friend fell ill so I stepped in for him."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to look way cooler</div><div class="idiom-def">to look much more stylish (informal)</div><div class="idiom-ex">"Vintage looks way cooler than fast fashion."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a good sign / a bad sign</div><div class="idiom-def">something that suggests a positive / negative result</div><div class="idiom-ex">"If people react strongly, that's a good sign."</div></div>
+    <div class="idiom-card"><div class="idiom-term">the whole point</div><div class="idiom-def">the main reason / purpose of something</div><div class="idiom-ex">"That's the whole point — it's supposed to be weird!"</div></div>
+  </section>
+
+  <!-- ============== MATCHING ============== -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">🔗</span>Match the expression with its meaning</h2>
+    <p class="instr">Click a phrase on the left, then its meaning on the right.</p>
+
+    <div class="match-grid">
+      <div class="match-col">
+        <h3>Expression</h3>
+        <div class="match-item" data-word="1">a blockbuster</div>
+        <div class="match-item" data-word="2">to be blown away</div>
+        <div class="match-item" data-word="3">soundtrack</div>
+        <div class="match-item" data-word="4">to be into something</div>
+        <div class="match-item" data-word="5">cinematography</div>
+        <div class="match-item" data-word="6">vintage</div>
+        <div class="match-item" data-word="7">to push boundaries</div>
+        <div class="match-item" data-word="8">not my cup of tea</div>
+        <div class="match-item" data-word="9">a flea market</div>
+        <div class="match-item" data-word="10">to doodle</div>
+      </div>
+      <div class="match-col">
+        <h3>Meaning</h3>
+        <div class="match-item" data-def="3">the music used in a film</div>
+        <div class="match-item" data-def="1">a big, expensive Hollywood film</div>
+        <div class="match-item" data-def="4">to really enjoy or be interested in something</div>
+        <div class="match-item" data-def="8">something I don't enjoy — it's not for me</div>
+        <div class="match-item" data-def="10">to draw little things casually while thinking</div>
+        <div class="match-item" data-def="2">to be extremely impressed or amazed</div>
+        <div class="match-item" data-def="7">to try new, challenging or unusual things</div>
+        <div class="match-item" data-def="9">a street market selling old or unusual things</div>
+        <div class="match-item" data-def="5">the visual style of a film — how it's filmed</div>
+        <div class="match-item" data-def="6">old clothes or items that are stylish or valuable</div>
+      </div>
+    </div>
+    <div style="margin-top:18px;">
+      <span class="score" id="score4">0 / 10</span>
+    </div>
+  </section>
+
+  <!-- ============== FILL ============== -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">✏️</span>Fill in the gaps</h2>
+    <p class="instr">Use one word or phrase from the bank in each gap. Use the correct form.</p>
+
+    <div class="word-bank">
+      <strong>✦ WORD BANK ✦</strong>
+      blown away · soundtrack · into · cup of tea · vintage · doodle · plot · sets the tone · old-school · low-budget
+    </div>
+
+    <div class="fill-item"><p><span class="num">01</span>I always <input class="fill-input" data-answer="doodle"> in the corner of my notebook during boring meetings.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>The <input class="fill-input" data-answer="soundtrack"> of that film is so beautiful — I listen to it while I work.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>I'm really <input class="fill-input" data-answer="into"> indie music at the moment.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>Honestly, horror films are really not my <input class="fill-input wide" data-answer="cup of tea">.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>My favourite jacket is a <input class="fill-input" data-answer="vintage"> leather piece from the 70s.</p></div>
+    <div class="fill-item"><p><span class="num">06</span>A cup of coffee and some music <input class="fill-input wide" data-answer="sets the tone"> for my whole day.</p></div>
+    <div class="fill-item"><p><span class="num">07</span>I was totally <input class="fill-input wide" data-answer="blown away"> by that exhibition at the National Gallery.</p></div>
+    <div class="fill-item"><p><span class="num">08</span>It was a <input class="fill-input" data-answer="low-budget"> film, but the acting was fantastic.</p></div>
+    <div class="fill-item"><p><span class="num">09</span>The <input class="fill-input" data-answer="plot"> of the film was a bit confusing, but the visuals were amazing.</p></div>
+    <div class="fill-item"><p><span class="num">10</span>My dad listens to <input class="fill-input" data-answer="old-school"> jazz every Sunday.</p></div>
+
+    <button class="check-btn" onclick="checkFill()">✓ Check my answers</button>
+    <span class="score" id="score5">— / 10</span>
+  </section>
+
+  <!-- ============== MC ============== -->
+  <section class="panel" id="t6">
+    <h2 class="section-title"><span class="emoji">🎯</span>Choose the best answer</h2>
+    <p class="instr">Pick the option that sounds most natural and correct at B1 level.</p>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q1</span>"I was completely blown away by that concert." What does this mean?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) I was cold during the concert.</button>
+        <button class="mc-opt">b) I was extremely impressed.</button>
+        <button class="mc-opt">c) I couldn't hear anything.</button>
+        <button class="mc-opt">d) I left early.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q2</span>Which phrase means "I don't really enjoy it"?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) I'm really into it.</button>
+        <button class="mc-opt">b) I fell in love with it.</button>
+        <button class="mc-opt">c) It's not my cup of tea.</button>
+        <button class="mc-opt">d) It stays with me.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q3</span>A "low-budget" film is a film that…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) was made with very little money.</button>
+        <button class="mc-opt">b) is three hours long.</button>
+        <button class="mc-opt">c) won the biggest prize.</button>
+        <button class="mc-opt">d) is a cartoon for children.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q4</span>"Slow fashion" is…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) clothes that take a long time to put on.</button>
+        <button class="mc-opt">b) clothes that are very cheap.</button>
+        <button class="mc-opt">c) a famous brand name.</button>
+        <button class="mc-opt">d) high-quality, sustainable clothes made to last.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q5</span>A "masterpiece" is…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) a famous artist.</button>
+        <button class="mc-opt">b) an outstanding work of art.</button>
+        <button class="mc-opt">c) a music festival.</button>
+        <button class="mc-opt">d) an art school.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q6</span>"I got into photography during the pandemic." What does "got into" mean here?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) I stopped doing it.</button>
+        <button class="mc-opt">b) I bought a new camera.</button>
+        <button class="mc-opt">c) I started being interested in it.</button>
+        <button class="mc-opt">d) I studied it at university.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q7</span>"That film really stays with you." This means…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) it has an effect on you for a long time.</button>
+        <button class="mc-opt">b) it's shown in every cinema.</button>
+        <button class="mc-opt">c) it has many sequels.</button>
+        <button class="mc-opt">d) it's very long.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q8</span>Which is the most natural way to describe someone's style?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) She wears cloth-products of vintage type.</button>
+        <button class="mc-opt">b) She loves vintage fashion and hunts for second-hand pieces.</button>
+        <button class="mc-opt">c) Her fabric behaviour is old.</button>
+        <button class="mc-opt">d) She performs vintage on herself.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q9</span>"I don't have a creative bone in my body." This is a humble / funny way to say…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) I broke my arm.</button>
+        <button class="mc-opt">b) I'm very creative.</button>
+        <button class="mc-opt">c) I'm a doctor.</button>
+        <button class="mc-opt">d) I'm not creative at all.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q10</span>"Get out of your comfort zone." The speaker is advising you to…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) try new and challenging things.</button>
+        <button class="mc-opt">b) stay at home more.</button>
+        <button class="mc-opt">c) buy new furniture.</button>
+        <button class="mc-opt">d) always play safe.</button>
+      </div>
+    </div>
+
+    <span class="score" id="score6">0 / 10</span>
+  </section>
+
+  <!-- ============== SPEAKING ============== -->
+  <section class="panel" id="t7">
+    <h2 class="section-title"><span class="emoji">🎤</span>Speaking practice</h2>
+    <p class="instr">Speak for <strong>1–2 minutes</strong> per question. The words in the blue box must appear in your answer — try to use at least <strong>3 per question</strong>. Speak with a partner or record yourself!</p>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 01 · YOUR CREATIVE SIDE</div>
+      <div class="speak-prompt">How creative would you say you are? What creative things do you do regularly — or not at all?</div>
+      <div class="speak-help"><strong>Try to use:</strong> to have a creative bone in your body · to sketch · to doodle · to be into · to feed your creativity</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 02 · FILMS & CINEMA</div>
+      <div class="speak-prompt">What kind of films do you enjoy? Tell me about a film that really stayed with you.</div>
+      <div class="speak-help"><strong>Try to use:</strong> blockbuster · indie cinema · low-budget · soundtrack · plot · cinematography · to be blown away · to stay with you</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 03 · MUSIC</div>
+      <div class="speak-prompt">What role does music play in your life? Describe a concert, a DJ night, or a musical moment you'll never forget.</div>
+      <div class="speak-help"><strong>Try to use:</strong> to drop a track · old-school · DJ set · to get into · something clicked · to fall in love with</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 04 · FASHION & STYLE</div>
+      <div class="speak-prompt">How would you describe your personal style? Do you follow trends, or do you have your own thing going on?</div>
+      <div class="speak-help"><strong>Try to use:</strong> to follow trends · vintage · second-hand · slow fashion · fast fashion · to look way cooler · a flea market</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 05 · ART</div>
+      <div class="speak-prompt">Do you enjoy visiting galleries or exhibitions? Describe a piece of art that really impressed you.</div>
+      <div class="speak-help"><strong>Try to use:</strong> an exhibition · a gallery · a masterpiece · to be blown away · to push boundaries · to stay with you</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 06 · OPINION</div>
+      <div class="speak-prompt">Do you agree that "everyone is creative — they just express it differently"? Why or why not?</div>
+      <div class="speak-help"><strong>Try to use:</strong> a creative bone in your body · to express · to chase inspiration · the whole point · to make you come alive</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 07 · MEMORY</div>
+      <div class="speak-prompt">Tell me about the last time something creative surprised you — a song, a film, a painting, a fashion piece. What were you doing when you discovered it?</div>
+      <div class="speak-help"><strong>Try to use:</strong> to fall in love with · to be blown away · something clicked · to chase inspiration · to stay with you</div>
+    </div>
+
+    <div class="speak-card">
+      <div class="speak-num">◆ QUESTION 08 · QUICK-FIRE · 30 SECONDS EACH</div>
+      <div class="speak-prompt">Answer each one in about 30 seconds — no planning, just talk!</div>
+      <div class="speak-help">
+        ▸ Your top 3 all-time favourite films.<br>
+        ▸ The last song you fell in love with.<br>
+        ▸ A fashion trend you think is awful.<br>
+        ▸ An artist (painter, musician, director) everyone should know about.<br>
+        ▸ If you had to pick one — art, music, cinema or fashion — which matters to you most, and why?
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== GRAMMAR 1: PAST SIMPLE vs PAST CONTINUOUS ============== -->
+  <section class="panel" id="t8">
+    <h2 class="section-title"><span class="emoji">📝</span>Grammar 1: Past Simple vs Past Continuous</h2>
+    <p class="instr">A quick reminder, then a mixed exercise using the creative-life vocabulary from this lesson.</p>
+
+    <div class="grammar-box">
+      <h4>✦ The two past tenses — quick guide</h4>
+      <ul>
+        <li><strong>Past Simple</strong> → a completed action in the past (usually one thing, finished). <code>I watched a film last night.</code></li>
+        <li><strong>Past Continuous</strong> → an action in progress at a specific moment in the past. <code>At 8 p.m. I was watching a film.</code></li>
+        <li><strong>Together:</strong> use past continuous for the longer, background action, and past simple for the short action that interrupts it. <code>I was painting when my friend called.</code></li>
+        <li><strong>Key time words:</strong> <em>past simple</em> → yesterday, last week, in 2019, ago. <em>Past continuous</em> → while, as, at 5 p.m., all evening.</li>
+      </ul>
+      <div class="formula">Past Simple: I worked / I didn't work / Did you work?</div>
+      <div class="formula">Past Continuous: I was working / I wasn't working / Were you working?</div>
+      <div class="formula">When + past simple, past simple. While + past continuous, past simple.</div>
+    </div>
+
+    <p class="instr">Put the verb in brackets into Past Simple or Past Continuous.</p>
+
+    <div class="fill-item"><p><span class="num">01</span>Last Friday I <input class="fill-input" data-answer="went"> (go) to an indie cinema in the city centre.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>While I <input class="fill-input wide" data-answer="was watching"> (watch) the film, my phone suddenly rang.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>Maya <input class="fill-input wide" data-answer="was sketching"> (sketch) in her notebook when the café closed.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>I <input class="fill-input" data-answer="fell"> (fall) in love with jazz when I was a teenager.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>While she <input class="fill-input wide" data-answer="was DJing"> (DJ) at the bar, someone stole her laptop.</p></div>
+    <div class="fill-item"><p><span class="num">06</span>My parents <input class="fill-input wide" data-answer="didn't follow"> (not / follow) the trends when they were young.</p></div>
+    <div class="fill-item"><p><span class="num">07</span>What <input class="fill-input" data-answer="were"> (be) you doing at 10 last night?</p></div>
+    <div class="fill-item"><p><span class="num">08</span>I <input class="fill-input wide" data-answer="was listening"> (listen) to an old-school jazz album when the doorbell rang.</p></div>
+    <div class="fill-item"><p><span class="num">09</span>The last time I <input class="fill-input" data-answer="went"> (go) to a flea market, I bought a stunning vintage jacket.</p></div>
+    <div class="fill-item"><p><span class="num">10</span>She <input class="fill-input wide" data-answer="was painting"> (paint) all evening yesterday.</p></div>
+    <div class="fill-item"><p><span class="num">11</span>While my friends <input class="fill-input wide" data-answer="were watching"> (watch) cartoons, I <input class="fill-input wide" data-answer="was making"> (make) collages.</p></div>
+    <div class="fill-item"><p><span class="num">12</span>When the film <input class="fill-input" data-answer="finished"> (finish), everyone in the cinema applauded.</p></div>
+
+    <button class="check-btn" onclick="checkGrammar1()">✓ Check grammar 1</button>
+    <span class="score" id="score8">— / 13</span>
+  </section>
+
+  <!-- ============== GRAMMAR 2: ARTICLES A / AN / THE / — ============== -->
+  <section class="panel" id="t9">
+    <h2 class="section-title"><span class="emoji">📝</span>Grammar 2: Articles (a / an / the / —)</h2>
+    <p class="instr">Articles are one of the trickiest things at B1! Let's review the main rules, then practise with art, music, cinema and fashion examples.</p>
+
+    <div class="grammar-box">
+      <h4>✦ When to use a / an / the / nothing (—)</h4>
+      <ul>
+        <li><strong>a / an</strong> → something <em>new</em> or <em>one of many</em>. First time you mention it. <code>I watched a film.</code> / <code>She is an artist.</code></li>
+        <li><strong>the</strong> → something <em>specific</em> or already mentioned; also with unique things. <code>The film was amazing.</code> / <code>The sun is shining.</code></li>
+        <li><strong>no article (—)</strong> → with general plural or uncountable ideas. <code>I love music.</code> / <code>Films are great.</code></li>
+        <li><strong>Special cases:</strong> 
+          <ul>
+            <li>✔ <em>the</em> with cinema, theatre, radio: <code>I went to the cinema.</code></li>
+            <li>✔ <em>no article</em> with TV, school, work, home when talking about the activity: <code>I watch TV.</code> / <code>I'm at home.</code></li>
+            <li>✔ <em>a / an</em> for jobs: <code>She's a DJ.</code> / <code>He's an artist.</code></li>
+            <li>✔ <em>the</em> for musical instruments: <code>He plays the piano.</code></li>
+            <li>✔ <em>no article</em> for sports: <code>She plays tennis.</code></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="formula">Type "—" (a dash) if no article is needed.</div>
+    </div>
+
+    <p class="instr">Write <strong>a</strong>, <strong>an</strong>, <strong>the</strong> or <strong>—</strong> (dash = no article) in each gap.</p>
+
+    <div class="fill-item"><p><span class="num">01</span>My mother is <input class="fill-input" data-answer="a"> costume designer.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>I absolutely love <input class="fill-input" data-answer="—"> music — I listen to it every day.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>Let's go to <input class="fill-input" data-answer="the"> cinema this Friday.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>She plays <input class="fill-input" data-answer="the"> piano beautifully.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>I watched <input class="fill-input" data-answer="an"> amazing film last night. <input class="fill-input" data-answer="The"> film was about an old pianist in Paris.</p></div>
+    <div class="fill-item"><p><span class="num">06</span>We usually stay at <input class="fill-input" data-answer="—"> home on Sunday evenings.</p></div>
+    <div class="fill-item"><p><span class="num">07</span><input class="fill-input" data-answer="—"> vintage clothes are often much better quality than fast fashion.</p></div>
+    <div class="fill-item"><p><span class="num">08</span>He's <input class="fill-input" data-answer="an"> incredible DJ — you should see one of his sets.</p></div>
+    <div class="fill-item"><p><span class="num">09</span>I saw <input class="fill-input" data-answer="a"> great exhibition at <input class="fill-input" data-answer="the"> Tate last weekend.</p></div>
+    <div class="fill-item"><p><span class="num">10</span>My brother doesn't watch <input class="fill-input" data-answer="—"> TV very often.</p></div>
+    <div class="fill-item"><p><span class="num">11</span><input class="fill-input" data-answer="The"> Mona Lisa is one of the most famous paintings in <input class="fill-input" data-answer="the"> world.</p></div>
+    <div class="fill-item"><p><span class="num">12</span>Maya is <input class="fill-input" data-answer="a"> graphic designer, and in her free time she DJs at <input class="fill-input" data-answer="—"> small bars around Berlin.</p></div>
+    <div class="fill-item"><p><span class="num">13</span>On Saturday, we went to <input class="fill-input" data-answer="a"> flea market and I bought <input class="fill-input" data-answer="a"> beautiful jacket from the 70s.</p></div>
+    <div class="fill-item"><p><span class="num">14</span>She doesn't play <input class="fill-input" data-answer="—"> tennis, but she plays <input class="fill-input" data-answer="the"> guitar very well.</p></div>
+
+    <button class="check-btn" onclick="checkGrammar2()">✓ Check grammar 2</button>
+    <span class="score" id="score9">— / 20</span>
+  </section>
+
+  <footer>
+    ✦ ✦ ✦ &nbsp; CREATIVITY AS A LIFESTYLE · B1 ENGLISH WORKSHEET &nbsp; ✦ ✦ ✦
+  </footer>
+</div>
+
+<script>
+  // TABS
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // MATCHING (tab 4)
+  let selectedWord = null;
+  let matched4 = 0;
+  document.querySelectorAll('#t4 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) {
+        document.querySelectorAll('#t4 [data-word]').forEach(w => w.classList.remove('selected'));
+        item.classList.add('selected');
+        selectedWord = item;
+      } else if (item.dataset.def && selectedWord) {
+        if (selectedWord.dataset.word === item.dataset.def) {
+          selectedWord.classList.remove('selected');
+          selectedWord.classList.add('matched');
+          item.classList.add('matched');
+          matched4++;
+          document.getElementById('score4').textContent = matched4 + ' / 10';
+          selectedWord = null;
+          if (matched4 === 10) document.getElementById('score4').textContent = '★ 10 / 10 ★';
+        } else {
+          item.classList.add('wrong');
+          setTimeout(() => item.classList.remove('wrong'), 500);
+        }
+      }
+    });
+  });
+
+  // FILL (tab 5)
+  function checkFill() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t5 .fill-input');
+    const alternates = {
+      'sets the tone': ['sets the tone'],
+      'blown away': ['blown away'],
+      'cup of tea': ['cup of tea'],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score5').textContent = correct + ' / 10';
+    if (correct === 10) document.getElementById('score5').textContent = '★ 10 / 10 ★';
+  }
+
+  // MC (tab 6)
+  let mcScore = 0;
+  document.querySelectorAll('#t6 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          mcScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+        document.getElementById('score6').textContent = mcScore + ' / 10';
+        if (mcScore === 10) document.getElementById('score6').textContent = '★ 10 / 10 ★';
+      });
+    });
+  });
+
+  // GRAMMAR 1 (tab 8) — Past Simple / Past Continuous
+  function checkGrammar1() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t8 .fill-input');
+    const alternates = {
+      'was watching': ['was watching',"'s watching"],
+      'was sketching': ['was sketching'],
+      'was DJing': ['was djing','was dj-ing','was dj ing'],
+      "didn't follow": ["didn't follow",'did not follow'],
+      'was listening': ['was listening'],
+      'was painting': ['was painting'],
+      'were watching': ['were watching'],
+      'was making': ['was making'],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score8').textContent = correct + ' / 13';
+    if (correct === 13) document.getElementById('score8').textContent = '★ 13 / 13 ★';
+  }
+
+  // GRAMMAR 2 (tab 9) — Articles
+  function checkGrammar2() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t9 .fill-input');
+    const alternates = {
+      '—': ['—','-','no article','none',''],
+      'the': ['the'],
+      'a': ['a'],
+      'an': ['an'],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      // Special case: empty input counts only for the dash answer
+      if (answer === '—' && val === '') {
+        input.classList.add('correct');
+        correct++;
+      } else if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '' || answer !== '—') {
+        if (val !== '') input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score9').textContent = correct + ' / 20';
+    if (correct === 20) document.getElementById('score9').textContent = '★ 20 / 20 ★';
+  }
+</script>
+</body>
+</html>
