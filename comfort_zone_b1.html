@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stepping Out of Your Comfort Zone — B1 English Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #F97316;
+    --deep: #C2410C;
+    --teal: #14B8A6;
+    --gold: #F59E0B;
+    --purple: #8B5CF6;
+    --cream: #FFF7ED;
+    --sand: #FFEDD5;
+    --ink: #1C1917;
+    --cloud: #ffffff;
+    --soft: #FFE4D8;
+    --mint: #D1FAE5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(249,115,22,0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(20,184,166,0.1) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+  header { background: var(--cloud); border: 2px solid var(--ink); border-radius: 18px; padding: 32px 36px; margin-bottom: 28px; position: relative; box-shadow: 6px 6px 0 var(--ink); overflow: hidden; }
+  header::before { content: "🚀"; position: absolute; top: 30px; right: 30px; font-size: 110px; opacity: 0.15; z-index: 0; }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label { display: inline-block; font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 3px; background: var(--ink); color: var(--gold); padding: 5px 12px; border-radius: 4px; margin-bottom: 14px; }
+  h1 { font-family: 'DM Serif Display', serif; font-size: clamp(36px, 6vw, 56px); line-height: 1.05; color: var(--ink); letter-spacing: -1px; }
+  h1 .accent { color: var(--orange); font-style: italic; }
+  .sub { font-size: 17px; color: var(--deep); margin-top: 10px; max-width: 640px; }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag { font-family: 'Courier Prime', monospace; font-size: 11px; padding: 4px 10px; background: var(--sand); border: 1.5px solid var(--ink); border-radius: 20px; letter-spacing: 1px; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .tab { padding: 12px 16px; background: var(--cloud); border: 2px solid var(--ink); font-family: 'Inter', sans-serif; font-weight: 600; font-size: 13px; cursor: pointer; color: var(--ink); border-radius: 10px; box-shadow: 3px 3px 0 var(--ink); transition: all 0.15s; }
+  .tab:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .tab.active { background: var(--ink); color: var(--gold); }
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 30px; margin-bottom: 8px; color: var(--ink); }
+  .section-title .emoji { margin-right: 10px; }
+  .instr { color: var(--deep); margin-bottom: 22px; font-size: 15px; padding: 10px 14px; background: var(--soft); border-left: 4px solid var(--orange); border-radius: 0 8px 8px 0; }
+  .warmup-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-bottom: 24px; }
+  .warmup-card { background: var(--cloud); border: 2px solid var(--ink); border-radius: 12px; padding: 16px; box-shadow: 4px 4px 0 var(--ink); text-align: center; }
+  .warmup-card .emoji { font-size: 30px; margin-bottom: 6px; }
+  .warmup-card .text { font-size: 14px; line-height: 1.4; }
+  .reading { background: var(--cloud); border: 2px solid var(--ink); border-radius: 16px; padding: 32px 36px; box-shadow: 6px 6px 0 var(--ink); margin-bottom: 24px; }
+  .reading h3 { font-family: 'DM Serif Display', serif; font-size: 28px; margin-bottom: 6px; line-height: 1.2; }
+  .reading .byline { font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--orange); letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase; }
+  .reading p { font-size: 16.5px; line-height: 1.85; margin-bottom: 14px; color: #2a3441; }
+  .reading b, .reading strong { background: linear-gradient(transparent 55%, rgba(245,158,11,0.55) 55%); padding: 0 2px; font-weight: 700; color: var(--ink); }
+  .reading .pull-quote { background: var(--soft); padding: 14px 18px; border-radius: 10px; border-left: 4px solid var(--orange); margin: 16px 0; font-style: italic; }
+  .zone-diagram { background: linear-gradient(135deg, var(--cream), var(--sand)); border: 2px solid var(--ink); border-radius: 14px; padding: 24px; margin-bottom: 24px; box-shadow: 5px 5px 0 var(--ink); }
+  .zone-diagram h4 { font-family: 'DM Serif Display', serif; font-size: 22px; margin-bottom: 14px; text-align: center; }
+  .zones { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+  .zone { border: 2px solid var(--ink); border-radius: 10px; padding: 14px; background: var(--cloud); text-align: center; }
+  .zone .ring { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 1px; margin-bottom: 6px; }
+  .zone h5 { font-family: 'DM Serif Display', serif; font-size: 18px; margin-bottom: 6px; }
+  .zone.comfort { background: var(--mint); }
+  .zone.comfort .ring { color: var(--teal); }
+  .zone.fear { background: #FFE4D8; }
+  .zone.fear .ring { color: var(--orange); }
+  .zone.learning { background: #FEF3C7; }
+  .zone.learning .ring { color: var(--gold); }
+  .zone.growth { background: #E9D5FF; }
+  .zone.growth .ring { color: var(--purple); }
+  .zone p { font-size: 13px; line-height: 1.4; }
+  .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 12px; margin-bottom: 24px; }
+  .vocab-card { background: var(--cloud); border: 2px solid var(--ink); border-radius: 10px; padding: 14px 16px; box-shadow: 3px 3px 0 var(--ink); }
+  .vocab-term { font-weight: 700; color: var(--orange); margin-bottom: 4px; font-size: 15px; }
+  .vocab-def { font-size: 13.5px; color: var(--ink); margin-bottom: 6px; }
+  .vocab-ex { font-style: italic; font-size: 13px; color: var(--deep); padding-top: 6px; border-top: 1px dashed var(--sand); }
+  .idiom-card { background: linear-gradient(135deg, var(--cloud) 0%, var(--soft) 100%); border: 2px solid var(--ink); border-left: 5px solid var(--purple); border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 3px 3px 0 var(--ink); }
+  .idiom-term { font-weight: 700; font-size: 16px; color: var(--purple); margin-bottom: 4px; }
+  .idiom-def { font-size: 14px; margin-bottom: 8px; }
+  .idiom-ex { font-style: italic; font-size: 13.5px; background: rgba(255,255,255,0.7); padding: 8px 12px; border-radius: 6px; border-left: 3px solid var(--orange); }
+  .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .match-col h3 { font-family: 'DM Serif Display', serif; font-size: 22px; margin-bottom: 10px; color: var(--deep); }
+  .match-item { padding: 12px 14px; border: 2px solid var(--ink); background: var(--cloud); margin-bottom: 8px; cursor: pointer; font-size: 14.5px; border-radius: 8px; transition: all 0.15s; user-select: none; }
+  .match-item:hover { background: var(--soft); }
+  .match-item.selected { background: var(--orange); color: var(--cloud); border-color: var(--deep); }
+  .match-item.matched { background: #B5E8B5; border-color: #2d6a2a; color: #1a3d17; cursor: default; pointer-events: none; }
+  .match-item.wrong { background: #EF4444; color: var(--cloud); animation: shake 0.4s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+  .fill-item { padding: 14px 18px; background: var(--cloud); border: 2px solid var(--ink); border-radius: 10px; margin-bottom: 10px; box-shadow: 3px 3px 0 var(--ink); }
+  .fill-item p { font-size: 15px; }
+  .fill-item .num { font-family: 'Courier Prime', monospace; color: var(--orange); font-weight: 700; margin-right: 6px; }
+  .fill-input { padding: 6px 10px; border: 2px solid var(--ink); font-family: 'Courier Prime', monospace; font-size: 14px; background: var(--sand); width: 200px; border-radius: 5px; }
+  .fill-input.wide { width: 280px; }
+  .fill-input:focus { outline: none; border-color: var(--orange); background: var(--cream); }
+  .fill-input.correct { background: #B5E8B5; border-color: #2d6a2a; color: #1a3d17; }
+  .fill-input.wrong { background: #ffd5cc; border-color: #EF4444; }
+  .word-bank { background: var(--ink); color: var(--cream); padding: 16px 20px; margin-bottom: 20px; border-radius: 10px; font-size: 14.5px; box-shadow: 4px 4px 0 var(--orange); }
+  .word-bank strong { display: block; color: var(--gold); letter-spacing: 2px; margin-bottom: 8px; font-size: 12px; font-family: 'Courier Prime', monospace; }
+  .mc-item { background: var(--cloud); border: 2px solid var(--ink); border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; box-shadow: 3px 3px 0 var(--ink); }
+  .mc-q { font-size: 15px; margin-bottom: 10px; font-weight: 500; }
+  .mc-q .num { font-family: 'Courier Prime', monospace; color: var(--orange); font-weight: 700; margin-right: 8px; }
+  .mc-options { display: grid; gap: 6px; }
+  .mc-opt { padding: 9px 12px; border: 2px solid var(--sand); background: var(--cream); color: var(--ink); cursor: pointer; font-size: 14px; text-align: left; font-family: inherit; border-radius: 6px; transition: all 0.15s; }
+  .mc-opt:hover:not(:disabled) { border-color: var(--orange); }
+  .mc-opt.correct { background: #B5E8B5; border-color: #2d6a2a; color: #1a3d17; font-weight: 600; }
+  .mc-opt.wrong { background: #ffd5cc; border-color: #EF4444; }
+  .mc-opt:disabled { cursor: default; }
+  .check-btn { background: var(--orange); color: var(--cream); border: 2px solid var(--ink); padding: 12px 24px; font-family: inherit; font-weight: 700; font-size: 14px; letter-spacing: 1px; cursor: pointer; margin-top: 14px; border-radius: 8px; box-shadow: 3px 3px 0 var(--ink); transition: all 0.15s; }
+  .check-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .check-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+  .score { display: inline-block; margin-left: 12px; font-family: 'Courier Prime', monospace; font-weight: 700; padding: 8px 14px; background: var(--ink); color: var(--gold); border-radius: 6px; font-size: 14px; }
+  .speak-card { background: var(--cloud); border: 2px solid var(--ink); border-left: 6px solid var(--teal); border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; box-shadow: 4px 4px 0 var(--ink); }
+  .speak-num { font-family: 'Courier Prime', monospace; color: var(--orange); font-weight: 700; font-size: 13px; letter-spacing: 2px; margin-bottom: 6px; }
+  .speak-prompt { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--ink); margin-bottom: 10px; line-height: 1.4; }
+  .speak-help { font-size: 13.5px; color: var(--deep); background: var(--soft); padding: 10px 14px; border-radius: 6px; margin-top: 8px; }
+  .speak-help strong { color: var(--orange); }
+  .grammar-box { background: var(--soft); border: 2px dashed var(--deep); border-radius: 12px; padding: 18px 22px; margin-bottom: 22px; }
+  .grammar-box h4 { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--deep); margin-bottom: 10px; }
+  .grammar-box ul { padding-left: 20px; margin-bottom: 10px; }
+  .grammar-box li { margin-bottom: 4px; font-size: 14px; }
+  .grammar-box code { background: var(--cloud); padding: 2px 6px; border-radius: 3px; font-family: 'Courier Prime', monospace; font-size: 13px; border: 1px solid var(--sand); }
+  .grammar-box .formula { background: var(--cloud); padding: 8px 12px; border-radius: 6px; font-family: 'Courier Prime', monospace; font-size: 13px; margin: 6px 0; border-left: 3px solid var(--orange); }
+  footer { margin-top: 50px; padding-top: 20px; border-top: 2px dashed var(--ink); font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--deep); text-align: center; letter-spacing: 2px; }
+  @media (max-width: 650px) { .match-grid { grid-template-columns: 1fr; } .reading { padding: 22px; } header { padding: 22px; } .fill-input, .fill-input.wide { width: 100%; margin-top: 6px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="badge-label">🚀 PERSONAL GROWTH · B1 ENGLISH</div>
+      <h1>Stepping Out of <span class="accent">Your Comfort Zone</span></h1>
+      <div class="sub">Doing new and a little scary things — at home, at work, in life. Simple words and ideas to talk about it confidently.</div>
+      <div class="tags">
+        <span class="tag">CEFR B1</span>
+        <span class="tag">Personal Growth</span>
+        <span class="tag">Simple Idioms</span>
+        <span class="tag">Speaking · Grammar</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="t1">① Warm-up 🔥</button>
+    <button class="tab" data-tab="t2">② Reading</button>
+    <button class="tab" data-tab="t3">③ Vocabulary</button>
+    <button class="tab" data-tab="t4">④ Idioms</button>
+    <button class="tab" data-tab="t5">⑤ Matching</button>
+    <button class="tab" data-tab="t6">⑥ Fill the gaps</button>
+    <button class="tab" data-tab="t7">⑦ Multiple choice</button>
+    <button class="tab" data-tab="t8">⑧ Speaking 🎤</button>
+    <button class="tab" data-tab="t9">⑨ Grammar 📝</button>
+  </nav>
+
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">🔥</span>Warm-up — How would you feel?</h2>
+    <p class="instr">Look at the situations below. For each one, say: "easy for me", "a bit scary", or "no way!" Talk about your answers with your teacher.</p>
+    <div class="warmup-grid">
+      <div class="warmup-card"><div class="emoji">🎤</div><div class="text">Speak in front of 50 people</div></div>
+      <div class="warmup-card"><div class="emoji">🪂</div><div class="text">Try skydiving</div></div>
+      <div class="warmup-card"><div class="emoji">✈️</div><div class="text">Travel alone for two weeks</div></div>
+      <div class="warmup-card"><div class="emoji">🍽️</div><div class="text">Eat at a restaurant alone</div></div>
+      <div class="warmup-card"><div class="emoji">📞</div><div class="text">Make a phone call in English</div></div>
+      <div class="warmup-card"><div class="emoji">🎵</div><div class="text">Sing karaoke with friends</div></div>
+      <div class="warmup-card"><div class="emoji">💃</div><div class="text">Try a new dance class</div></div>
+      <div class="warmup-card"><div class="emoji">🏢</div><div class="text">Change to a new job</div></div>
+      <div class="warmup-card"><div class="emoji">🌶️</div><div class="text">Try very strange food</div></div>
+    </div>
+    <div class="zone-diagram">
+      <h4>The four zones — where do you spend most of your time?</h4>
+      <div class="zones">
+        <div class="zone comfort"><div class="ring">RING 1</div><h5>Comfort zone</h5><p>You feel safe. You do the same things every day.</p></div>
+        <div class="zone fear"><div class="ring">RING 2</div><h5>Fear zone</h5><p>You think: "What if I fail? What will people think?"</p></div>
+        <div class="zone learning"><div class="ring">RING 3</div><h5>Learning zone</h5><p>You learn new skills. You start to feel more confident.</p></div>
+        <div class="zone growth"><div class="ring">RING 4</div><h5>Growth zone</h5><p>You become a stronger and braver person.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading text</h2>
+    <p class="instr">Read about Lena. She tried something new and it changed her life. Words in <b>gold</b> are new and important.</p>
+    <article class="reading">
+      <h3>"How One Class Changed My Life"</h3>
+      <div class="byline">★ Lena, 29 · Lisbon</div>
+      <p>Three years ago, my life was very simple. I had the same job, the same friends, and the same plans every weekend. I wasn't sad — but I wasn't really happy either. I felt like I was always doing the same things. Then a friend asked me to try a <b>theatre class</b> with her. The class was in English. I was very scared.</p>
+      <p>My first thought was: "<b>No way!</b>" I am shy. My English is not perfect. The idea of acting in front of people was terrible. But for some reason, I said yes. And honestly, that one little decision <b>changed my life</b>.</p>
+      <p>The first class was hard. I felt very <b>uncomfortable</b>. I forgot my own name in one game! When I went home, I wanted to <b>give up</b>. I thought, "I am not going back." But I went back. The second class was a <b>little bit easier</b>. The third one was easier too. Slowly, I started to enjoy it.</p>
+      <p>This was my first real lesson about <b>stepping out of your comfort zone</b>: it doesn't get less scary, but <b>you become braver</b>. That is a big difference.</p>
+      <p class="pull-quote">"Life starts where your comfort zone ends." — A famous quote</p>
+      <p>After the theatre class, other things felt more possible. I <b>signed up</b> for a public speaking workshop. I started a small art project. I went on a trip alone to Spain. None of these things were huge, but they all felt scary at the start. And every time I did one, the next one felt a little easier. I think I was <b>building my confidence</b>, like a muscle.</p>
+      <p>Of course, things <b>didn't always go well</b>. I made many mistakes. The art project was very slow at first. In Spain, I cried in a small restaurant because I was tired and I missed my mum. But here is the good news: <b>the bad moments don't last</b>. They become funny stories later. And every difficult moment <b>taught me something</b>.</p>
+      <p>What surprised me most is how my <b>everyday life</b> started to change. I began to <b>speak more</b> at work. I asked my boss for more money — and I got it! I tried new food that I always said "no" to. I think this is what people mean by <b>personal growth</b>. It is not really about doing huge things. It is about slowly changing what you believe is <b>possible for you</b>.</p>
+      <p>Stepping out of your comfort zone <b>takes courage</b>. Some days, I want to go back to the safe and easy life. Some days, I'm afraid of looking silly. But I have learned that this fear is a good sign. It means I am doing something new. As my theatre teacher always said: <b>"If you don't feel a little uncomfortable, you are not learning."</b></p>
+      <p>If I could give one piece of advice to my younger self, it would be: stop waiting until you feel ready. You will never feel ready! Just <b>start small</b>. Pick one little scary thing and try it. The new you will say "thank you".</p>
+    </article>
+  </section>
+
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">💬</span>Vocabulary</h2>
+    <p class="instr">B1-friendly vocabulary about challenges, fear, and trying new things. Each word has a clear meaning and a simple example.</p>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">a comfort zone</div><div class="vocab-def">a place or activity where you feel safe and easy</div><div class="vocab-ex">"My sofa and a good book — that is my comfort zone."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to step out of your comfort zone</div><div class="vocab-def">to do something new and a bit scary</div><div class="vocab-ex">"I want to step out of my comfort zone this year."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to try something new</div><div class="vocab-def">to do an activity for the first time</div><div class="vocab-ex">"Last weekend I tried something new — yoga!"</div></div>
+      <div class="vocab-card"><div class="vocab-term">to take a risk</div><div class="vocab-def">to do something that may go wrong</div><div class="vocab-ex">"You have to take risks to grow."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be afraid of / scared of</div><div class="vocab-def">to feel fear about something</div><div class="vocab-ex">"I am scared of speaking in public."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to feel uncomfortable</div><div class="vocab-def">to feel strange or not relaxed</div><div class="vocab-ex">"I felt very uncomfortable in the first class."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to feel nervous</div><div class="vocab-def">to feel a little scared, with butterflies in the stomach</div><div class="vocab-ex">"I always feel nervous before a job interview."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a challenge</div><div class="vocab-def">a difficult activity that you choose to do</div><div class="vocab-ex">"Running 10 kilometres was a real challenge."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to challenge yourself</div><div class="vocab-def">to do something difficult on purpose</div><div class="vocab-ex">"I want to challenge myself this year."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to give up</div><div class="vocab-def">to stop trying</div><div class="vocab-ex">"I almost gave up, but I'm happy I didn't."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to keep trying</div><div class="vocab-def">to continue, even when it is hard</div><div class="vocab-ex">"You have to keep trying every day."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to make a mistake</div><div class="vocab-def">to do something wrong</div><div class="vocab-ex">"It's okay to make mistakes — we all do."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to fail / a failure</div><div class="vocab-def">to not succeed / something that doesn't work</div><div class="vocab-ex">"Don't be afraid to fail."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to succeed / a success</div><div class="vocab-def">to do something well / a good result</div><div class="vocab-ex">"After many tries, she finally succeeded."</div></div>
+      <div class="vocab-card"><div class="vocab-term">confidence / to be confident</div><div class="vocab-def">a feeling that you can do something</div><div class="vocab-ex">"I'm slowly building my confidence."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be brave / courage</div><div class="vocab-def">not afraid / the strength to do scary things</div><div class="vocab-ex">"It takes courage to try new things."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to be shy</div><div class="vocab-def">quiet, especially with new people</div><div class="vocab-ex">"I was very shy as a child."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to sign up for (a class)</div><div class="vocab-def">to officially join a class or activity</div><div class="vocab-ex">"I signed up for an Italian class."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to start small</div><div class="vocab-def">to begin with little, easy things</div><div class="vocab-ex">"Don't try everything at once — start small."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to learn from mistakes</div><div class="vocab-def">to become better because of what went wrong</div><div class="vocab-ex">"I always learn from my mistakes."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to grow / personal growth</div><div class="vocab-def">to become a better person / improving as a person</div><div class="vocab-ex">"That year was great for personal growth."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to change your life</div><div class="vocab-def">to make a big difference in how you live</div><div class="vocab-ex">"That trip really changed my life."</div></div>
+      <div class="vocab-card"><div class="vocab-term">to feel proud (of yourself)</div><div class="vocab-def">to feel happy about something good you did</div><div class="vocab-ex">"I felt so proud of myself after the marathon."</div></div>
+      <div class="vocab-card"><div class="vocab-term">a step / a small step</div><div class="vocab-def">one small action towards something bigger</div><div class="vocab-ex">"Every small step counts."</div></div>
+    </div>
+  </section>
+
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">💡</span>Easy idioms &amp; expressions</h2>
+    <p class="instr">Simple but very useful idioms. Pick 4 you like and try to use them today!</p>
+    <div class="idiom-card"><div class="idiom-term">to take the first step</div><div class="idiom-def">to start doing something new</div><div class="idiom-ex">"Don't worry — just take the first step."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to give it a try / give it a go</div><div class="idiom-def">to try something</div><div class="idiom-ex">"I'm not sure I'll like it, but I'll give it a try."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to feel like a fish out of water</div><div class="idiom-def">to feel that you don't belong somewhere</div><div class="idiom-ex">"At my first dance class I felt like a fish out of water."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to break the ice</div><div class="idiom-def">to start a conversation when it's awkward</div><div class="idiom-ex">"A little joke can break the ice."</div></div>
+    <div class="idiom-card"><div class="idiom-term">no pain, no gain</div><div class="idiom-def">you can't get good things without effort</div><div class="idiom-ex">"Studying hard isn't fun, but no pain, no gain."</div></div>
+    <div class="idiom-card"><div class="idiom-term">step by step</div><div class="idiom-def">slowly, one part at a time</div><div class="idiom-ex">"You learn a language step by step."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to face your fears</div><div class="idiom-def">to do the things you're afraid of</div><div class="idiom-ex">"Sometimes you just have to face your fears."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to take a chance</div><div class="idiom-def">to try something risky</div><div class="idiom-ex">"I took a chance and changed jobs."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to come out of your shell</div><div class="idiom-def">to become more open and friendly</div><div class="idiom-ex">"At university he came out of his shell."</div></div>
+    <div class="idiom-card"><div class="idiom-term">a piece of cake</div><div class="idiom-def">very easy</div><div class="idiom-ex">"After practice, it became a piece of cake."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to be in the same boat</div><div class="idiom-def">to be in the same difficult situation</div><div class="idiom-ex">"Don't worry — we're all in the same boat."</div></div>
+    <div class="idiom-card"><div class="idiom-term">better late than never</div><div class="idiom-def">it's good to do something, even if it's late</div><div class="idiom-ex">"I started learning English at 40 — better late than never!"</div></div>
+    <div class="idiom-card"><div class="idiom-term">practice makes perfect</div><div class="idiom-def">if you do something many times, you get better</div><div class="idiom-ex">"Don't give up — practice makes perfect."</div></div>
+    <div class="idiom-card"><div class="idiom-term">to go for it</div><div class="idiom-def">to try something with full energy</div><div class="idiom-ex">"You can do this — just go for it!"</div></div>
+    <div class="idiom-card"><div class="idiom-term">to start from scratch</div><div class="idiom-def">to start again from zero</div><div class="idiom-ex">"After the failure, I had to start from scratch."</div></div>
+    <div class="idiom-card"><div class="idiom-term">on top of the world</div><div class="idiom-def">very happy and proud</div><div class="idiom-ex">"After my first marathon I felt on top of the world."</div></div>
+  </section>
+
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">🔗</span>Match the expression with its meaning</h2>
+    <p class="instr">Click an expression on the left, then its meaning on the right.</p>
+    <div class="match-grid">
+      <div class="match-col">
+        <h3>Expression</h3>
+        <div class="match-item" data-word="1">to step out of your comfort zone</div>
+        <div class="match-item" data-word="2">to give up</div>
+        <div class="match-item" data-word="3">to feel like a fish out of water</div>
+        <div class="match-item" data-word="4">a piece of cake</div>
+        <div class="match-item" data-word="5">to give it a try</div>
+        <div class="match-item" data-word="6">to face your fears</div>
+        <div class="match-item" data-word="7">to be shy</div>
+        <div class="match-item" data-word="8">step by step</div>
+        <div class="match-item" data-word="9">to feel proud</div>
+        <div class="match-item" data-word="10">no pain, no gain</div>
+      </div>
+      <div class="match-col">
+        <h3>Meaning</h3>
+        <div class="match-item" data-def="1">to do something new and a little scary</div>
+        <div class="match-item" data-def="3">to feel that you don't belong</div>
+        <div class="match-item" data-def="2">to stop trying</div>
+        <div class="match-item" data-def="5">to attempt something for the first time</div>
+        <div class="match-item" data-def="4">very easy</div>
+        <div class="match-item" data-def="7">quiet, especially with new people</div>
+        <div class="match-item" data-def="6">to do the things you're afraid of</div>
+        <div class="match-item" data-def="9">to feel happy about something good you did</div>
+        <div class="match-item" data-def="8">slowly, one part at a time</div>
+        <div class="match-item" data-def="10">you can't get good results without effort</div>
+      </div>
+    </div>
+    <div style="margin-top:18px;"><span class="score" id="score5">0 / 10</span></div>
+  </section>
+
+  <section class="panel" id="t6">
+    <h2 class="section-title"><span class="emoji">✏️</span>Fill in the gaps</h2>
+    <p class="instr">Choose the best word from the bank for each gap. Use the correct form.</p>
+    <div class="word-bank">
+      <strong>🚀 WORD BANK 🚀</strong>
+      comfort zone · give up · sign up · scared · proud · confidence · challenge · mistakes · try · go for it
+    </div>
+    <div class="fill-item"><p><span class="num">01</span>I want to step out of my <input class="fill-input wide" data-answer="comfort zone"> this year.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>I'm a little <input class="fill-input" data-answer="scared"> of speaking in front of the class.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>I want to <input class="fill-input wide" data-answer="sign up"> for a Spanish course in September.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>It's normal to make <input class="fill-input" data-answer="mistakes"> when you learn something new.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>Don't <input class="fill-input wide" data-answer="give up">! You're doing really well!</p></div>
+    <div class="fill-item"><p><span class="num">06</span>Slowly, I started to <input class="fill-input" data-answer="try"> new things.</p></div>
+    <div class="fill-item"><p><span class="num">07</span>After the marathon, I felt very <input class="fill-input" data-answer="proud"> of myself.</p></div>
+    <div class="fill-item"><p><span class="num">08</span>This year, I want a real <input class="fill-input" data-answer="challenge"> — something different.</p></div>
+    <div class="fill-item"><p><span class="num">09</span>It takes time to build <input class="fill-input" data-answer="confidence">.</p></div>
+    <div class="fill-item"><p><span class="num">10</span>You have a great chance — <input class="fill-input wide" data-answer="go for it">!</p></div>
+    <button class="check-btn" onclick="checkFill()">✓ Check my answers</button>
+    <span class="score" id="score6">— / 10</span>
+  </section>
+
+  <section class="panel" id="t7">
+    <h2 class="section-title"><span class="emoji">🎯</span>Multiple choice</h2>
+    <p class="instr">Choose the best answer for each question.</p>
+    <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q1</span>"My comfort zone" is…</div><div class="mc-options">
+      <button class="mc-opt">a) a hot place I like.</button>
+      <button class="mc-opt">b) a situation where I feel safe and relaxed.</button>
+      <button class="mc-opt">c) a sport I play.</button>
+      <button class="mc-opt">d) a kind of food.</button>
+    </div></div>
+    <div class="mc-item" data-correct="c"><div class="mc-q"><span class="num">Q2</span>"I felt like a fish out of water." This means I felt…</div><div class="mc-options">
+      <button class="mc-opt">a) hungry.</button>
+      <button class="mc-opt">b) very confident.</button>
+      <button class="mc-opt">c) very uncomfortable, like I didn't belong.</button>
+      <button class="mc-opt">d) thirsty.</button>
+    </div></div>
+    <div class="mc-item" data-correct="a"><div class="mc-q"><span class="num">Q3</span>If I "give up" learning Spanish, I…</div><div class="mc-options">
+      <button class="mc-opt">a) stop trying to learn it.</button>
+      <button class="mc-opt">b) finish my Spanish course.</button>
+      <button class="mc-opt">c) sign up for a new class.</button>
+      <button class="mc-opt">d) become fluent.</button>
+    </div></div>
+    <div class="mc-item" data-correct="d"><div class="mc-q"><span class="num">Q4</span>"It's a piece of cake" means…</div><div class="mc-options">
+      <button class="mc-opt">a) you eat a lot of cake.</button>
+      <button class="mc-opt">b) you are at a party.</button>
+      <button class="mc-opt">c) something is very difficult.</button>
+      <button class="mc-opt">d) something is very easy.</button>
+    </div></div>
+    <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q5</span>"Practice makes perfect" means…</div><div class="mc-options">
+      <button class="mc-opt">a) only perfect people can practise.</button>
+      <button class="mc-opt">b) if you do something many times, you get better.</button>
+      <button class="mc-opt">c) practice is always fun.</button>
+      <button class="mc-opt">d) the perfect time to practise is morning.</button>
+    </div></div>
+    <div class="mc-item" data-correct="c"><div class="mc-q"><span class="num">Q6</span>"I felt nervous before the interview." Nervous means…</div><div class="mc-options">
+      <button class="mc-opt">a) very angry.</button>
+      <button class="mc-opt">b) very tired.</button>
+      <button class="mc-opt">c) a little scared and worried.</button>
+      <button class="mc-opt">d) very confident.</button>
+    </div></div>
+    <div class="mc-item" data-correct="a"><div class="mc-q"><span class="num">Q7</span>If I "take a risk", I…</div><div class="mc-options">
+      <button class="mc-opt">a) do something that might go wrong.</button>
+      <button class="mc-opt">b) play a safe game.</button>
+      <button class="mc-opt">c) go to the gym.</button>
+      <button class="mc-opt">d) go on holiday.</button>
+    </div></div>
+    <div class="mc-item" data-correct="d"><div class="mc-q"><span class="num">Q8</span>"You learn a language step by step." This means you learn it…</div><div class="mc-options">
+      <button class="mc-opt">a) only by walking.</button>
+      <button class="mc-opt">b) very fast.</button>
+      <button class="mc-opt">c) by jumping levels.</button>
+      <button class="mc-opt">d) slowly, one part at a time.</button>
+    </div></div>
+    <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q9</span>"He came out of his shell." This means he became…</div><div class="mc-options">
+      <button class="mc-opt">a) more shy.</button>
+      <button class="mc-opt">b) more open and friendly.</button>
+      <button class="mc-opt">c) very tired.</button>
+      <button class="mc-opt">d) angry.</button>
+    </div></div>
+    <div class="mc-item" data-correct="c"><div class="mc-q"><span class="num">Q10</span>"Better late than never" means…</div><div class="mc-options">
+      <button class="mc-opt">a) never be late.</button>
+      <button class="mc-opt">b) always be early.</button>
+      <button class="mc-opt">c) it's good to do something, even if you start late.</button>
+      <button class="mc-opt">d) being late is bad.</button>
+    </div></div>
+    <div class="mc-item" data-correct="a"><div class="mc-q"><span class="num">Q11</span>"I want to challenge myself." This means I want to…</div><div class="mc-options">
+      <button class="mc-opt">a) do something difficult on purpose.</button>
+      <button class="mc-opt">b) play a game alone.</button>
+      <button class="mc-opt">c) ask a question to myself.</button>
+      <button class="mc-opt">d) relax at home.</button>
+    </div></div>
+    <div class="mc-item" data-correct="b"><div class="mc-q"><span class="num">Q12</span>"I felt proud of myself." This means I felt…</div><div class="mc-options">
+      <button class="mc-opt">a) sad and tired.</button>
+      <button class="mc-opt">b) happy about something good I did.</button>
+      <button class="mc-opt">c) angry at myself.</button>
+      <button class="mc-opt">d) confused.</button>
+    </div></div>
+    <span class="score" id="score7">0 / 12</span>
+  </section>
+
+  <section class="panel" id="t8">
+    <h2 class="section-title"><span class="emoji">🎤</span>Speaking practice</h2>
+    <p class="instr">Speak for <strong>1 minute</strong> on each question. Try to use <strong>3 new words</strong> per answer. Be honest — there are no wrong answers!</p>
+    <div class="speak-card"><div class="speak-num">◆ TASK 01 · YOUR COMFORT ZONE</div><div class="speak-prompt">What is your comfort zone? Where do you feel safe and happy? With whom?</div><div class="speak-help"><strong>Try to use:</strong> comfort zone · I feel safe · I feel relaxed · my friends · my home</div></div>
+    <div class="speak-card"><div class="speak-num">◆ TASK 02 · A NEW THING YOU TRIED</div><div class="speak-prompt">Tell us about a time you tried something new. Was it good or bad? Would you try it again?</div><div class="speak-help"><strong>Try to use:</strong> to try something new · to be scared / nervous · to feel uncomfortable · I learned that · proud</div></div>
+    <div class="speak-card"><div class="speak-num">◆ TASK 03 · WHAT ARE YOU AFRAID OF?</div><div class="speak-prompt">What is one thing that always makes you nervous? Why? Do you want to face this fear?</div><div class="speak-help"><strong>Try to use:</strong> to be afraid of · to feel nervous · to face your fears · because · I would like to</div></div>
+    <div class="speak-card"><div class="speak-num">◆ TASK 04 · A SMALL VICTORY</div><div class="speak-prompt">Tell us about a time you did something difficult and you succeeded. How did you feel after?</div><div class="speak-help"><strong>Try to use:</strong> to succeed · a challenge · to feel proud · on top of the world · step by step</div></div>
+    <div class="speak-card"><div class="speak-num">◆ TASK 05 · A TIME YOU FAILED</div><div class="speak-prompt">Tell us about a time you tried something and it didn't go well. What did you learn?</div><div class="speak-help"><strong>Try to use:</strong> to fail · to make a mistake · to learn from · I learned that · next time</div></div>
+    <div class="speak-card"><div class="speak-num">◆ TASK 06 · A NEW CHALLENGE</div><div class="speak-prompt">If you had to choose ONE new thing to try in the next month, what would it be? Why?</div><div class="speak-help"><strong>Try to use:</strong> to try · to sign up · to challenge myself · because · I would like to</div></div>
+    <div class="speak-card"><div class="speak-num">◆ TASK 07 · ADVICE FOR A FRIEND</div><div class="speak-prompt">Your best friend is afraid to try something new (a new job, a new sport, a new language). What advice would you give them?</div><div class="speak-help"><strong>Try to use:</strong> don't worry · just try · step by step · practice makes perfect · go for it · you can do it</div></div>
+    <div class="speak-card"><div class="speak-num">◆ TASK 08 · QUICK QUESTIONS · 30 SECONDS EACH</div><div class="speak-prompt">No thinking — just answer fast!</div><div class="speak-help">
+      ▸ The bravest thing you've ever done.<br>
+      ▸ Something you would never try.<br>
+      ▸ Something new you want to do this year.<br>
+      ▸ Complete: "If I weren't afraid, I would…"<br>
+      ▸ Are you usually a brave person or a careful person?
+    </div></div>
+  </section>
+
+  <section class="panel" id="t9">
+    <h2 class="section-title"><span class="emoji">📝</span>Grammar: Past Simple &amp; Modal Verbs</h2>
+    <p class="instr">Two B1 grammar areas you need: <strong>Past Simple</strong> (for telling stories) and <strong>modal verbs</strong> like <em>can, should, must, have to</em>.</p>
+    <div class="grammar-box">
+      <h4>🚀 Part 1 — Past Simple</h4>
+      <ul>
+        <li>Regular verbs: add <strong>-ed</strong>. <code>I tried something new.</code></li>
+        <li>Irregular verbs (must learn): <code>go → went</code>, <code>do → did</code>, <code>have → had</code>, <code>feel → felt</code>, <code>take → took</code>, <code>make → made</code></li>
+        <li>Negative: <strong>didn't + base form</strong>. <code>I didn't give up.</code></li>
+        <li>Questions: <strong>Did + subject + base form?</strong> <code>Did you try it?</code></li>
+      </ul>
+      <div class="formula">Past simple: I tried. I went. I felt. I made.</div>
+      <div class="formula">Negative: I didn't try. I didn't go. (NOT "I didn't tried")</div>
+    </div>
+    <div class="grammar-box">
+      <h4>🚀 Part 2 — Modal verbs</h4>
+      <ul>
+        <li><strong>can / can't</strong> = ability. <code>I can swim.</code> / <code>I can't speak French.</code></li>
+        <li><strong>should</strong> = advice. <code>You should try a new sport.</code></li>
+        <li><strong>shouldn't</strong> = negative advice. <code>You shouldn't give up.</code></li>
+        <li><strong>must / have to</strong> = necessity. <code>You must / have to practise every day.</code></li>
+        <li><strong>don't have to</strong> = it's not necessary. <code>You don't have to be perfect.</code></li>
+        <li><strong>would</strong> for hypothetical. <code>I would try, but I'm scared.</code></li>
+      </ul>
+      <div class="formula">All modals: modal + base form (NO -s, NO -ing, NO to). I can swim. (NOT "I can to swim")</div>
+    </div>
+    <p class="instr"><strong>Part A — Past Simple.</strong> Put the verb in brackets in the past simple.</p>
+    <div class="fill-item"><p><span class="num">01</span>Last year, I <input class="fill-input" data-answer="tried"> (try) yoga for the first time.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>I <input class="fill-input" data-answer="went"> (go) on a trip alone to Spain.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>At first, I <input class="fill-input" data-answer="felt"> (feel) very nervous.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>She <input class="fill-input" data-answer="took"> (take) a risk and changed jobs.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>I <input class="fill-input wide" data-answer="didn't give"> (not give) up — I kept trying.</p></div>
+    <div class="fill-item"><p><span class="num">06</span>It was difficult, but I <input class="fill-input" data-answer="learned"> (learn) a lot.</p></div>
+    <div class="fill-item"><p><span class="num">07</span>He <input class="fill-input" data-answer="made"> (make) a small mistake, but it wasn't a big problem.</p></div>
+    <p class="instr"><strong>Part B — Modal verbs.</strong> Choose the correct modal: <em>can / can't / should / shouldn't / must / don't have to</em>.</p>
+    <div class="fill-item"><p><span class="num">08</span>You're really good at this — you <input class="fill-input wide" data-answer="should"> sign up for the competition.</p></div>
+    <div class="fill-item"><p><span class="num">09</span>Don't worry — you <input class="fill-input wide" data-answer="don't have to"> be perfect on the first day. <em style="color:var(--deep); font-size:13px;">(3 words)</em></p></div>
+    <div class="fill-item"><p><span class="num">10</span>I <input class="fill-input" data-answer="can't"> speak Spanish, but I want to learn.</p></div>
+    <div class="fill-item"><p><span class="num">11</span>You <input class="fill-input" data-answer="shouldn't"> give up after only one week!</p></div>
+    <div class="fill-item"><p><span class="num">12</span>If you want to learn a language, you <input class="fill-input" data-answer="must"> practise every day.</p></div>
+    <div class="fill-item"><p><span class="num">13</span>I <input class="fill-input" data-answer="can"> see you're nervous, but you'll be fine!</p></div>
+    <p class="instr"><strong>Part C — Make complete sentences</strong> using "would" or "wouldn't".</p>
+    <div class="fill-item"><p><span class="num">14</span>If I weren't afraid, I <input class="fill-input wide" data-answer="would try"> (try) skydiving. <em style="color:var(--deep); font-size:13px;">(2 words)</em></p></div>
+    <div class="fill-item"><p><span class="num">15</span>I <input class="fill-input wide" data-answer="wouldn't give"> (not give) up so easily, if I were you. <em style="color:var(--deep); font-size:13px;">(2 words)</em></p></div>
+    <button class="check-btn" onclick="checkGrammar()">✓ Check grammar</button>
+    <span class="score" id="score9">— / 15</span>
+  </section>
+
+  <footer>🚀 ★ ⚡ &nbsp; STEPPING OUT OF YOUR COMFORT ZONE · B1 ENGLISH WORKSHEET &nbsp; ⚡ ★ 🚀</footer>
+</div>
+
+<script>
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+  let selectedWord = null;
+  let matched5 = 0;
+  document.querySelectorAll('#t5 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) {
+        document.querySelectorAll('#t5 [data-word]').forEach(w => w.classList.remove('selected'));
+        item.classList.add('selected');
+        selectedWord = item;
+      } else if (item.dataset.def && selectedWord) {
+        if (selectedWord.dataset.word === item.dataset.def) {
+          selectedWord.classList.remove('selected');
+          selectedWord.classList.add('matched');
+          item.classList.add('matched');
+          matched5++;
+          document.getElementById('score5').textContent = matched5 + ' / 10';
+          selectedWord = null;
+          if (matched5 === 10) document.getElementById('score5').textContent = '★ 10 / 10 ★';
+        } else {
+          item.classList.add('wrong');
+          setTimeout(() => item.classList.remove('wrong'), 500);
+        }
+      }
+    });
+  });
+  function checkFill() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t6 .fill-input');
+    const alternates = {
+      'comfort zone': ['comfort zone'],
+      'sign up': ['sign up'],
+      'give up': ['give up'],
+      'go for it': ['go for it'],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score6').textContent = correct + ' / 10';
+    if (correct === 10) document.getElementById('score6').textContent = '★ 10 / 10 ★';
+  }
+  let mcScore = 0;
+  document.querySelectorAll('#t7 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          mcScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+        document.getElementById('score7').textContent = mcScore + ' / 12';
+        if (mcScore === 12) document.getElementById('score7').textContent = '★ 12 / 12 ★';
+      });
+    });
+  });
+  function checkGrammar() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t9 .fill-input');
+    const alternates = {
+      'tried': ['tried'],
+      'went': ['went'],
+      'felt': ['felt'],
+      'took': ['took'],
+      "didn't give": ["didn't give",'did not give'],
+      'learned': ['learned','learnt'],
+      'made': ['made'],
+      'should': ['should'],
+      "don't have to": ["don't have to",'do not have to'],
+      "can't": ["can't",'cannot','can not'],
+      "shouldn't": ["shouldn't",'should not'],
+      'must': ['must','have to'],
+      'can': ['can'],
+      'would try': ['would try',"'d try"],
+      "wouldn't give": ["wouldn't give",'would not give'],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score9').textContent = correct + ' / 15';
+    if (correct === 15) document.getElementById('score9').textContent = '★ 15 / 15 ★';
+  }
+</script>
+</body>
+</html>
