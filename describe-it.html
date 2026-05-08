@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Describe It — Visual English for B2/C1</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1618;
+  --paper: #faf7f2;
+  --cream: #f0ebe0;
+  --rust: #c4541a;
+  --rust-light: #f5e8df;
+  --teal: #1a6b6b;
+  --teal-light: #dff0f0;
+  --gold: #b8922a;
+  --gold-light: #fdf3d7;
+  --purple: #5a3d7a;
+  --purple-light: #ede6f5;
+  --green: #2a6640;
+  --green-light: #e2f0e8;
+  --mid: #7a7270;
+  --border: #ddd7cc;
+  --correct: #2a6640;
+  --wrong: #b82a2a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+/* ---- NAV ---- */
+nav {
+  background: var(--ink);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 3px solid var(--rust);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav-brand {
+  font-family: 'Playfair Display', serif;
+  color: var(--paper);
+  font-size: 18px;
+  padding: 16px 24px;
+  white-space: nowrap;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  flex-shrink: 0;
+}
+.nav-brand span { color: var(--rust); }
+.tab-btn {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.55);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 18px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  border-bottom: 3px solid transparent;
+  flex-shrink: 0;
+}
+.tab-btn:hover { color: white; }
+.tab-btn.active { color: var(--rust); border-bottom-color: var(--rust); }
+
+/* ---- SECTIONS ---- */
+.section { display: none; }
+.section.active { display: block; }
+
+/* ---- HERO ---- */
+.hero {
+  background: var(--ink);
+  padding: 60px 24px 50px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(196,84,26,0.15), transparent 60%),
+              radial-gradient(ellipse at 70% 50%, rgba(26,107,107,0.12), transparent 60%);
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 6vw, 72px);
+  color: var(--paper);
+  line-height: 1.1;
+  position: relative;
+}
+.hero h1 em { color: var(--rust); font-style: italic; }
+.hero p {
+  color: rgba(255,255,255,0.55);
+  font-size: 16px;
+  margin-top: 12px;
+  position: relative;
+  letter-spacing: 0.02em;
+}
+
+.wrap { max-width: 1100px; margin: 0 auto; padding: 40px 24px 80px; }
+
+/* ---- SCENE CARDS ---- */
+.scene-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.scene-card {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--border);
+  cursor: pointer;
+  transition: all 0.25s;
+  background: white;
+  position: relative;
+}
+.scene-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.12); border-color: var(--rust); }
+.scene-card.selected { border-color: var(--rust); box-shadow: 0 0 0 4px var(--rust-light); }
+.scene-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+.scene-overlay {
+  position: absolute;
+  top: 12px; right: 12px;
+  background: var(--rust);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.scene-card.selected .scene-overlay { opacity: 1; }
+.scene-body { padding: 16px 18px; }
+.scene-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+.scene-hint {
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.5;
+}
+
+/* ---- DESCRIPTION PANEL ---- */
+.describe-panel {
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+.describe-header {
+  background: var(--ink);
+  padding: 20px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.describe-header h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--paper);
+  font-size: 22px;
+}
+.describe-header p {
+  color: rgba(255,255,255,0.5);
+  font-size: 13px;
+}
+.describe-content { display: grid; grid-template-columns: 1fr 1fr; }
+@media(max-width:700px){ .describe-content { grid-template-columns: 1fr; } }
+.describe-image-box {
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+}
+.describe-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.describe-write { padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+.describe-write label {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--rust);
+  display: block;
+  margin-bottom: 8px;
+}
+.describe-write textarea {
+  width: 100%;
+  min-height: 160px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  resize: vertical;
+  transition: border-color 0.2s;
+  background: var(--paper);
+}
+.describe-write textarea:focus { outline: none; border-color: var(--rust); }
+
+/* ---- COLLOCATION BOX ---- */
+.collocations-section {
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+.section-head {
+  background: var(--cream);
+  border-bottom: 2px solid var(--border);
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.section-head h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+}
+.section-head .badge {
+  background: var(--rust);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.collocations-body { padding: 24px 28px; }
+.coll-scene-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.coll-tab {
+  background: var(--cream);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.coll-tab.active { background: var(--rust); color: white; border-color: var(--rust); }
+.coll-panel { display: none; }
+.coll-panel.active { display: block; }
+.coll-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.coll-chip {
+  background: var(--rust-light);
+  border: 1.5px solid #e8c4aa;
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+.coll-phrase {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--rust);
+  margin-bottom: 4px;
+}
+.coll-def {
+  font-size: 12px;
+  color: var(--mid);
+  line-height: 1.4;
+}
+.coll-example {
+  background: var(--paper);
+  border-left: 3px solid var(--rust);
+  padding: 12px 16px;
+  border-radius: 0 8px 8px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink);
+  margin-top: 16px;
+}
+.coll-example strong { color: var(--rust); }
+
+/* ---- VIDEO SECTION ---- */
+.videos-section { background: white; border: 2px solid var(--border); border-radius: 16px; overflow: hidden; margin-bottom: 32px; }
+.video-grid { padding: 24px 28px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.video-card {
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.video-card:hover { border-color: var(--teal); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+.video-thumb {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  position: relative;
+}
+.video-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.video-thumb .play-btn {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  background: rgba(196,84,26,0.92);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+}
+.video-info { padding: 14px 16px; }
+.video-title { font-weight: 600; font-size: 14px; margin-bottom: 6px; line-height: 1.4; }
+.video-desc { font-size: 12px; color: var(--mid); line-height: 1.5; }
+.video-tag {
+  display: inline-block;
+  background: var(--teal-light);
+  color: var(--teal);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.video-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.video-modal.open { display: flex; }
+.modal-inner {
+  background: var(--ink);
+  border-radius: 16px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 800px;
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.modal-header h4 { color: white; font-family: 'Playfair Display', serif; }
+.modal-close {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: white;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-body { padding: 20px; }
+.video-embed { width: 100%; aspect-ratio: 16/9; border-radius: 10px; overflow: hidden; }
+.video-embed iframe { width: 100%; height: 100%; border: none; }
+.modal-colls { padding: 16px 20px 20px; }
+.modal-colls h5 { color: rgba(255,255,255,0.5); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+.modal-colls .coll-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.modal-colls .chip { background: rgba(196,84,26,0.2); color: #f5a070; font-size: 13px; padding: 4px 12px; border-radius: 20px; }
+
+/* ---- GRAMMAR ---- */
+.grammar-section { background: white; border: 2px solid var(--border); border-radius: 16px; overflow: hidden; margin-bottom: 32px; }
+.grammar-nav {
+  display: flex;
+  border-bottom: 2px solid var(--border);
+  overflow-x: auto;
+  scrollbar-width: none;
+  background: var(--cream);
+}
+.grammar-nav::-webkit-scrollbar { display: none; }
+.gram-tab {
+  background: none;
+  border: none;
+  padding: 14px 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  color: var(--mid);
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+}
+.gram-tab.active { color: var(--rust); border-bottom-color: var(--rust); }
+.gram-panel { display: none; padding: 28px; }
+.gram-panel.active { display: block; }
+
+.gram-intro {
+  background: var(--gold-light);
+  border: 1.5px solid #e8d09a;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.gram-intro strong { color: var(--gold); }
+
+.q-block { margin-bottom: 24px; }
+.q-num {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--mid);
+  margin-bottom: 8px;
+}
+.q-text {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+.q-text em { color: var(--rust); font-style: normal; font-weight: 600; }
+
+input[type="text"].gram-input {
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 9px 14px;
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  width: 200px;
+  max-width: 100%;
+  transition: border-color 0.2s;
+  background: var(--paper);
+}
+input[type="text"].gram-input:focus { outline: none; border-color: var(--rust); }
+input[type="text"].gram-input.correct { border-color: var(--correct); background: var(--green-light); color: var(--correct); }
+input[type="text"].gram-input.wrong { border-color: var(--wrong); background: #fdeaea; color: var(--wrong); }
+
+.mc-options { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+.mc-opt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+.mc-opt:hover { border-color: var(--rust); background: var(--rust-light); }
+.mc-opt.selected { border-color: var(--rust); background: var(--rust-light); }
+.mc-opt.correct-opt { border-color: var(--correct); background: var(--green-light); color: var(--correct); }
+.mc-opt.wrong-opt { border-color: var(--wrong); background: #fdeaea; color: var(--wrong); }
+.mc-letter {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--cream);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.feedback {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 8px;
+  display: none;
+}
+.feedback.show { display: block; }
+.feedback.correct { background: var(--green-light); color: var(--correct); }
+.feedback.wrong { background: #fdeaea; color: var(--wrong); }
+
+.check-btn {
+  background: var(--rust);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 28px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 24px;
+}
+.check-btn:hover { background: #a84415; transform: translateY(-1px); }
+.reset-btn {
+  background: none;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 11px 24px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--mid);
+  margin-left: 10px;
+  transition: all 0.2s;
+}
+.reset-btn:hover { border-color: var(--ink); color: var(--ink); }
+
+.score-box {
+  background: var(--ink);
+  color: white;
+  border-radius: 12px;
+  padding: 20px 24px;
+  text-align: center;
+  margin-top: 24px;
+  display: none;
+}
+.score-box.show { display: block; }
+.score-big { font-family: 'Playfair Display', serif; font-size: 48px; color: var(--rust); }
+.score-label { font-size: 14px; color: rgba(255,255,255,0.55); margin-top: 4px; }
+
+.word-bank {
+  background: var(--purple-light);
+  border: 1.5px solid #c9b4e0;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.word-bank-label { font-size: 12px; font-weight: 700; color: var(--purple); text-transform: uppercase; letter-spacing: 0.08em; width: 100%; }
+.word-token {
+  background: white;
+  border: 1.5px solid #c9b4e0;
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: var(--purple);
+  font-weight: 500;
+}
+
+/* ---- SPEAKING PROMPTS ---- */
+.speaking-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; padding: 24px 28px; }
+.speak-card {
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.speak-card::before {
+  content: attr(data-num);
+  position: absolute;
+  right: -4px; top: -4px;
+  font-family: 'Playfair Display', serif;
+  font-size: 80px;
+  color: var(--cream);
+  line-height: 1;
+  z-index: 0;
+  pointer-events: none;
+}
+.speak-card-inner { position: relative; z-index: 1; }
+.speak-scene { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--rust); margin-bottom: 8px; }
+.speak-q { font-size: 14px; line-height: 1.6; color: var(--ink); }
+
+/* ---- BUTTONS ---- */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s; border: none; }
+.btn-primary { background: var(--rust); color: white; }
+.btn-primary:hover { background: #a84415; }
+.btn-outline { background: none; border: 2px solid var(--border); color: var(--ink); }
+.btn-outline:hover { border-color: var(--rust); color: var(--rust); }
+
+hr.divider { border: none; border-top: 2px solid var(--border); margin: 32px 0; }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">Describe <span>It</span></div>
+    <button class="tab-btn active" onclick="showTab('scenes')">🖼 Images</button>
+    <button class="tab-btn" onclick="showTab('collocations')">📚 Collocations</button>
+    <button class="tab-btn" onclick="showTab('videos')">🎬 Videos</button>
+    <button class="tab-btn" onclick="showTab('grammar')">✏️ Grammar</button>
+    <button class="tab-btn" onclick="showTab('speaking')">🎤 Speaking</button>
+  </div>
+</nav>
+
+<!-- ========== IMAGES TAB ========== -->
+<div id="tab-scenes" class="section active">
+  <div class="hero">
+    <h1>What do you <em>see?</em></h1>
+    <p>Choose an image — then describe it in as much detail as you can.</p>
+  </div>
+  <div class="wrap">
+
+    <div class="scene-grid">
+
+      <div class="scene-card" onclick="selectScene(0)" id="scene-card-0">
+        <div class="scene-overlay">Selected ✓</div>
+        <img class="scene-img" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="Tropical beach">
+        <div class="scene-body">
+          <div class="scene-title">A Beautiful Beach Day</div>
+          <div class="scene-hint">Turquoise water, white sand, palm trees, sunshine — what's happening there?</div>
+        </div>
+      </div>
+
+      <div class="scene-card" onclick="selectScene(1)" id="scene-card-1">
+        <div class="scene-overlay">Selected ✓</div>
+        <img class="scene-img" src="https://images.unsplash.com/photo-1617347454431-f49d7ff5c3b1?w=600&q=80" alt="Busy city traffic">
+        <div class="scene-body">
+          <div class="scene-title">Busy City Traffic</div>
+          <div class="scene-hint">Yellow cabs, crowds, skyscrapers — describe the chaos and energy.</div>
+        </div>
+      </div>
+
+      <div class="scene-card" onclick="selectScene(2)" id="scene-card-2">
+        <div class="scene-overlay">Selected ✓</div>
+        <img class="scene-img" src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=600&q=80" alt="Mountain house winter">
+        <div class="scene-body">
+          <div class="scene-title">Mountain House in Winter</div>
+          <div class="scene-hint">Snow-covered cabin, pine trees, smoke from the chimney — set the scene.</div>
+        </div>
+      </div>
+
+      <div class="scene-card" onclick="selectScene(3)" id="scene-card-3">
+        <div class="scene-overlay">Selected ✓</div>
+        <img class="scene-img" src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80" alt="Music festival crowd">
+        <div class="scene-body">
+          <div class="scene-title">Outdoor Music Festival</div>
+          <div class="scene-hint">Massive crowd, colourful lights, a stage in the distance — what's the atmosphere?</div>
+        </div>
+      </div>
+
+      <div class="scene-card" onclick="selectScene(4)" id="scene-card-4">
+        <div class="scene-overlay">Selected ✓</div>
+        <img class="scene-img" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80" alt="Busy restaurant kitchen">
+        <div class="scene-body">
+          <div class="scene-title">Chaotic Restaurant Kitchen</div>
+          <div class="scene-hint">Chefs in white, steam, flames, plates — describe what's happening right now.</div>
+        </div>
+      </div>
+
+      <div class="scene-card" onclick="selectScene(5)" id="scene-card-5">
+        <div class="scene-overlay">Selected ✓</div>
+        <img class="scene-img" src="https://images.unsplash.com/photo-1491555103944-7c647fd857e6?w=600&q=80" alt="Snowy forest path">
+        <div class="scene-body">
+          <div class="scene-title">Snowy Forest Path</div>
+          <div class="scene-hint">A lone trail through tall pine trees in deep snow — what does it feel like?</div>
+        </div>
+      </div>
+
+      <div class="scene-card" onclick="selectScene(6)" id="scene-card-6">
+        <div class="scene-overlay">Selected ✓</div>
+        <img class="scene-img" src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=600&q=80" alt="Neon city night street">
+        <div class="scene-body">
+          <div class="scene-title">Neon City at Night</div>
+          <div class="scene-hint">Reflections on wet pavement, neon signs, night market — Tokyo or any Asian city.</div>
+        </div>
+      </div>
+
+      <div class="scene-card" onclick="selectScene(7)" id="scene-card-7">
+        <div class="scene-overlay">Selected ✓</div>
+        <img class="scene-img" src="https://images.unsplash.com/photo-1530099486328-e021101a494a?w=600&q=80" alt="Abandoned building">
+        <div class="scene-body">
+          <div class="scene-title">Abandoned Building</div>
+          <div class="scene-hint">Crumbling walls, broken windows, creeping vines — what happened here?</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- DESCRIPTION PANEL -->
+    <div class="describe-panel" id="describe-panel" style="display:none">
+      <div class="describe-header">
+        <div>
+          <h2 id="desc-title">Scene Title</h2>
+          <p>Describe what you see — people, atmosphere, actions, mood, colours, sounds.</p>
+        </div>
+        <button class="btn btn-outline" onclick="clearDesc()" style="color:rgba(255,255,255,0.6);border-color:rgba(255,255,255,0.2)">Clear ✕</button>
+      </div>
+      <div class="describe-content">
+        <div class="describe-image-box">
+          <img id="desc-img" src="" alt="">
+        </div>
+        <div class="describe-write">
+          <div>
+            <label>Your description</label>
+            <textarea id="desc-textarea" placeholder="Write 5–10 sentences. Try to use the present continuous (is happening, are walking...), adjectives, and comparisons."></textarea>
+          </div>
+          <div style="background:var(--paper);border-radius:10px;padding:14px 16px;">
+            <div style="font-size:12px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;">Prompts to help you</div>
+            <ul id="desc-prompts" style="font-size:13px;color:var(--mid);line-height:1.9;padding-left:16px;"></ul>
+          </div>
+          <button class="btn btn-primary" onclick="showTab('collocations')">See useful collocations →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="no-scene-msg" style="text-align:center;padding:40px;color:var(--mid);font-size:15px;">
+      ↑ Click any image above to start describing it.
+    </div>
+
+  </div>
+</div>
+
+<!-- ========== COLLOCATIONS TAB ========== -->
+<div id="tab-collocations" class="section">
+  <div class="wrap">
+
+    <div class="collocations-section">
+      <div class="section-head">
+        <h3>Useful Collocations & Phrases</h3>
+        <span class="badge">by scene</span>
+      </div>
+      <div class="collocations-body">
+        <div class="coll-scene-tabs">
+          <button class="coll-tab active" onclick="showColl(0, this)">🏖 Beach</button>
+          <button class="coll-tab" onclick="showColl(1, this)">🚗 City Traffic</button>
+          <button class="coll-tab" onclick="showColl(2, this)">🏔 Mountain Winter</button>
+          <button class="coll-tab" onclick="showColl(3, this)">🎵 Festival</button>
+          <button class="coll-tab" onclick="showColl(4, this)">👨‍🍳 Kitchen</button>
+          <button class="coll-tab" onclick="showColl(5, this)">🌲 Forest</button>
+          <button class="coll-tab" onclick="showColl(6, this)">🌃 Night City</button>
+          <button class="coll-tab" onclick="showColl(7, this)">🏚 Abandoned</button>
+        </div>
+
+        <div class="coll-panel active" id="coll-0">
+          <div class="coll-grid">
+            <div class="coll-chip"><div class="coll-phrase">crystal-clear water</div><div class="coll-def">perfectly transparent, very clean sea</div></div>
+            <div class="coll-chip"><div class="coll-phrase">bask in the sun</div><div class="coll-def">lie and enjoy the sunshine</div></div>
+            <div class="coll-chip"><div class="coll-phrase">lapping waves</div><div class="coll-def">gentle waves softly hitting the shore</div></div>
+            <div class="coll-chip"><div class="coll-phrase">scorching heat</div><div class="coll-def">extremely hot temperature</div></div>
+            <div class="coll-chip"><div class="coll-phrase">stretch of coastline</div><div class="coll-def">a long section of the coast</div></div>
+            <div class="coll-chip"><div class="coll-phrase">shimmering surface</div><div class="coll-def">light sparkling on the water</div></div>
+            <div class="coll-chip"><div class="coll-phrase">picture-perfect setting</div><div class="coll-def">looks exactly like a postcard</div></div>
+            <div class="coll-chip"><div class="coll-phrase">swaying palm trees</div><div class="coll-def">palms moving gently in the wind</div></div>
+            <div class="coll-chip"><div class="coll-phrase">bustling beach</div><div class="coll-def">a very busy, lively beach</div></div>
+            <div class="coll-chip"><div class="coll-phrase">faint breeze</div><div class="coll-def">a light, gentle wind</div></div>
+            <div class="coll-chip"><div class="coll-phrase">turquoise waters</div><div class="coll-def">bright blue-green sea colour</div></div>
+            <div class="coll-chip"><div class="coll-phrase">pristine white sand</div><div class="coll-def">completely clean, untouched sand</div></div>
+          </div>
+          <div class="coll-example">
+            💬 <em>"The beach stretches for miles, with <strong>crystal-clear water</strong> and <strong>pristine white sand</strong>. Tourists are <strong>basking in the sun</strong> while <strong>lapping waves</strong> create a soothing rhythm. A <strong>faint breeze</strong> rustles through the <strong>swaying palm trees</strong>."</em>
+          </div>
+        </div>
+
+        <div class="coll-panel" id="coll-1">
+          <div class="coll-grid">
+            <div class="coll-chip"><div class="coll-phrase">gridlocked traffic</div><div class="coll-def">completely stuck, not moving at all</div></div>
+            <div class="coll-chip"><div class="coll-phrase">blaring horns</div><div class="coll-def">loud, aggressive car honking</div></div>
+            <div class="coll-chip"><div class="coll-phrase">teeming with people</div><div class="coll-def">completely full of people</div></div>
+            <div class="coll-chip"><div class="coll-phrase">towering skyscrapers</div><div class="coll-def">extremely tall buildings</div></div>
+            <div class="coll-chip"><div class="coll-phrase">frenetic pace</div><div class="coll-def">very fast, energetic, almost frantic</div></div>
+            <div class="coll-chip"><div class="coll-phrase">exhaust fumes</div><div class="coll-def">pollution/smoke from car engines</div></div>
+            <div class="coll-chip"><div class="coll-phrase">pedestrians weaving</div><div class="coll-def">people moving between obstacles</div></div>
+            <div class="coll-chip"><div class="coll-phrase">looming overhead</div><div class="coll-def">hanging or hovering above in a large way</div></div>
+            <div class="coll-chip"><div class="coll-phrase">urban jungle</div><div class="coll-def">a chaotic, dense city environment</div></div>
+            <div class="coll-chip"><div class="coll-phrase">constant hum of engines</div><div class="coll-def">low, continuous sound of cars</div></div>
+            <div class="coll-chip"><div class="coll-phrase">sheer volume of traffic</div><div class="coll-def">the enormous amount of vehicles</div></div>
+            <div class="coll-chip"><div class="coll-phrase">neon billboards</div><div class="coll-def">bright lit-up advertising signs</div></div>
+          </div>
+          <div class="coll-example">
+            💬 <em>"The streets are <strong>teeming with people</strong> and the traffic is completely <strong>gridlocked</strong>. <strong>Blaring horns</strong> mix with the <strong>constant hum of engines</strong>, while <strong>towering skyscrapers</strong> loom overhead. The scene has a truly <strong>frenetic pace</strong>."</em>
+          </div>
+        </div>
+
+        <div class="coll-panel" id="coll-2">
+          <div class="coll-grid">
+            <div class="coll-chip"><div class="coll-phrase">blanket of snow</div><div class="coll-def">a thick, even layer of snow covering everything</div></div>
+            <div class="coll-chip"><div class="coll-phrase">cosy retreat</div><div class="coll-def">a warm, comfortable, private place</div></div>
+            <div class="coll-chip"><div class="coll-phrase">wisp of smoke</div><div class="coll-def">a thin stream of smoke rising from the chimney</div></div>
+            <div class="coll-chip"><div class="coll-phrase">crisp, cold air</div><div class="coll-def">cold air that feels fresh and sharp</div></div>
+            <div class="coll-chip"><div class="coll-phrase">frosted windowpanes</div><div class="coll-def">windows covered in a thin layer of ice</div></div>
+            <div class="coll-chip"><div class="coll-phrase">heavy snowfall</div><div class="coll-def">a lot of snow coming down</div></div>
+            <div class="coll-chip"><div class="coll-phrase">nestled among the trees</div><div class="coll-def">tucked in, surrounded by trees</div></div>
+            <div class="coll-chip"><div class="coll-phrase">dead silence</div><div class="coll-def">completely quiet, no noise at all</div></div>
+            <div class="coll-chip"><div class="coll-phrase">glistening snow</div><div class="coll-def">snow that shines and sparkles in the light</div></div>
+            <div class="coll-chip"><div class="coll-phrase">remote location</div><div class="coll-def">far away from people and towns</div></div>
+            <div class="coll-chip"><div class="coll-phrase">pine-scented air</div><div class="coll-def">the smell of pine trees in the cold</div></div>
+            <div class="coll-chip"><div class="coll-phrase">isolated cabin</div><div class="coll-def">a small house in a lonely, remote place</div></div>
+          </div>
+          <div class="coll-example">
+            💬 <em>"The <strong>isolated cabin</strong> is <strong>nestled among the trees</strong>, surrounded by a thick <strong>blanket of snow</strong>. A <strong>wisp of smoke</strong> rises from the chimney, suggesting someone inside is keeping warm. The <strong>crisp, cold air</strong> and <strong>dead silence</strong> make the scene feel completely cut off from the world."</em>
+          </div>
+        </div>
+
+        <div class="coll-panel" id="coll-3">
+          <div class="coll-grid">
+            <div class="coll-chip"><div class="coll-phrase">pulsating crowd</div><div class="coll-def">a crowd that moves and throbs with energy</div></div>
+            <div class="coll-chip"><div class="coll-phrase">electric atmosphere</div><div class="coll-def">a very exciting, high-energy mood</div></div>
+            <div class="coll-chip"><div class="coll-phrase">deafening music</div><div class="coll-def">music so loud it's almost painful</div></div>
+            <div class="coll-chip"><div class="coll-phrase">sea of people</div><div class="coll-def">a massive crowd, as far as the eye can see</div></div>
+            <div class="coll-chip"><div class="coll-phrase">burst of colour</div><div class="coll-def">a sudden, striking mix of colours</div></div>
+            <div class="coll-chip"><div class="coll-phrase">raised hands and lighters</div><div class="coll-def">crowd waving arms and holding up lights</div></div>
+            <div class="coll-chip"><div class="coll-phrase">sense of euphoria</div><div class="coll-def">a feeling of extreme happiness and excitement</div></div>
+            <div class="coll-chip"><div class="coll-phrase">sweeping spotlight</div><div class="coll-def">a large beam of light moving across the stage</div></div>
+            <div class="coll-chip"><div class="coll-phrase">a shared experience</div><div class="coll-def">something felt by everyone together</div></div>
+            <div class="coll-chip"><div class="coll-phrase">vibrating with energy</div><div class="coll-def">full of movement, sound, and excitement</div></div>
+          </div>
+          <div class="coll-example">
+            💬 <em>"There is a <strong>sea of people</strong> stretching back as far as you can see. The <strong>electric atmosphere</strong> is almost tangible — the crowd is <strong>vibrating with energy</strong>, and you can sense a collective <strong>sense of euphoria</strong> sweeping through. <strong>Sweeping spotlights</strong> illuminate a stage bathed in a <strong>burst of colour</strong>."</em>
+          </div>
+        </div>
+
+        <div class="coll-panel" id="coll-4">
+          <div class="coll-grid">
+            <div class="coll-chip"><div class="coll-phrase">controlled chaos</div><div class="coll-def">very busy but somehow organised</div></div>
+            <div class="coll-chip"><div class="coll-phrase">sizzling pans</div><div class="coll-def">pans with very hot oil making a hissing sound</div></div>
+            <div class="coll-chip"><div class="coll-phrase">plumes of steam</div><div class="coll-def">large clouds of steam rising from pots</div></div>
+            <div class="coll-chip"><div class="coll-phrase">barking orders</div><div class="coll-def">shouting instructions loudly and quickly</div></div>
+            <div class="coll-chip"><div class="coll-phrase">work like clockwork</div><div class="coll-def">run smoothly and very efficiently</div></div>
+            <div class="coll-chip"><div class="coll-phrase">stainless steel surfaces</div><div class="coll-def">the shiny metal countertops of a professional kitchen</div></div>
+            <div class="coll-chip"><div class="coll-phrase">intense concentration</div><div class="coll-def">extremely focused attention</div></div>
+            <div class="coll-chip"><div class="coll-phrase">licking flames</div><div class="coll-def">flames rising up and touching the pan</div></div>
+            <div class="coll-chip"><div class="coll-phrase">aromas filling the air</div><div class="coll-def">strong smells spreading throughout the room</div></div>
+            <div class="coll-chip"><div class="coll-phrase">relentless pressure</div><div class="coll-def">constant, never-ending stress or demand</div></div>
+          </div>
+          <div class="coll-example">
+            💬 <em>"The kitchen is a scene of <strong>controlled chaos</strong> — chefs move with <strong>intense concentration</strong> as <strong>sizzling pans</strong> and <strong>licking flames</strong> fill the space. The head chef is <strong>barking orders</strong> while <strong>plumes of steam</strong> rise from every corner. Despite the <strong>relentless pressure</strong>, the whole operation seems to <strong>work like clockwork</strong>."</em>
+          </div>
+        </div>
+
+        <div class="coll-panel" id="coll-5">
+          <div class="coll-grid">
+            <div class="coll-chip"><div class="coll-phrase">eerie stillness</div><div class="coll-def">a strange, almost unsettling quietness</div></div>
+            <div class="coll-chip"><div class="coll-phrase">untouched snow</div><div class="coll-def">snow with no footprints or marks</div></div>
+            <div class="coll-chip"><div class="coll-phrase">canopy of trees</div><div class="coll-def">branches overhead forming a natural ceiling</div></div>
+            <div class="coll-chip"><div class="coll-phrase">barely visible path</div><div class="coll-def">a trail that is hard to see</div></div>
+            <div class="coll-chip"><div class="coll-phrase">towering pines</div><div class="coll-def">extremely tall pine trees</div></div>
+            <div class="coll-chip"><div class="coll-phrase">a sense of isolation</div><div class="coll-def">a feeling of being completely alone</div></div>
+            <div class="coll-chip"><div class="coll-phrase">muffled silence</div><div class="coll-def">sound absorbed and softened, especially by snow</div></div>
+            <div class="coll-chip"><div class="coll-phrase">fading light</div><div class="coll-def">daylight slowly disappearing</div></div>
+            <div class="coll-chip"><div class="coll-phrase">deep in the wilderness</div><div class="coll-def">far from any town or people</div></div>
+            <div class="coll-chip"><div class="coll-phrase">footprints in the snow</div><div class="coll-def">marks left by someone walking</div></div>
+          </div>
+          <div class="coll-example">
+            💬 <em>"The forest path disappears into the distance, barely visible beneath the <strong>untouched snow</strong>. A <strong>canopy of trees</strong> closes in on either side, and there is an <strong>eerie stillness</strong> — a <strong>muffled silence</strong> that feels complete. You get a real <strong>sense of isolation</strong>, as if you are <strong>deep in the wilderness</strong>."</em>
+          </div>
+        </div>
+
+        <div class="coll-panel" id="coll-6">
+          <div class="coll-grid">
+            <div class="coll-chip"><div class="coll-phrase">rain-slicked streets</div><div class="coll-def">streets wet and shiny after rain</div></div>
+            <div class="coll-chip"><div class="coll-phrase">neon reflections</div><div class="coll-def">coloured lights mirrored on wet surfaces</div></div>
+            <div class="coll-chip"><div class="coll-phrase">atmospheric glow</div><div class="coll-def">a warm, moody quality of light</div></div>
+            <div class="coll-chip"><div class="coll-phrase">frenetic energy</div><div class="coll-def">very fast, intense, almost frantic activity</div></div>
+            <div class="coll-chip"><div class="coll-phrase">narrow alleyways</div><div class="coll-def">tight, small streets between buildings</div></div>
+            <div class="coll-chip"><div class="coll-phrase">lanterns overhead</div><div class="coll-def">hanging lights above the street</div></div>
+            <div class="coll-chip"><div class="coll-phrase">cacophony of sounds</div><div class="coll-def">a loud, chaotic mix of noise</div></div>
+            <div class="coll-chip"><div class="coll-phrase">sensory overload</div><div class="coll-def">too much to take in at once</div></div>
+            <div class="coll-chip"><div class="coll-phrase">vendors calling out</div><div class="coll-def">market sellers shouting to attract customers</div></div>
+            <div class="coll-chip"><div class="coll-phrase">vivid contrast</div><div class="coll-def">a very striking difference between things</div></div>
+          </div>
+          <div class="coll-example">
+            💬 <em>"The <strong>rain-slicked streets</strong> are alive with <strong>neon reflections</strong>, creating a stunning <strong>vivid contrast</strong> between the dark sky and the blazing lights below. <strong>Lanterns overhead</strong> swing gently as <strong>vendors call out</strong> from the <strong>narrow alleyways</strong>. It is a true <strong>sensory overload</strong>."</em>
+          </div>
+        </div>
+
+        <div class="coll-panel" id="coll-7">
+          <div class="coll-grid">
+            <div class="coll-chip"><div class="coll-phrase">crumbling walls</div><div class="coll-def">walls slowly falling apart</div></div>
+            <div class="coll-chip"><div class="coll-phrase">eerie atmosphere</div><div class="coll-def">a strange, slightly frightening mood</div></div>
+            <div class="coll-chip"><div class="coll-phrase">signs of decay</div><div class="coll-def">evidence that something is breaking down</div></div>
+            <div class="coll-chip"><div class="coll-phrase">thick layer of dust</div><div class="coll-def">dust that has built up over a long time</div></div>
+            <div class="coll-chip"><div class="coll-phrase">overgrown with weeds</div><div class="coll-def">plants growing wildly and covering a surface</div></div>
+            <div class="coll-chip"><div class="coll-phrase">haunting quality</div><div class="coll-def">something that stays in your mind and disturbs you</div></div>
+            <div class="coll-chip"><div class="coll-phrase">shattered windows</div><div class="coll-def">broken glass in window frames</div></div>
+            <div class="coll-chip"><div class="coll-phrase">sense of abandonment</div><div class="coll-def">a feeling that people left suddenly</div></div>
+            <div class="coll-chip"><div class="coll-phrase">peeling paint</div><div class="coll-def">paint that is flaking and falling off walls</div></div>
+            <div class="coll-chip"><div class="coll-phrase">remnants of the past</div><div class="coll-def">objects or features from a previous time</div></div>
+          </div>
+          <div class="coll-example">
+            💬 <em>"The building has an undeniable <strong>haunting quality</strong>. Its <strong>crumbling walls</strong> and <strong>shattered windows</strong> show clear <strong>signs of decay</strong>, while the floor is covered in a <strong>thick layer of dust</strong>. The entire space gives a powerful <strong>sense of abandonment</strong> — as if people left in a hurry and never returned. Nature has begun to reclaim it, with <strong>overgrown weeds</strong> pushing through the <strong>peeling paint</strong>."</em>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== VIDEOS TAB ========== -->
+<div id="tab-videos" class="section">
+  <div class="wrap">
+    <div class="videos-section">
+      <div class="section-head">
+        <h3>Watch &amp; Discuss</h3>
+        <span class="badge" style="background:var(--teal)">real english</span>
+      </div>
+
+      <div class="video-grid">
+
+        <div class="video-card" onclick="openVideo('FMnhX-kYkG4','Planet Earth: Beach Life','The legendary BBC Planet Earth series — breathtaking nature, rich description language. Watch how narrators describe scenes with precision and emotion.')">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/FMnhX-kYkG4/mqdefault.jpg" alt="">
+            <div class="play-btn">▶</div>
+          </div>
+          <div class="video-info">
+            <div class="video-title">BBC Planet Earth — Ocean & Coastlines</div>
+            <div class="video-desc">Learn how professionals describe nature scenes: vivid verbs, precise adjectives, atmosphere-building language.</div>
+            <div class="video-tag">🏖 Description</div>
+          </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('2CSmT1MJFEo','New York City Traffic Documentary','Explore New York City rush hour — great for urban vocabulary.')">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/2CSmT1MJFEo/mqdefault.jpg" alt="">
+            <div class="play-btn">▶</div>
+          </div>
+          <div class="video-info">
+            <div class="video-title">NYC Streets: A Walking Tour</div>
+            <div class="video-desc">Authentic city noise, pedestrians, yellow cabs — real urban English from the streets of Manhattan.</div>
+            <div class="video-tag">🚗 Urban Vocab</div>
+          </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('OmNDRnwEszw','Beautiful Winter Landscape','Stunning winter scenery with calm narration — perfect for atmosphere and descriptive language.')">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/OmNDRnwEszw/mqdefault.jpg" alt="">
+            <div class="play-btn">▶</div>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Winter Wilderness: Snowy Landscapes</div>
+            <div class="video-desc">Silence, snow, mountains — relaxing video with rich descriptive language for cold and remote settings.</div>
+            <div class="video-tag">🏔 Atmosphere</div>
+          </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('t2Qpg_Y6SGA','Gordon Ramsay Kitchen Hell','High-pressure kitchen — authentic spoken English under pressure.')">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/t2Qpg_Y6SGA/mqdefault.jpg" alt="">
+            <div class="play-btn">▶</div>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Gordon Ramsay — Inside a Professional Kitchen</div>
+            <div class="video-desc">Real English under pressure: commands, criticism, encouragement. Kitchen collocations used by native speakers.</div>
+            <div class="video-tag">👨‍🍳 Real Speech</div>
+          </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('f2O6mQkFiiw','Coachella Festival Highlights','Giant festival crowd, music, colour — great for atmosphere vocabulary.')">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/f2O6mQkFiiw/mqdefault.jpg" alt="">
+            <div class="play-btn">▶</div>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Music Festival Atmosphere — Crowd &amp; Stage</div>
+            <div class="video-desc">Visual feast of colour, energy and crowds — practice describing what you see in real time.</div>
+            <div class="video-tag">🎵 Festival</div>
+          </div>
+        </div>
+
+        <div class="video-card" onclick="openVideo('XqZsoesa55w','Tokyo at Night Walk','Rain-soaked Tokyo streets at night — neon lights, atmosphere, urban beauty.')">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/XqZsoesa55w/mqdefault.jpg" alt="">
+            <div class="play-btn">▶</div>
+          </div>
+          <div class="video-info">
+            <div class="video-title">Tokyo Night Walk — Neon &amp; Rain</div>
+            <div class="video-desc">No narration — just images. Describe what you see. Perfect for building spontaneous description skills.</div>
+            <div class="video-tag">🌃 Silent Practice</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="padding:0 28px 28px;">
+        <div style="background:var(--gold-light);border:1.5px solid #e8d09a;border-radius:10px;padding:16px 20px;">
+          <div style="font-size:12px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">📋 How to use these videos</div>
+          <div style="font-size:14px;line-height:1.8;color:var(--ink);">
+            1. Watch for 2 minutes without pausing. <strong>What do you notice first?</strong><br>
+            2. Watch again and write 5 sentences about what you see using the collocations from the Images tab.<br>
+            3. Describe it out loud — record yourself on your phone and listen back.<br>
+            4. For the "silent" videos: turn off the sound and narrate it yourself as if you're a documentary presenter.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- VIDEO MODAL -->
+<div class="video-modal" id="video-modal">
+  <div class="modal-inner">
+    <div class="modal-header">
+      <h4 id="modal-title">Video Title</h4>
+      <button class="modal-close" onclick="closeVideo()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="video-embed">
+        <iframe id="modal-iframe" src="" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="modal-colls">
+      <h5>Watch out for these phrases</h5>
+      <div class="modal-colls .coll-chips" id="modal-chips"></div>
+      <p id="modal-desc" style="color:rgba(255,255,255,0.55);font-size:13px;margin-top:12px;line-height:1.6;"></p>
+    </div>
+  </div>
+</div>
+
+<!-- ========== GRAMMAR TAB ========== -->
+<div id="tab-grammar" class="section">
+  <div class="wrap">
+
+    <div class="grammar-section">
+      <div class="section-head">
+        <h3>Grammar Exercises</h3>
+        <span class="badge" style="background:var(--purple)">B2 · C1</span>
+      </div>
+      <div class="grammar-nav">
+        <button class="gram-tab active" onclick="showGram('passives', this)">Passives</button>
+        <button class="gram-tab" onclick="showGram('conditionals', this)">Conditionals</button>
+        <button class="gram-tab" onclick="showGram('wish', this)">I Wish / If Only</button>
+        <button class="gram-tab" onclick="showGram('tenses', this)">Mixed Tenses</button>
+        <button class="gram-tab" onclick="showGram('adjprep', this)">Adj + Prepositions</button>
+      </div>
+
+      <!-- ===== PASSIVES ===== -->
+      <div class="gram-panel active" id="gram-passives">
+        <div class="gram-intro">
+          <strong>Passive voice</strong> is used when the action is more important than who does it, or when we don't know who did it.<br>
+          Form: <strong>subject + be (correct tense) + past participle</strong><br>
+          Examples: <em>The photo was taken at sunrise. The city has been transformed. The report will be published next week.</em>
+        </div>
+
+        <div class="word-bank">
+          <div class="word-bank-label">💡 Grammar hint — passive forms</div>
+          <div class="word-token">was/were + pp</div>
+          <div class="word-token">has/have been + pp</div>
+          <div class="word-token">is/are being + pp</div>
+          <div class="word-token">will be + pp</div>
+          <div class="word-token">had been + pp</div>
+        </div>
+
+        <div id="pass-qs"></div>
+        <button class="check-btn" onclick="checkPassives()">Check Answers</button>
+        <button class="reset-btn" onclick="resetPassives()">Reset</button>
+        <div class="score-box" id="pass-score"></div>
+      </div>
+
+      <!-- ===== CONDITIONALS ===== -->
+      <div class="gram-panel" id="gram-conditionals">
+        <div class="gram-intro">
+          <strong>Conditional sentences</strong> — choose the correct type:<br>
+          <strong>Zero:</strong> If + present simple, present simple (general truths)<br>
+          <strong>First:</strong> If + present simple, will + infinitive (real/possible future)<br>
+          <strong>Second:</strong> If + past simple, would + infinitive (unlikely/hypothetical present)<br>
+          <strong>Third:</strong> If + past perfect, would have + past participle (impossible past)<br>
+          <strong>Mixed:</strong> If + past perfect, would + infinitive (past cause → present result)
+        </div>
+        <div id="cond-qs"></div>
+        <button class="check-btn" onclick="checkCond()">Check Answers</button>
+        <button class="reset-btn" onclick="resetCond()">Reset</button>
+        <div class="score-box" id="cond-score"></div>
+      </div>
+
+      <!-- ===== WISH ===== -->
+      <div class="gram-panel" id="gram-wish">
+        <div class="gram-intro">
+          <strong>I wish / If only</strong> express regret or desire.<br>
+          • Wish + past simple → present situation you want to change: <em>I wish I lived near the beach.</em><br>
+          • Wish + past perfect → past regret: <em>I wish I had taken more photos.</em><br>
+          • Wish + would → annoying habit you want to change: <em>I wish he would stop blaring his horn.</em><br>
+          <strong>If only</strong> has the same grammar but is more emphatic.
+        </div>
+        <div id="wish-qs"></div>
+        <button class="check-btn" onclick="checkWish()">Check Answers</button>
+        <button class="reset-btn" onclick="resetWish()">Reset</button>
+        <div class="score-box" id="wish-score"></div>
+      </div>
+
+      <!-- ===== TENSES ===== -->
+      <div class="gram-panel" id="gram-tenses">
+        <div class="gram-intro">
+          <strong>Mixed tenses</strong> — choose or write the correct tense form. Think carefully about: is the action finished or ongoing? Is it past, present, or future? Is it a habit, a single event, or something happening at this exact moment?
+        </div>
+        <div id="tense-qs"></div>
+        <button class="check-btn" onclick="checkTenses()">Check Answers</button>
+        <button class="reset-btn" onclick="resetTenses()">Reset</button>
+        <div class="score-box" id="tense-score"></div>
+      </div>
+
+      <!-- ===== ADJ + PREP ===== -->
+      <div class="gram-panel" id="gram-adjprep">
+        <div class="gram-intro">
+          <strong>Adjectives + prepositions</strong> are fixed combinations — you must learn them as collocations.<br>
+          Common ones: <em>amazed <strong>at/by</strong>, aware <strong>of</strong>, responsible <strong>for</strong>, fond <strong>of</strong>, similar <strong>to</strong>, different <strong>from</strong>, good <strong>at</strong>, interested <strong>in</strong>, frightened <strong>of</strong>, proud <strong>of</strong>, devoted <strong>to</strong>, fed up <strong>with</strong></em>
+        </div>
+        <div class="word-bank">
+          <div class="word-bank-label">Word Bank — choose the right preposition</div>
+          <div class="word-token">at</div><div class="word-token">of</div><div class="word-token">in</div>
+          <div class="word-token">with</div><div class="word-token">for</div><div class="word-token">to</div>
+          <div class="word-token">about</div><div class="word-token">by</div><div class="word-token">from</div>
+        </div>
+        <div id="adjprep-qs"></div>
+        <button class="check-btn" onclick="checkAdjPrep()">Check Answers</button>
+        <button class="reset-btn" onclick="resetAdjPrep()">Reset</button>
+        <div class="score-box" id="adjprep-score"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ========== SPEAKING TAB ========== -->
+<div id="tab-speaking" class="section">
+  <div class="wrap">
+    <div class="grammar-section">
+      <div class="section-head">
+        <h3>Speaking Challenges</h3>
+        <span class="badge" style="background:var(--green)">fluency</span>
+      </div>
+      <div class="speaking-grid" id="speaking-grid"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ========== TAB NAVIGATION ==========
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ========== SCENE SELECTION ==========
+const scenes = [
+  {
+    title: "A Beautiful Beach Day",
+    img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
+    prompts: [
+      "What can you see in the foreground and background?",
+      "What are people doing on the beach?",
+      "Describe the colour of the water and sky.",
+      "What sounds can you imagine?",
+      "How does this place make you feel, and why?"
+    ]
+  },
+  {
+    title: "Busy City Traffic",
+    img: "https://images.unsplash.com/photo-1617347454431-f49d7ff5c3b1?w=800&q=80",
+    prompts: [
+      "What types of vehicles can you see?",
+      "Describe the buildings around the street.",
+      "What are the pedestrians doing?",
+      "How would you describe the atmosphere?",
+      "What time of day do you think it is, and why?"
+    ]
+  },
+  {
+    title: "Mountain House in Winter",
+    img: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800&q=80",
+    prompts: [
+      "Describe the building — what materials, what style?",
+      "What is the weather like? How do you know?",
+      "Who might be inside, and what are they doing?",
+      "What sounds and smells can you imagine?",
+      "Would you want to stay here? Why/why not?"
+    ]
+  },
+  {
+    title: "Outdoor Music Festival",
+    img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80",
+    prompts: [
+      "How large is the crowd? Describe it.",
+      "What can you see on the stage?",
+      "Describe the lighting and colours.",
+      "What is the mood of the people?",
+      "Imagine you are there — what do you experience?"
+    ]
+  },
+  {
+    title: "Chaotic Restaurant Kitchen",
+    img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80",
+    prompts: [
+      "What are the chefs wearing and doing?",
+      "Describe the equipment you can see.",
+      "What does the atmosphere feel like — calm or chaotic?",
+      "What smells can you imagine?",
+      "What does this scene tell you about working in a kitchen?"
+    ]
+  },
+  {
+    title: "Snowy Forest Path",
+    img: "https://images.unsplash.com/photo-1491555103944-7c647fd857e6?w=800&q=80",
+    prompts: [
+      "Where does the path lead? Describe it.",
+      "What are the trees like — tall, dense, bare?",
+      "Is there any sign of people or animals?",
+      "How would it feel to walk here alone?",
+      "What time of year and time of day is it?"
+    ]
+  },
+  {
+    title: "Neon City at Night",
+    img: "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=800&q=80",
+    prompts: [
+      "What colours dominate the scene?",
+      "Describe the reflections you can see.",
+      "What are people in the scene doing?",
+      "What sounds would you hear standing there?",
+      "Does this look like a safe or dangerous place? Why?"
+    ]
+  },
+  {
+    title: "Abandoned Building",
+    img: "https://images.unsplash.com/photo-1530099486328-e021101a494a?w=800&q=80",
+    prompts: [
+      "What do you notice about the state of the building?",
+      "What used to happen in this place?",
+      "Describe the textures — walls, floors, windows.",
+      "Is the mood peaceful, sad, scary? Why?",
+      "What would you say to someone who wants to go inside?"
+    ]
+  }
+];
+
+let selectedSceneIdx = null;
+
+function selectScene(idx) {
+  document.querySelectorAll('.scene-card').forEach((c,i) => {
+    c.classList.toggle('selected', i === idx);
+  });
+  selectedSceneIdx = idx;
+  const sc = scenes[idx];
+  document.getElementById('describe-panel').style.display = 'block';
+  document.getElementById('no-scene-msg').style.display = 'none';
+  document.getElementById('desc-title').textContent = sc.title;
+  document.getElementById('desc-img').src = sc.img;
+  document.getElementById('desc-textarea').value = '';
+  const ul = document.getElementById('desc-prompts');
+  ul.innerHTML = sc.prompts.map(p => `<li>${p}</li>`).join('');
+  document.getElementById('describe-panel').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function clearDesc() {
+  document.querySelectorAll('.scene-card').forEach(c => c.classList.remove('selected'));
+  document.getElementById('describe-panel').style.display = 'none';
+  document.getElementById('no-scene-msg').style.display = 'block';
+  selectedSceneIdx = null;
+}
+
+// ========== COLLOCATIONS ==========
+function showColl(idx, btn) {
+  document.querySelectorAll('.coll-panel').forEach((p,i) => p.classList.toggle('active', i === idx));
+  document.querySelectorAll('.coll-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ========== VIDEOS ==========
+function openVideo(id, title, desc) {
+  document.getElementById('modal-iframe').src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+  document.getElementById('modal-title').textContent = title;
+  document.getElementById('modal-desc').textContent = desc;
+  document.getElementById('video-modal').classList.add('open');
+}
+
+function closeVideo() {
+  document.getElementById('modal-iframe').src = '';
+  document.getElementById('video-modal').classList.remove('open');
+}
+
+// ========== GRAMMAR ==========
+function showGram(id, btn) {
+  document.querySelectorAll('.gram-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.gram-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('gram-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ---- PASSIVES ----
+const passiveQs = [
+  { q: "The beach <em>___</em> every day by local volunteers. (clean — present simple passive)", ans: ["is cleaned"], hint: "is + cleaned" },
+  { q: "By the time we arrived, all the cabins <em>___</em>. (book — past perfect passive)", ans: ["had been booked"], hint: "had been + booked" },
+  { q: "Those photographs <em>___</em> recently by a famous artist. (take — present perfect passive)", ans: ["have been taken"], hint: "have been + taken" },
+  { q: "A new road <em>___</em> through the forest at the moment. (build — present continuous passive)", ans: ["is being built"], hint: "is being + built" },
+  { q: "The festival <em>___</em> next year in a different location. (hold — future simple passive)", ans: ["will be held"], hint: "will be + held" },
+  { q: "The kitchen <em>___</em> completely refurbished before the restaurant opened. (remodel — past perfect passive)", ans: ["had been remodelled", "had been remodeled"], hint: "had been + remodelled" },
+  { q: "All the neon signs <em>___</em> after the storm last night. (damage — past simple passive)", ans: ["were damaged"], hint: "were + damaged" },
+  { q: "The abandoned building <em>___</em> by nobody for over 30 years. (visit — present perfect passive)", ans: ["has not been visited", "has not been visited", "hasn't been visited"], hint: "has not been + visited" },
+  { q: "Snow chains must <em>___</em> on all vehicles entering the mountain road. (fit — modal passive)", ans: ["be fitted", "be fit"], hint: "must be + fitted" },
+  { q: "The crowd <em>___</em> to remain behind the barriers at all times. (ask — past simple passive)", ans: ["was asked"], hint: "was + asked" },
+];
+
+function buildPassives() {
+  const c = document.getElementById('pass-qs');
+  c.innerHTML = passiveQs.map((q,i) => `
+    <div class="q-block">
+      <div class="q-num">Question ${i+1}</div>
+      <div class="q-text">${q.q}</div>
+      <input type="text" class="gram-input" id="pass-${i}" placeholder="Type your answer…">
+      <div class="feedback" id="pass-fb-${i}"></div>
+    </div>`).join('');
+}
+
+function checkPassives() {
+  let score = 0;
+  passiveQs.forEach((q,i) => {
+    const val = document.getElementById(`pass-${i}`).value.trim().toLowerCase();
+    const correct = q.ans.some(a => val === a.toLowerCase());
+    const inp = document.getElementById(`pass-${i}`);
+    const fb = document.getElementById(`pass-fb-${i}`);
+    inp.classList.remove('correct','wrong');
+    inp.classList.add(correct ? 'correct' : 'wrong');
+    fb.className = 'feedback show ' + (correct ? 'correct' : 'wrong');
+    fb.textContent = correct ? '✓ Correct!' : `✗ Answer: ${q.ans[0]} (Hint: ${q.hint})`;
+    if (correct) score++;
+  });
+  const s = document.getElementById('pass-score');
+  s.className = 'score-box show';
+  s.innerHTML = `<div class="score-big">${score}/${passiveQs.length}</div><div class="score-label">${score >= 8 ? '🎉 Excellent passive mastery!' : score >= 6 ? '👍 Good work — review the ones you missed.' : '📖 Review passive voice forms and try again.'}</div>`;
+}
+
+function resetPassives() {
+  passiveQs.forEach((_,i) => {
+    const inp = document.getElementById(`pass-${i}`);
+    inp.value=''; inp.classList.remove('correct','wrong');
+    document.getElementById(`pass-fb-${i}`).className = 'feedback';
+  });
+  document.getElementById('pass-score').className = 'score-box';
+}
+
+// ---- CONDITIONALS ----
+const condQs = [
+  { q: "If you heat water to 100°C, it ___ (boil).", type: "multiple", opts:["boils","will boil","would boil","boiled"], ans: 0, ex:"Zero conditional — general truth." },
+  { q: "If the traffic ___ (not be) so gridlocked, we would have arrived on time.", type: "multiple", opts:["hadn't been","wasn't","isn't","won't be"], ans: 0, ex:"Third conditional — impossible past." },
+  { q: "If she ___ (practise) more, her English would be much more fluent now.", type: "multiple", opts:["had practised","practised","practises","will practise"], ans: 0, ex:"Mixed conditional — past action → present result." },
+  { q: "I wouldn't buy that abandoned house even if they ___ (pay) me.", type: "multiple", opts:["paid","would pay","will pay","had paid"], ans: 0, ex:"Second conditional — hypothetical present." },
+  { q: "If the festival ___ (cancel) due to rain, thousands of fans will be disappointed.", type: "multiple", opts:["is cancelled","was cancelled","had been cancelled","would be cancelled"], ans: 0, ex:"First conditional — real future possibility." },
+  { q: "If only we ___ (book) the cabin earlier — it's sold out now.", type: "multiple", opts:["had booked","booked","would book","have booked"], ans: 0, ex:"If only + past perfect = past regret." },
+  { q: "Unless the city ___ (reduce) pollution, the air quality will get worse.", type: "multiple", opts:["reduces","would reduce","had reduced","is reducing"], ans: 0, ex:"Unless = if not — first conditional." },
+  { q: "If I ___ (know) about the night market, I would have gone there.", type: "multiple", opts:["had known","knew","know","would know"], ans: 0, ex:"Third conditional — unknown past fact." },
+  { q: "Provided that it ___ (stop) snowing, we could hike tomorrow.", type: "multiple", opts:["stops","stopped","had stopped","will stop"], ans: 0, ex:"Provided that — first conditional variant." },
+  { q: "If the chef ___ (not shout), the kitchen would be a much calmer place.", type: "multiple", opts:["didn't shout","hadn't shouted","doesn't shout","wouldn't shout"], ans: 0, ex:"Second conditional — hypothetical present." },
+  { q: "Should you ___ (see) any signs of danger, leave immediately.", type: "multiple", opts:["see","have seen","saw","be seeing"], ans: 0, ex:"Formal first conditional with 'should'." },
+  { q: "If the crowd ___ (be warned) about the weather, they might have brought umbrellas.", type: "multiple", opts:["had been warned","was warned","were warned","is warned"], ans: 0, ex:"Third conditional — passive form." },
+];
+
+function buildCond() {
+  const c = document.getElementById('cond-qs');
+  c.innerHTML = condQs.map((q,i) => `
+    <div class="q-block">
+      <div class="q-num">Question ${i+1} — ${q.ex}</div>
+      <div class="q-text">${q.q}</div>
+      <div class="mc-options">
+        ${q.opts.map((o,j)=>`
+          <div class="mc-opt" id="cond-opt-${i}-${j}" onclick="selectOpt('cond',${i},${j},${q.ans})">
+            <span class="mc-letter">${'ABCD'[j]}</span>${o}
+          </div>`).join('')}
+      </div>
+      <div class="feedback" id="cond-fb-${i}"></div>
+    </div>`).join('');
+}
+
+const selectedOpts = {};
+function selectOpt(section, qIdx, optIdx, correct) {
+  const key = `${section}-${qIdx}`;
+  if (selectedOpts[key] !== undefined) return;
+  selectedOpts[key] = optIdx;
+  const optEl = document.getElementById(`${section}-opt-${qIdx}-${optIdx}`);
+  optEl.classList.add('selected');
+}
+
+function checkCond() {
+  let score = 0;
+  condQs.forEach((q,i) => {
+    const sel = selectedOpts[`cond-${i}`];
+    const fb = document.getElementById(`cond-fb-${i}`);
+    if (sel === undefined) {
+      fb.className = 'feedback show wrong';
+      fb.textContent = `✗ Not answered. Correct: ${q.opts[q.ans]}`;
+      return;
+    }
+    const correct = sel === q.ans;
+    if (correct) score++;
+    document.getElementById(`cond-opt-${i}-${sel}`).classList.add(correct ? 'correct-opt' : 'wrong-opt');
+    if (!correct) document.getElementById(`cond-opt-${i}-${q.ans}`).classList.add('correct-opt');
+    fb.className = 'feedback show ' + (correct?'correct':'wrong');
+    fb.textContent = correct ? '✓ Correct!' : `✗ Answer: ${q.opts[q.ans]}`;
+  });
+  const s = document.getElementById('cond-score');
+  s.className='score-box show';
+  s.innerHTML=`<div class="score-big">${score}/${condQs.length}</div><div class="score-label">${score>=10?'🎉 Outstanding conditional mastery!':score>=8?'👍 Good — review mixed and third conditionals.':'📖 Focus on which tense follows which conditional type.'}</div>`;
+}
+
+function resetCond() {
+  condQs.forEach((_,i) => {
+    delete selectedOpts[`cond-${i}`];
+    for(let j=0;j<4;j++){
+      const el = document.getElementById(`cond-opt-${i}-${j}`);
+      if(el) el.className='mc-opt';
+    }
+    document.getElementById(`cond-fb-${i}`).className='feedback';
+  });
+  document.getElementById('cond-score').className='score-box';
+}
+
+// ---- WISH / IF ONLY ----
+const wishQs = [
+  { q: "I wish I ___ (live) closer to the beach — the commute is so long.", ans:["lived"], hint:"wish + past simple = present wish" },
+  { q: "If only she ___ (not forget) her camera — those views were incredible.", ans:["hadn't forgotten"], hint:"if only + past perfect = past regret" },
+  { q: "He wishes the neighbours ___ (stop) playing loud music every night.", ans:["would stop"], hint:"wish + would = annoying habit" },
+  { q: "If only I ___ (be able to) speak Japanese when I was in Tokyo.", ans:["had been able to"], hint:"if only + past perfect" },
+  { q: "She wishes she ___ (choose) a different career — she hates cooking professionally.", ans:["had chosen"], hint:"past regret = past perfect" },
+  { q: "I wish it ___ (not rain) so much in winter — the streets are impossible.", ans:["didn't rain"], hint:"wish + past simple = present complaint" },
+  { q: "If only the traffic ___ (be) lighter — we've been sitting here for an hour.", ans:["were","was"], hint:"wish/if only + past simple for present situation" },
+  { q: "They wish the festival ___ (be) held in a bigger venue last year.", ans:["had been held"], hint:"wish + past perfect passive" },
+  { q: "I wish someone ___ (tell) me about the night market before I left!", ans:["had told"], hint:"past regret about missed information" },
+  { q: "If only he ___ (not give up) photography — he had real talent.", ans:["hadn't given up"], hint:"if only + past perfect" },
+];
+
+function buildWish() {
+  const c = document.getElementById('wish-qs');
+  c.innerHTML = wishQs.map((q,i)=>`
+    <div class="q-block">
+      <div class="q-num">Question ${i+1}</div>
+      <div class="q-text">${q.q}</div>
+      <input type="text" class="gram-input" id="wish-${i}" placeholder="Type your answer…">
+      <div class="feedback" id="wish-fb-${i}"></div>
+    </div>`).join('');
+}
+
+function checkWish(){
+  let score=0;
+  wishQs.forEach((q,i)=>{
+    const val=document.getElementById(`wish-${i}`).value.trim().toLowerCase();
+    const correct=q.ans.some(a=>val===a.toLowerCase());
+    const inp=document.getElementById(`wish-${i}`);
+    const fb=document.getElementById(`wish-fb-${i}`);
+    inp.classList.remove('correct','wrong');
+    inp.classList.add(correct?'correct':'wrong');
+    fb.className='feedback show '+(correct?'correct':'wrong');
+    fb.textContent=correct?'✓ Correct!':`✗ Answer: ${q.ans[0]} — Hint: ${q.hint}`;
+    if(correct)score++;
+  });
+  const s=document.getElementById('wish-score');
+  s.className='score-box show';
+  s.innerHTML=`<div class="score-big">${score}/${wishQs.length}</div><div class="score-label">${score>=8?'🎉 Excellent! You have mastered wish/if only.':score>=6?'👍 Almost there — check past regret forms.':'📖 Focus on the difference: present wish vs past regret.'}</div>`;
+}
+
+function resetWish(){
+  wishQs.forEach((_,i)=>{
+    const inp=document.getElementById(`wish-${i}`);
+    inp.value='';inp.classList.remove('correct','wrong');
+    document.getElementById(`wish-fb-${i}`).className='feedback';
+  });
+  document.getElementById('wish-score').className='score-box';
+}
+
+// ---- TENSES ----
+const tenseQs = [
+  { q: "By the time the festival started, we ___ (wait) in the queue for three hours.", type:"mc", opts:["had been waiting","have been waiting","were waiting","waited"], ans:0, ex:"Past perfect continuous — duration before a past event." },
+  { q: "She ___ (photograph) abandoned buildings since 2018 and has a huge collection now.", type:"mc", opts:["has been photographing","is photographing","was photographing","photographed"], ans:0, ex:"Present perfect continuous — started in past, still ongoing." },
+  { q: "Look at those clouds! It ___ (snow) by tonight.", type:"mc", opts:["will be snowing","is going to snow","snows","will snow"], ans:1, ex:"Going to — evidence for prediction." },
+  { q: "The restaurant ___ (just open) when we arrived, so there were no queues.", type:"mc", opts:["had just opened","has just opened","just opened","was just opening"], ans:0, ex:"Past perfect — completed action before another past action." },
+  { q: "At exactly 8pm every night, the neon signs ___ (switch on) automatically.", type:"mc", opts:["switch on","are switching on","have switched on","switched on"], ans:0, ex:"Present simple — regular scheduled event." },
+  { q: "I ___ (never / travel) to Asia before my trip to Tokyo last year.", type:"mc", opts:["had never travelled","have never travelled","never travelled","was never travelling"], ans:0, ex:"Past perfect — experience before a past moment." },
+  { q: "The chef ___ (still / prepare) the dishes when the first guests arrived.", type:"mc", opts:["was still preparing","has still been preparing","still prepared","is still preparing"], ans:0, ex:"Past continuous — in progress at a past moment." },
+  { q: "This time next week, we ___ (lie) on a beach in the Maldives.", type:"mc", opts:["will be lying","will lie","are lying","are going to lie"], ans:0, ex:"Future continuous — in progress at a specific future moment." },
+  { q: "The building ___ (stand) empty since the company went bankrupt in 2009.", type:"mc", opts:["has been standing","is standing","stood","had been standing"], ans:0, ex:"Present perfect continuous — from past to now." },
+  { q: "How long ___ (you / study) English when you took your B2 exam?", type:"mc", opts:["had you been studying","have you been studying","were you studying","did you study"], ans:0, ex:"Past perfect continuous — duration up to a past point." },
+];
+
+function buildTenses(){
+  const c=document.getElementById('tense-qs');
+  c.innerHTML=tenseQs.map((q,i)=>`
+    <div class="q-block">
+      <div class="q-num">Question ${i+1} — ${q.ex}</div>
+      <div class="q-text">${q.q}</div>
+      <div class="mc-options">
+        ${q.opts.map((o,j)=>`
+          <div class="mc-opt" id="tense-opt-${i}-${j}" onclick="selectOpt('tense',${i},${j},${q.ans})">
+            <span class="mc-letter">${'ABCD'[j]}</span>${o}
+          </div>`).join('')}
+      </div>
+      <div class="feedback" id="tense-fb-${i}"></div>
+    </div>`).join('');
+}
+
+function checkTenses(){
+  let score=0;
+  tenseQs.forEach((q,i)=>{
+    const sel=selectedOpts[`tense-${i}`];
+    const fb=document.getElementById(`tense-fb-${i}`);
+    if(sel===undefined){fb.className='feedback show wrong';fb.textContent=`✗ Not answered. Correct: ${q.opts[q.ans]}`;return;}
+    const correct=sel===q.ans;
+    if(correct)score++;
+    document.getElementById(`tense-opt-${i}-${sel}`).classList.add(correct?'correct-opt':'wrong-opt');
+    if(!correct)document.getElementById(`tense-opt-${i}-${q.ans}`).classList.add('correct-opt');
+    fb.className='feedback show '+(correct?'correct':'wrong');
+    fb.textContent=correct?'✓ Correct!':`✗ Answer: ${q.opts[q.ans]}`;
+  });
+  const s=document.getElementById('tense-score');
+  s.className='score-box show';
+  s.innerHTML=`<div class="score-big">${score}/${tenseQs.length}</div><div class="score-label">${score>=8?'🎉 Excellent tense mastery!':score>=6?'👍 Good — focus on perfect continuous forms.':'📖 Review perfect and continuous tense forms carefully.'}</div>`;
+}
+
+function resetTenses(){
+  tenseQs.forEach((_,i)=>{
+    delete selectedOpts[`tense-${i}`];
+    for(let j=0;j<4;j++){const el=document.getElementById(`tense-opt-${i}-${j}`);if(el)el.className='mc-opt';}
+    document.getElementById(`tense-fb-${i}`).className='feedback';
+  });
+  document.getElementById('tense-score').className='score-box';
+}
+
+// ---- ADJ + PREP ----
+const adjprepQs = [
+  { q: "She was absolutely amazed ___ the size of the crowd at the festival.", ans:["at","by"], hint:"amazed at/by" },
+  { q: "Tourists are often unaware ___ the hidden dangers on mountain paths.", ans:["of"], hint:"unaware of" },
+  { q: "The city council is responsible ___ maintaining the beach facilities.", ans:["for"], hint:"responsible for" },
+  { q: "He has always been very fond ___ cold, remote landscapes.", ans:["of"], hint:"fond of" },
+  { q: "The abandoned factory is quite similar ___ the one in the documentary.", ans:["to"], hint:"similar to" },
+  { q: "She became very interested ___ urban photography after visiting Tokyo.", ans:["in"], hint:"interested in" },
+  { q: "The local fishermen are completely dependent ___ the weather.", ans:["on"], hint:"dependent on" },
+  { q: "I'm really fed up ___ sitting in this traffic every single morning.", ans:["with"], hint:"fed up with" },
+  { q: "The photographer was totally absorbed ___ capturing the perfect shot.", ans:["in"], hint:"absorbed in" },
+  { q: "He is very good ___ describing scenes in vivid, precise language.", ans:["at"], hint:"good at" },
+  { q: "The village is quite different ___ what I had expected from the photos.", ans:["from"], hint:"different from" },
+  { q: "She felt deeply proud ___ the images she had produced.", ans:["of"], hint:"proud of" },
+];
+
+function buildAdjPrep(){
+  const c=document.getElementById('adjprep-qs');
+  c.innerHTML=adjprepQs.map((q,i)=>`
+    <div class="q-block">
+      <div class="q-num">Question ${i+1}</div>
+      <div class="q-text">${q.q}</div>
+      <input type="text" class="gram-input" id="ap-${i}" placeholder="preposition…" style="width:120px">
+      <div class="feedback" id="ap-fb-${i}"></div>
+    </div>`).join('');
+}
+
+function checkAdjPrep(){
+  let score=0;
+  adjprepQs.forEach((q,i)=>{
+    const val=document.getElementById(`ap-${i}`).value.trim().toLowerCase();
+    const correct=q.ans.includes(val);
+    const inp=document.getElementById(`ap-${i}`);
+    const fb=document.getElementById(`ap-fb-${i}`);
+    inp.classList.remove('correct','wrong');
+    inp.classList.add(correct?'correct':'wrong');
+    fb.className='feedback show '+(correct?'correct':'wrong');
+    fb.textContent=correct?'✓ Correct!':`✗ Answer: ${q.ans.join(' or ')} — Hint: ${q.hint}`;
+    if(correct)score++;
+  });
+  const s=document.getElementById('adjprep-score');
+  s.className='score-box show';
+  s.innerHTML=`<div class="score-big">${score}/${adjprepQs.length}</div><div class="score-label">${score>=10?'🎉 Perfect! You know your adjective + preposition pairs.':score>=8?'👍 Very good — learn the ones you missed as full collocations.':'📖 Learn adjective + preposition pairs as fixed phrases.'}</div>`;
+}
+
+function resetAdjPrep(){
+  adjprepQs.forEach((_,i)=>{
+    const inp=document.getElementById(`ap-${i}`);
+    inp.value='';inp.classList.remove('correct','wrong');
+    document.getElementById(`ap-fb-${i}`).className='feedback';
+  });
+  document.getElementById('adjprep-score').className='score-box';
+}
+
+// ---- SPEAKING ----
+const speakingQs = [
+  { scene:"🏖 Beach", q:"Describe a perfect beach day from your own life. Where was it? What did you see, hear and feel?" },
+  { scene:"🏖 Beach", q:"Would you prefer a busy, lively beach or a secluded, quiet one? Give detailed reasons." },
+  { scene:"🚗 City", q:"Describe the busiest city you have ever visited. What made it chaotic or exciting?" },
+  { scene:"🚗 City", q:"Do you think cities are becoming too crowded? What solutions would you propose?" },
+  { scene:"🏔 Winter", q:"Describe your ideal winter getaway in as much detail as possible — location, activities, atmosphere." },
+  { scene:"🏔 Winter", q:"Compare living in a big city with living in a remote mountain village. What are the trade-offs?" },
+  { scene:"🎵 Festival", q:"Have you ever been to a large music event or festival? Describe the atmosphere as vividly as you can." },
+  { scene:"🎵 Festival", q:"Some people say live music is a dying art in the age of streaming. Do you agree or disagree?" },
+  { scene:"👨‍🍳 Kitchen", q:"Describe a time when you were under pressure to perform — like a chef during a busy service." },
+  { scene:"👨‍🍳 Kitchen", q:"Is cooking a skill everyone should learn? What would be lost if people stopped cooking at home?" },
+  { scene:"🌲 Forest", q:"Describe a time you felt truly alone in nature. Was it peaceful or unsettling?" },
+  { scene:"🌲 Forest", q:"How important is it for cities to have access to natural spaces? What happens when they don't?" },
+  { scene:"🌃 Night City", q:"Describe a time you experienced a city at night — the lights, the sounds, the feeling." },
+  { scene:"🌃 Night City", q:"Compare the energy of a city during the day with the city at night. Which do you prefer, and why?" },
+  { scene:"🏚 Abandoned", q:"Imagine you walk into the abandoned building in the image. Tell the story of what you find." },
+  { scene:"🏚 Abandoned", q:"Why do you think some people are fascinated by abandoned and ruined places?" },
+  { scene:"💬 Open", q:"Choose any image from the gallery and describe it entirely from memory without looking at it." },
+  { scene:"💬 Open", q:"Which of the eight scenes would you most like to be in right now, and why? Be as specific as possible." },
+];
+
+function buildSpeaking(){
+  const g=document.getElementById('speaking-grid');
+  g.innerHTML=speakingQs.map((q,i)=>`
+    <div class="speak-card" data-num="${i+1}">
+      <div class="speak-card-inner">
+        <div class="speak-scene">${q.scene}</div>
+        <div class="speak-q">${q.q}</div>
+      </div>
+    </div>`).join('');
+}
+
+// ========== INIT ==========
+buildPassives();
+buildCond();
+buildWish();
+buildTenses();
+buildAdjPrep();
+buildSpeaking();
+</script>
+</body>
+</html>
