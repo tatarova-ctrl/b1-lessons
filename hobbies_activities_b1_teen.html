@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What's Cool Right Now? Hobbies & Activities — B1 English</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a1a2e;
+    --gold: #d4860e;
+    --beige: #f5f1e8;
+    --cream: #faf8f3;
+    --gold-light: #f5e6d3;
+    --dark-text: #2b2b2b;
+    --mint: #e8f5e9;
+    --mint-border: #4caf50;
+    --blue-light: #e3f0ff;
+    --blue-border: #3b82f6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--beige);
+    color: var(--dark-text);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(212,134,14,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(26,26,46,0.05) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+
+  header {
+    background: var(--cream); border: 2px solid var(--navy);
+    border-radius: 18px; padding: 32px 36px; margin-bottom: 28px;
+    position: relative; box-shadow: 6px 6px 0 var(--navy); overflow: hidden;
+  }
+  header::before {
+    content: "🎮"; position: absolute; top: 24px; right: 30px;
+    font-size: 100px; opacity: 0.13; z-index: 0;
+  }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label {
+    display: inline-block; font-family: 'Courier Prime', monospace;
+    font-size: 11px; letter-spacing: 3px;
+    background: var(--navy); color: var(--gold);
+    padding: 5px 12px; border-radius: 4px; margin-bottom: 14px;
+  }
+  h1 { font-family: 'DM Serif Display', serif; font-size: clamp(32px, 5.5vw, 52px); line-height: 1.1; color: var(--navy); letter-spacing: -1px; }
+  h1 .accent { color: var(--gold); font-style: italic; }
+  .sub { font-size: 16px; color: #4a4a4a; margin-top: 10px; max-width: 640px; }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag { font-family: 'Courier Prime', monospace; font-size: 11px; padding: 4px 10px; background: var(--gold-light); border: 1.5px solid var(--navy); border-radius: 20px; letter-spacing: 1px; color: var(--navy); }
+
+  .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .tab { padding: 11px 15px; background: var(--cream); border: 2px solid var(--navy); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px; cursor: pointer; color: var(--navy); border-radius: 10px; box-shadow: 3px 3px 0 var(--navy); transition: all 0.15s; }
+  .tab:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--navy); }
+  .tab.active { background: var(--navy); color: var(--gold); }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)} }
+
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 28px; margin-bottom: 8px; color: var(--navy); }
+  .section-title .emoji { margin-right: 10px; }
+
+  .instr { color: #4a4a4a; margin-bottom: 22px; font-size: 15px; padding: 10px 14px; background: var(--gold-light); border-left: 4px solid var(--gold); border-radius: 0 8px 8px 0; }
+
+  /* WORD BANK */
+  .word-bank {
+    background: var(--mint); border: 2px solid var(--mint-border);
+    border-radius: 12px; padding: 14px 18px; margin-bottom: 22px;
+  }
+  .word-bank-label {
+    font-family: 'Courier Prime', monospace; font-size: 11px;
+    letter-spacing: 2px; color: var(--mint-border); font-weight: 700;
+    margin-bottom: 8px; display: block;
+  }
+  .word-bank-words { display: flex; flex-wrap: wrap; gap: 8px; }
+  .wb-word {
+    background: var(--cream); border: 1.5px solid var(--mint-border);
+    border-radius: 6px; padding: 4px 10px;
+    font-family: 'Courier Prime', monospace; font-size: 13px;
+    color: var(--navy);
+  }
+
+  /* WARMUP */
+  .warmup-card { background: var(--cream); border: 2px solid var(--navy); border-left: 6px solid var(--gold); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: 4px 4px 0 var(--navy); }
+  .warmup-num { font-family: 'Courier Prime', monospace; color: var(--gold); font-weight: 700; font-size: 12px; letter-spacing: 2px; margin-bottom: 4px; }
+  .warmup-q { font-family: 'DM Serif Display', serif; font-size: 18px; line-height: 1.4; color: var(--navy); }
+
+  /* SPEAKING */
+  .speaking-card {
+    background: var(--cream); border: 2px solid var(--navy);
+    border-radius: 14px; padding: 22px 26px; margin-bottom: 18px;
+    box-shadow: 4px 4px 0 var(--navy);
+  }
+  .speaking-task-label {
+    font-family: 'Courier Prime', monospace; font-size: 11px;
+    letter-spacing: 2px; color: var(--gold); font-weight: 700;
+    margin-bottom: 6px; display: block;
+  }
+  .speaking-q {
+    font-family: 'DM Serif Display', serif; font-size: 19px;
+    line-height: 1.4; color: var(--navy); margin-bottom: 14px;
+  }
+  .try-use {
+    background: var(--gold-light); border-left: 4px solid var(--gold);
+    border-radius: 0 8px 8px 0; padding: 10px 14px;
+  }
+  .try-use strong { color: var(--gold); font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 1px; display: block; margin-bottom: 6px; }
+  .try-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { background: var(--cream); border: 1.5px solid var(--navy); border-radius: 20px; padding: 3px 10px; font-size: 13px; font-style: italic; color: var(--navy); }
+
+  /* READING */
+  .reading { background: var(--cream); border: 2px solid var(--navy); border-radius: 16px; padding: 28px 32px; box-shadow: 6px 6px 0 var(--navy); margin-bottom: 24px; }
+  .reading h3 { font-family: 'DM Serif Display', serif; font-size: 26px; margin-bottom: 6px; line-height: 1.2; color: var(--navy); }
+  .reading .byline { font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--gold); margin-bottom: 16px; }
+  .reading p { margin-bottom: 14px; line-height: 1.75; font-size: 15.5px; }
+  .reading strong { color: var(--gold); font-weight: 700; }
+
+  /* VOCAB */
+  .vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(195px,1fr)); gap: 12px; margin-top: 18px; }
+  .vocab-card { background: var(--cream); border: 2px solid var(--navy); border-radius: 12px; padding: 16px; box-shadow: 4px 4px 0 var(--navy); }
+  .vocab-card .word { font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--gold); margin-bottom: 5px; }
+  .vocab-card .def { font-size: 13px; color: #4a4a4a; line-height: 1.5; margin-bottom: 9px; }
+  .vocab-card code { display: block; background: var(--gold-light); padding: 7px; border-radius: 6px; font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--navy); border-left: 3px solid var(--gold); }
+
+  /* COLLOCATIONS */
+  .grammar-box { background: var(--gold-light); border: 2px solid var(--gold); border-radius: 12px; padding: 18px 22px; margin-bottom: 22px; }
+  .grammar-box h4 { font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--navy); margin-bottom: 10px; }
+  .grammar-box ul { margin-left: 20px; }
+  .grammar-box li { margin-bottom: 9px; line-height: 1.6; color: var(--navy); font-size: 14.5px; }
+  .grammar-box code { background: var(--cream); padding: 2px 6px; border-radius: 4px; font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--navy); }
+
+  /* MATCHING */
+  .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+  .match-col { display: flex; flex-direction: column; gap: 9px; }
+  .match-item { background: var(--cream); border: 2px solid var(--navy); padding: 11px 14px; border-radius: 10px; cursor: pointer; transition: all 0.2s; box-shadow: 3px 3px 0 var(--navy); font-family: 'Inter', sans-serif; color: var(--navy); font-size: 14px; }
+  .match-item:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--navy); }
+  .match-item.selected { background: var(--gold-light); border-color: var(--gold); font-weight: 600; }
+  .match-item.matched { background: #e8f5e9; color: #2e7d32; border-color: #4caf50; cursor: default; }
+  .match-item.wrong { animation: shake 0.3s; }
+  @keyframes shake { 0%,100%{transform:translate(0)} 25%{transform:translate(-4px)} 75%{transform:translate(4px)} }
+
+  /* FILL */
+  .fill-item { margin-bottom: 18px; }
+  .fill-item p { font-size: 15px; line-height: 1.7; color: var(--navy); }
+  .fill-input { border: none; border-bottom: 2px solid var(--navy); padding: 4px 6px; font-family: 'Courier Prime', monospace; background: transparent; min-width: 130px; color: var(--navy); font-size: 14px; }
+  .fill-input.correct { border-bottom-color: #4caf50; background: #e8f5e9; color: #2e7d32; }
+  .fill-input.wrong { border-bottom-color: #c62828; background: #ffcdd2; color: var(--navy); }
+  .num { font-family: 'Courier Prime', monospace; font-weight: 700; color: var(--gold); margin-right: 8px; font-size: 14px; }
+
+  /* MC */
+  .mc-item { margin-bottom: 20px; }
+  .mc-q { font-weight: 600; margin-bottom: 10px; font-size: 15px; color: var(--navy); line-height: 1.5; }
+  .mc-options { display: flex; flex-direction: column; gap: 9px; }
+  .mc-opt { background: var(--cream); border: 2px solid var(--navy); padding: 11px 14px; border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 14px; cursor: pointer; text-align: left; transition: all 0.2s; box-shadow: 3px 3px 0 var(--navy); color: var(--navy); }
+  .mc-opt:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--navy); }
+  .mc-opt:disabled { cursor: default; }
+  .mc-opt.correct { background: var(--gold-light); border-color: var(--gold); color: var(--gold); font-weight: 600; box-shadow: 3px 3px 0 var(--gold); }
+  .mc-opt.wrong { background: #ffcdd2; border-color: #c62828; }
+
+  /* BUTTONS */
+  .check-btn { background: var(--navy); color: var(--cream); border: 2px solid var(--navy); padding: 12px 24px; font-weight: 700; font-size: 14px; border-radius: 10px; cursor: pointer; box-shadow: 4px 4px 0 var(--navy); transition: all 0.2s; margin-right: 16px; margin-top: 8px; }
+  .check-btn:hover { transform: translate(-1px,-1px); box-shadow: 5px 5px 0 var(--navy); }
+  .score { font-family: 'Courier Prime', monospace; font-weight: 700; color: var(--gold); font-size: 14px; }
+
+  /* STATS GRID - fun version */
+  .fun-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 12px; margin-top: 20px; }
+  .fun-stat { background: var(--cream); border: 2px solid var(--navy); border-radius: 12px; padding: 16px; box-shadow: 4px 4px 0 var(--navy); text-align: center; }
+  .fun-stat .emoji-big { font-size: 34px; margin-bottom: 8px; display: block; }
+  .fun-stat .stat-num { font-family: 'DM Serif Display', serif; font-size: 28px; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+  .fun-stat .stat-label { font-size: 12px; color: #4a4a4a; line-height: 1.4; }
+
+  footer { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 2px solid var(--navy); font-family: 'Courier Prime', monospace; font-size: 12px; color: #4a4a4a; letter-spacing: 2px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="header-content">
+      <span class="badge-label">LEVEL B1 · AGE 13</span>
+      <h1>What Hobbies & Activities<br>Are <span class="accent">Cool Right Now?</span></h1>
+      <p class="sub">Gaming, sport, music, content creation — what do teenagers actually do in their free time, and why does it matter?</p>
+      <div class="tags">
+        <span class="tag">#HOBBIES</span>
+        <span class="tag">#TEEN-LIFE</span>
+        <span class="tag">#PRESENT-TENSES</span>
+        <span class="tag">#PHRASAL-VERBS</span>
+        <span class="tag">#SPEAKING</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="t1">1. Warm-up</button>
+    <button class="tab" data-tab="t2">2. Reading</button>
+    <button class="tab" data-tab="t3">3. Vocabulary</button>
+    <button class="tab" data-tab="t4">4. Collocations</button>
+    <button class="tab" data-tab="t5">5. Speaking</button>
+    <button class="tab" data-tab="t6">6. Matching</button>
+    <button class="tab" data-tab="t7">7. Fill</button>
+    <button class="tab" data-tab="t8">8. Multiple Choice</button>
+    <button class="tab" data-tab="t9">9. Present Tenses</button>
+    <button class="tab" data-tab="t10">10. Phrasal Verbs</button>
+  </div>
+
+  <!-- TAB 1: WARM-UP -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">🤔</span>Warm-up</h2>
+    <p class="instr">Talk about these questions with a partner. There are no wrong answers!</p>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 01</div>
+      <div class="warmup-q">What do you do in your free time after school? Name three things.</div>
+    </div>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 02</div>
+      <div class="warmup-q">What games do you play — on console, PC, or mobile? How much time do you spend gaming each week?</div>
+    </div>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 03</div>
+      <div class="warmup-q">Do you follow any YouTubers or content creators? Why do you like them?</div>
+    </div>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 04</div>
+      <div class="warmup-q">What is one hobby you'd love to try but haven't started yet?</div>
+    </div>
+  </section>
+
+  <!-- TAB 2: READING -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading</h2>
+    <p class="instr">Read about Jake — a 13-year-old from Manchester — and what he gets up to in his free time.</p>
+
+    <div class="reading">
+      <h3>"I Don't Have Time to Be Bored"</h3>
+      <p class="byline">★ Jake, 13 · Manchester, UK · Year 9 · Gaming, Football & YouTube</p>
+
+      <p>Ask Jake what he does after school and he'll laugh. "I don't have time to be bored," he says. His afternoons are <strong>packed with</strong> activities — and none of them look like what his parents did at his age. On Tuesdays and Thursdays, he trains with his local football team. On weekdays, he <strong>hangs out</strong> with his friends online — mostly playing Fortnite and Minecraft — for about two hours. On Fridays, he goes to a free coding club at school. And on weekends, he sometimes films short videos for his YouTube channel, which currently has 340 subscribers.</p>
+
+      <p>"Gaming isn't just sitting there doing nothing," Jake says firmly. "You're <strong>working as a team</strong>, communicating, making quick decisions. Last week we had a tournament and we came second." His parents aren't fully convinced, but Jake's school counsellor agrees with him: research shows that <strong>collaborative gaming</strong> develops real-world skills like problem-solving, communication, and resilience. The key is <strong>balance</strong> — not spending every waking hour with a controller in your hands.</p>
+
+      <p>Jake is also <strong>into making content</strong>. He started his YouTube channel six months ago after watching a tutorial on video editing. "I just film stuff — my football training, some gaming highlights, random things I think are funny." He does everything himself: filming, editing, adding music. He hasn't <strong>blown up</strong> yet — 340 subscribers is not exactly MrBeast territory — but he doesn't care. "I'm learning loads. And it's actually really hard to <strong>come up with</strong> ideas every week."</p>
+
+      <p>Not everything Jake does is digital, though. He reads graphic novels, cycles to school every day, and has recently <strong>picked up</strong> the guitar — badly, he admits, but enthusiastically. "My mum says I'll <strong>get into it</strong> eventually." According to surveys, 90% of teenagers Jake's age use YouTube daily. But the teens who <strong>stand out</strong> are the ones who don't just consume — they create, they play, they build things. Jake, it seems, is one of them.</p>
+    </div>
+
+    <p class="instr"><strong>Answer these questions about the reading:</strong></p>
+    <div class="fill-item"><p><span class="num">01</span>What does Jake do on Tuesdays and Thursdays?</p></div>
+    <div class="fill-item"><p><span class="num">02</span>What argument does Jake make about gaming? Do you agree?</p></div>
+    <div class="fill-item"><p><span class="num">03</span>What new hobby has Jake recently started? How is he doing?</p></div>
+  </section>
+
+  <!-- TAB 3: VOCABULARY -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">📚</span>Vocabulary</h2>
+    <p class="instr">Learn these useful words about hobbies, activities, and free time.</p>
+    <div class="vocab-grid">
+      <div class="vocab-card">
+        <div class="word">hobby</div>
+        <div class="def">An activity you do regularly for fun, not for work or school.</div>
+        <code>My main hobby is gaming — I play almost every evening.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">content creator</div>
+        <div class="def">Someone who makes videos, posts, or other media for an online audience.</div>
+        <code>Jake is a content creator with 340 subscribers on YouTube.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">subscribers</div>
+        <div class="def">People who follow and regularly watch a channel or account online.</div>
+        <code>He gained 100 new subscribers after his gaming video went viral.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">tournament</div>
+        <div class="def">A competition where people play against each other to find the best.</div>
+        <code>Their team came second in the online Fortnite tournament.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">collaborative</div>
+        <div class="def">Working together with other people as a team to achieve something.</div>
+        <code>Collaborative gaming teaches you to communicate and trust your teammates.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">resilience</div>
+        <div class="def">The ability to keep going and not give up when things are difficult.</div>
+        <code>Losing a match teaches you resilience — you try again next time.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">balance</div>
+        <div class="def">Having the right amount of different things — not too much of one thing.</div>
+        <code>Balance is important: gaming is great, but so is going outside.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">tutorial</div>
+        <div class="def">A video or guide that teaches you how to do something step by step.</div>
+        <code>He learned to edit videos by watching tutorials on YouTube.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">highlights</div>
+        <div class="def">The best or most exciting moments from a game or event.</div>
+        <code>He uploads his best gaming highlights to his YouTube channel.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">subscriber count</div>
+        <div class="def">The total number of people who follow a channel.</div>
+        <code>His subscriber count grew from 10 to 340 in just six months.</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 4: COLLOCATIONS -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">🎯</span>Useful Word Combinations</h2>
+    <p class="instr">These word pairs go together naturally in English. Learn them as chunks!</p>
+
+    <div class="grammar-box">
+      <h4>🎮 Gaming and technology</h4>
+      <ul>
+        <li><strong>play online</strong> = to game using the internet with other players. <code>We play online every Friday evening after school.</code></li>
+        <li><strong>level up</strong> = to improve your skills or reach the next level. <code>I finally levelled up after practising for two weeks.</code></li>
+        <li><strong>go viral</strong> = when a video or post is shared by millions of people. <code>His funny gaming clip went viral and got 2 million views.</code></li>
+        <li><strong>upload a video</strong> = to put a video on a platform like YouTube. <code>He uploads a new video every Saturday morning.</code></li>
+      </ul>
+    </div>
+
+    <div class="grammar-box">
+      <h4>⚽ Sport and activity</h4>
+      <ul>
+        <li><strong>join a team</strong> = to become a member of a sports group. <code>He joined the school football team in Year 8.</code></li>
+        <li><strong>train hard</strong> = to practise intensively and seriously. <code>She trains hard three times a week to improve her skills.</code></li>
+        <li><strong>take up a sport</strong> = to start doing a sport for the first time. <code>He took up skateboarding last summer and loves it.</code></li>
+        <li><strong>compete in a tournament</strong> = to take part in an organised competition. <code>Their team competed in a regional tournament and won.</code></li>
+      </ul>
+    </div>
+
+    <div class="grammar-box">
+      <h4>🎵 Creative hobbies</h4>
+      <ul>
+        <li><strong>learn an instrument</strong> = to study how to play music. <code>He's learning the guitar — he practises for 20 minutes a day.</code></li>
+        <li><strong>edit a video</strong> = to cut, arrange, and improve recorded footage. <code>She edits all her own videos using free software on her laptop.</code></li>
+        <li><strong>come up with ideas</strong> = to think of new creative concepts. <code>It's hard to come up with ideas for a new video every week.</code></li>
+        <li><strong>grow an audience</strong> = to get more followers or viewers over time. <code>He's slowly growing an audience for his gaming content.</code></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TAB 5: SPEAKING PRACTICE -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">🎤</span>Speaking Practice</h2>
+    <p class="instr">Speak for <strong>1 minute</strong> per question. Try to use <strong>at least 3 of the suggested words or phrases</strong> in each answer. The last task is a role-play — try it twice, swapping roles!</p>
+
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 01 · YOUR AFTER-SCHOOL LIFE</span>
+      <div class="speaking-q">What do you usually do after school? Walk us through a typical afternoon and evening — what do you do first, second, and later?</div>
+      <div class="try-use">
+        <strong>TRY TO USE:</strong>
+        <div class="try-chips">
+          <span class="chip">first I usually...</span>
+          <span class="chip">hang out</span>
+          <span class="chip">packed with activities</span>
+          <span class="chip">after that</span>
+          <span class="chip">in my free time</span>
+          <span class="chip">I'm into...</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 02 · GAMING: GOOD OR BAD?</span>
+      <div class="speaking-q">Is gaming a waste of time — or is it actually useful? Give your opinion and at least one reason for and one reason against gaming.</div>
+      <div class="try-use">
+        <strong>TRY TO USE:</strong>
+        <div class="try-chips">
+          <span class="chip">collaborative gaming</span>
+          <span class="chip">working as a team</span>
+          <span class="chip">problem-solving</span>
+          <span class="chip">balance</span>
+          <span class="chip">on the other hand</span>
+          <span class="chip">I think / I believe</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 03 · YOUR DREAM CHANNEL</span>
+      <div class="speaking-q">If you started a YouTube or TikTok channel, what would it be about? What kind of content would you make — and what's the hardest part about being a content creator?</div>
+      <div class="try-use">
+        <strong>TRY TO USE:</strong>
+        <div class="try-chips">
+          <span class="chip">come up with ideas</span>
+          <span class="chip">upload a video</span>
+          <span class="chip">grow an audience</span>
+          <span class="chip">subscriber count</span>
+          <span class="chip">go viral</span>
+          <span class="chip">it would be about...</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 04 · SCREEN TIME DEBATE</span>
+      <div class="speaking-q">How much screen time is too much? Do you think teens spend too much time on screens? What should they do instead — or is it fine as it is?</div>
+      <div class="try-use">
+        <strong>TRY TO USE:</strong>
+        <div class="try-chips">
+          <span class="chip">spend time on</span>
+          <span class="chip">too much / too little</span>
+          <span class="chip">in real life</span>
+          <span class="chip">instead of</span>
+          <span class="chip">I reckon...</span>
+          <span class="chip">it depends on...</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 05 · ROLE-PLAY (swap roles after!)</span>
+      <div class="speaking-q"><strong>Student A:</strong> You are a teenager. Your parent says you spend too much time gaming. Defend your hobby and explain why it's not a waste of time.<br><br><strong>Student B:</strong> You are the parent. You're worried about your child's grades and health. Ask them to cut down on screen time and try something different.</div>
+      <div class="try-use">
+        <strong>TRY TO USE:</strong>
+        <div class="try-chips">
+          <span class="chip">I understand, but...</span>
+          <span class="chip">it helps me...</span>
+          <span class="chip">you should try...</span>
+          <span class="chip">I'm not saying...</span>
+          <span class="chip">can we agree on...</span>
+          <span class="chip">resilience / teamwork</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 6: MATCHING -->
+  <section class="panel" id="t6">
+    <h2 class="section-title"><span class="emoji">🔗</span>Matching</h2>
+    <p class="instr">Match each word on the left with its correct meaning. Click a word, then click its definition.</p>
+    <div class="match-grid">
+      <div class="match-col">
+        <span class="match-item" data-word="hobby">hobby</span>
+        <span class="match-item" data-word="tournament">tournament</span>
+        <span class="match-item" data-word="tutorial">tutorial</span>
+        <span class="match-item" data-word="subscribers">subscribers</span>
+        <span class="match-item" data-word="collaborative">collaborative</span>
+        <span class="match-item" data-word="highlights">highlights</span>
+        <span class="match-item" data-word="resilience">resilience</span>
+        <span class="match-item" data-word="balance">balance</span>
+        <span class="match-item" data-word="content-creator">content creator</span>
+        <span class="match-item" data-word="viral">go viral</span>
+      </div>
+      <div class="match-col">
+        <span class="match-item" data-def="tutorial">A step-by-step guide or video that teaches you how to do something</span>
+        <span class="match-item" data-def="hobby">An activity you do regularly for fun, not for school or work</span>
+        <span class="match-item" data-def="viral">When a video or post spreads very fast and gets millions of views</span>
+        <span class="match-item" data-def="tournament">A competition where many teams or players compete to find the best</span>
+        <span class="match-item" data-def="subscribers">People who follow and regularly watch someone's online channel</span>
+        <span class="match-item" data-def="collaborative">Working together as a team to achieve a shared goal</span>
+        <span class="match-item" data-def="balance">Having the right mix of activities — not too much of just one thing</span>
+        <span class="match-item" data-def="highlights">The best and most exciting moments from a game or event</span>
+        <span class="match-item" data-def="resilience">The ability to keep going and not give up when things are hard</span>
+        <span class="match-item" data-def="content-creator">Someone who makes videos, posts, or media for an online audience</span>
+      </div>
+    </div>
+    <span class="score" id="score6">— / 10</span>
+  </section>
+
+  <!-- TAB 7: FILL -->
+  <section class="panel" id="t7">
+    <h2 class="section-title"><span class="emoji">✏️</span>Fill in the Blanks</h2>
+    <p class="instr">Use a word from the Word Bank to complete each sentence. Each word is used once.</p>
+
+    <div class="word-bank">
+      <span class="word-bank-label">📖 WORD BANK</span>
+      <div class="word-bank-words">
+        <span class="wb-word">tournament</span>
+        <span class="wb-word">subscribers</span>
+        <span class="wb-word">tutorial</span>
+        <span class="wb-word">balance</span>
+        <span class="wb-word">highlights</span>
+        <span class="wb-word">resilience</span>
+        <span class="wb-word">collaborative</span>
+        <span class="wb-word">hobby</span>
+        <span class="wb-word">content creator</span>
+        <span class="wb-word">viral</span>
+      </div>
+    </div>
+
+    <div class="fill-item">
+      <p><span class="num">01</span>Jake's favourite <input class="fill-input" data-answer="hobby">, is gaming — he plays almost every day after school.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">02</span>He learned video editing by watching a <input class="fill-input" data-answer="tutorial">, on YouTube.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">03</span>His channel has 340 <input class="fill-input" data-answer="subscribers">, who watch his gaming videos.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">04</span>Their team entered a Fortnite <input class="fill-input" data-answer="tournament">, and came second place.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">05</span>Jake uploads his best gaming <input class="fill-input" data-answer="highlights">, every weekend to his channel.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">06</span>The key to a healthy lifestyle is <input class="fill-input" data-answer="balance">, — not too much screen time, not too little activity.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">07</span>Losing a game teaches you <input class="fill-input" data-answer="resilience">, because you have to keep trying.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">08</span><input class="fill-input" data-answer="collaborative">, games teach you to work as a team and communicate under pressure.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">09</span>Jake wants to become a <input class="fill-input" data-answer="content creator">, and make videos for a living one day.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">10</span>His clip about his football training nearly went <input class="fill-input" data-answer="viral">, — it got 8,000 views in one weekend.</p>
+    </div>
+
+    <button class="check-btn" onclick="checkFill()">✓ Check Answers</button>
+    <span class="score" id="score7">— / 10</span>
+  </section>
+
+  <!-- TAB 8: MULTIPLE CHOICE -->
+  <section class="panel" id="t8">
+    <h2 class="section-title"><span class="emoji">❓</span>Multiple Choice</h2>
+    <p class="instr">Choose the correct answer for each question about the reading.</p>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q01</span>On which days does Jake train with his football team?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Mondays and Wednesdays</button>
+        <button class="mc-opt">b) Tuesdays and Thursdays</button>
+        <button class="mc-opt">c) Fridays and Saturdays</button>
+        <button class="mc-opt">d) Every day after school</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q02</span>What does Jake do on Fridays?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) He films videos for YouTube</button>
+        <button class="mc-opt">b) He plays football training</button>
+        <button class="mc-opt">c) He goes to a coding club at school</button>
+        <button class="mc-opt">d) He plays Fortnite with friends online</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q03</span>How many subscribers does Jake's YouTube channel have?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) 340</button>
+        <button class="mc-opt">b) 3,400</button>
+        <button class="mc-opt">c) 34</button>
+        <button class="mc-opt">d) 34,000</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q04</span>What argument does Jake make about gaming?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) It's a good way to avoid doing homework</button>
+        <button class="mc-opt">b) It's better than watching TV</button>
+        <button class="mc-opt">c) It makes you famous on the internet</button>
+        <button class="mc-opt">d) It develops teamwork, communication, and problem-solving skills</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q05</span>How long has Jake had his YouTube channel?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) One year</button>
+        <button class="mc-opt">b) Six months</button>
+        <button class="mc-opt">c) Two years</button>
+        <button class="mc-opt">d) Three weeks</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q06</span>What new hobby has Jake recently started?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Skateboarding</button>
+        <button class="mc-opt">b) Drawing</button>
+        <button class="mc-opt">c) Guitar</button>
+        <button class="mc-opt">d) Cooking</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q07</span>What does Jake put on his YouTube channel?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Football training footage, gaming highlights, and funny things</button>
+        <button class="mc-opt">b) Only music videos</button>
+        <button class="mc-opt">c) Coding tutorials</button>
+        <button class="mc-opt">d) Only Fortnite gameplay</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q08</span>What does "blown up" mean in the text?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) To stop working</button>
+        <button class="mc-opt">b) To get very angry</button>
+        <button class="mc-opt">c) To make something explode</button>
+        <button class="mc-opt">d) To become very famous or popular very quickly</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q09</span>According to the reading, what percentage of teenagers Jake's age use YouTube every day?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) 63%</button>
+        <button class="mc-opt">b) 90%</button>
+        <button class="mc-opt">c) 73%</button>
+        <button class="mc-opt">d) 55%</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q10</span>What does Jake's school counsellor say about gaming?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) It is always a bad habit and should be stopped</button>
+        <button class="mc-opt">b) It is fine as long as you only play at weekends</button>
+        <button class="mc-opt">c) Collaborative gaming can develop real-world skills, but balance is key</button>
+        <button class="mc-opt">d) It is better than watching TV or videos</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q11</span>What does "packed with" mean in the first paragraph?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Full of / containing a lot of</button>
+        <button class="mc-opt">b) Boring and empty</button>
+        <button class="mc-opt">c) Travelling with a bag</button>
+        <button class="mc-opt">d) Organised by someone else</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q12</span>What is the main idea of the reading?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Teenagers should stop gaming and go outside more</button>
+        <button class="mc-opt">b) YouTube is the most popular platform for teens</button>
+        <button class="mc-opt">c) Jake is going to become the next MrBeast</button>
+        <button class="mc-opt">d) Modern teenagers like Jake have varied hobbies that mix digital and physical activities</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkMC()">✓ Check MC</button>
+    <span class="score" id="score8">— / 12</span>
+  </section>
+
+  <!-- TAB 9: PRESENT TENSES -->
+  <section class="panel" id="t9">
+    <h2 class="section-title"><span class="emoji">⏱️</span>Present Tenses</h2>
+    <p class="instr">Practice the Present Simple and Present Continuous using hobbies and activities.</p>
+
+    <div class="grammar-box">
+      <h4>⏱️ Present Simple vs Present Continuous</h4>
+      <ul>
+        <li><strong>Present Simple</strong> = things that happen regularly / always / never. <code>Jake plays football every Tuesday. He trains three times a week.</code></li>
+        <li><strong>Present Continuous</strong> = things happening right now or around this time. <code>Jake is learning the guitar at the moment. He's getting better.</code></li>
+        <li><strong>Key time words:</strong> Simple: always, usually, every day, never, sometimes. Continuous: now, at the moment, currently, these days, this week.</li>
+      </ul>
+    </div>
+
+    <p class="instr"><strong>Part A:</strong> Choose the correct form from the Word Bank. Use each once.</p>
+
+    <div class="word-bank">
+      <span class="word-bank-label">📖 WORD BANK</span>
+      <div class="word-bank-words">
+        <span class="wb-word">is making</span>
+        <span class="wb-word">trains</span>
+        <span class="wb-word">uploads</span>
+        <span class="wb-word">are playing</span>
+        <span class="wb-word">is learning</span>
+      </div>
+    </div>
+
+    <div class="fill-item">
+      <p><span class="num">01</span>Jake <input class="fill-input" data-answer="trains">, with his football team every Tuesday and Thursday. (routine)</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">02</span>He <input class="fill-input" data-answer="uploads">, a new video every weekend. (regular habit)</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">03</span>He <input class="fill-input" data-answer="is learning">, the guitar at the moment — he just started. (happening now)</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">04</span>Right now, Jake and his friends <input class="fill-input" data-answer="are playing">, Fortnite online. (happening now)</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">05</span>This month, Jake <input class="fill-input" data-answer="is making">, a special video about his football team. (temporary situation)</p>
+    </div>
+
+    <p class="instr"><strong>Part B:</strong> Choose the correct tense.</p>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q06</span>Which sentence is correct?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "He is going to coding club every Friday."</button>
+        <button class="mc-opt">b) "He goes to coding club every Friday."</button>
+        <button class="mc-opt">c) "He go to coding club every Friday."</button>
+        <button class="mc-opt">d) "He going to coding club every Friday."</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q07</span>Which sentence describes something happening right now?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "She usually edits videos on Saturday."</button>
+        <button class="mc-opt">b) "She edits videos every week."</button>
+        <button class="mc-opt">c) "She is editing a video right now."</button>
+        <button class="mc-opt">d) "She always edits her videos alone."</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkPresent()">✓ Check Tenses</button>
+    <span class="score" id="score9">— / 7</span>
+  </section>
+
+  <!-- TAB 10: PHRASAL VERBS -->
+  <section class="panel" id="t10">
+    <h2 class="section-title"><span class="emoji">🔄</span>Phrasal Verbs</h2>
+    <p class="instr">These phrasal verbs appear in the reading. Learn what they mean, then complete the exercises.</p>
+
+    <div class="grammar-box">
+      <h4>🔄 Phrasal Verbs from the Reading</h4>
+      <ul>
+        <li><strong>hang out</strong> = to spend relaxed time with friends. <code>We hang out at the park after school on Wednesdays.</code></li>
+        <li><strong>pick up</strong> = to start learning something new without formal lessons. <code>He picked up the guitar by watching YouTube tutorials.</code></li>
+        <li><strong>get into</strong> = to become interested in and enjoy something. <code>I got into gaming when I was ten and never stopped.</code></li>
+        <li><strong>come up with</strong> = to think of an idea or plan. <code>It's hard to come up with a new video idea every week.</code></li>
+        <li><strong>blow up</strong> = to become suddenly very famous or popular. <code>His channel blew up after one video got 2 million views.</code></li>
+        <li><strong>stand out</strong> = to be noticeably different or better than others. <code>The teens who create content really stand out from the crowd.</code></li>
+        <li><strong>keep up with</strong> = to stay at the same level as something that is changing. <code>It's hard to keep up with all the new trends online.</code></li>
+      </ul>
+    </div>
+
+    <p class="instr"><strong>Part A:</strong> Use a phrasal verb from the Word Bank to complete each sentence. Use the correct form.</p>
+
+    <div class="word-bank">
+      <span class="word-bank-label">📖 WORD BANK</span>
+      <div class="word-bank-words">
+        <span class="wb-word">hang out</span>
+        <span class="wb-word">picked up</span>
+        <span class="wb-word">got into</span>
+        <span class="wb-word">come up with</span>
+        <span class="wb-word">blow up</span>
+        <span class="wb-word">stands out</span>
+        <span class="wb-word">keep up with</span>
+      </div>
+    </div>
+
+    <div class="fill-item">
+      <p><span class="num">01</span>Jake and his friends <input class="fill-input" data-answer="hang out">, online after school and play games together.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">02</span>He <input class="fill-input" data-answer="picked up">, the guitar six months ago and is slowly improving.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">03</span>She <input class="fill-input" data-answer="got into">, graphic novels last year and now reads one every week.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">04</span>The hardest part of YouTube is trying to <input class="fill-input" data-answer="come up with">, fresh ideas every single week.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">05</span>Jake hopes his channel will eventually <input class="fill-input" data-answer="blow up">, and go from hundreds to millions of subscribers.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">06</span>Among all the creators at his school, Jake really <input class="fill-input" data-answer="stands out">, because he edits and films everything himself.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">07</span>It's almost impossible to <input class="fill-input" data-answer="keep up with">, all the new TikTok and YouTube trends every week.</p>
+    </div>
+
+    <p class="instr"><strong>Part B:</strong> Choose the best meaning for each phrasal verb.</p>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q08</span>What does "get into something" mean?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) To enter a room or building</button>
+        <button class="mc-opt">b) To get angry about something</button>
+        <button class="mc-opt">c) To become interested in and enjoy a hobby or activity</button>
+        <button class="mc-opt">d) To win a competition</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q09</span>Which sentence uses "pick up" correctly?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "She picked up to the challenge and won."</button>
+        <button class="mc-opt">b) "He picked up Spanish by watching Netflix in Spanish."</button>
+        <button class="mc-opt">c) "They picked up the game was too hard."</button>
+        <button class="mc-opt">d) "I picked up online every evening."</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q10</span>If someone's channel "blew up", it means…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) It became very popular very quickly</button>
+        <button class="mc-opt">b) It was deleted by YouTube</button>
+        <button class="mc-opt">c) The creator got very angry</button>
+        <button class="mc-opt">d) It stopped working properly</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkPhrasal()">✓ Check Phrasal Verbs</button>
+    <span class="score" id="score10">— / 10</span>
+  </section>
+
+  <footer>
+    🎮 ★ ★ &nbsp; HOBBIES & ACTIVITIES · B1 ENGLISH · AGE 13 &nbsp; ★ ★ 🎮
+  </footer>
+</div>
+
+<script>
+  // TABS
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // MATCHING
+  let selectedWord = null, matched6 = 0;
+  document.querySelectorAll('#t6 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) {
+        document.querySelectorAll('#t6 [data-word]').forEach(w => w.classList.remove('selected'));
+        item.classList.add('selected'); selectedWord = item;
+      } else if (item.dataset.def && selectedWord) {
+        if (selectedWord.dataset.word === item.dataset.def) {
+          selectedWord.classList.remove('selected'); selectedWord.classList.add('matched');
+          item.classList.add('matched'); matched6++;
+          document.getElementById('score6').textContent = matched6 === 10 ? '★ 10 / 10 ★' : matched6 + ' / 10';
+          selectedWord = null;
+        } else { item.classList.add('wrong'); setTimeout(() => item.classList.remove('wrong'), 500); }
+      }
+    });
+  });
+
+  // FILL
+  function checkFill() {
+    let correct = 0;
+    document.querySelectorAll('#t7 .fill-input').forEach(input => {
+      const ans = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      if (val === ans) { input.classList.add('correct'); correct++; }
+      else if (val) input.classList.add('wrong');
+    });
+    document.getElementById('score7').textContent = correct === 10 ? '★ 10 / 10 ★' : correct + ' / 10';
+  }
+
+  // MC
+  let mcScore = 0;
+  document.querySelectorAll('#t8 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        item.querySelectorAll('.mc-opt').forEach(o => o.disabled = true);
+        const letter = ['a','b','c','d'][i];
+        if (letter === correct) { opt.classList.add('correct'); mcScore++; }
+        else { opt.classList.add('wrong'); item.querySelectorAll('.mc-opt').forEach((o,j) => { if (['a','b','c','d'][j]===correct) o.classList.add('correct'); }); }
+        document.getElementById('score8').textContent = mcScore === 12 ? '★ 12 / 12 ★' : mcScore + ' / 12';
+      });
+    });
+  });
+
+  // PRESENT TENSES
+  let presScore = 0;
+  function checkPresent() {
+    let correct = 0;
+    document.querySelectorAll('#t9 .fill-input').forEach(input => {
+      const ans = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      if (val === ans) { input.classList.add('correct'); correct++; }
+      else if (val) input.classList.add('wrong');
+    });
+    correct += presScore;
+    document.getElementById('score9').textContent = correct === 7 ? '★ 7 / 7 ★' : correct + ' / 7';
+  }
+  document.querySelectorAll('#t9 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        item.querySelectorAll('.mc-opt').forEach(o => o.disabled = true);
+        const letter = ['a','b','c','d'][i];
+        if (letter === correct) { opt.classList.add('correct'); presScore++; }
+        else { opt.classList.add('wrong'); item.querySelectorAll('.mc-opt').forEach((o,j) => { if (['a','b','c','d'][j]===correct) o.classList.add('correct'); }); }
+      });
+    });
+  });
+
+  // PHRASAL VERBS
+  let phScore = 0;
+  function checkPhrasal() {
+    let correct = 0;
+    document.querySelectorAll('#t10 .fill-input').forEach(input => {
+      const ans = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      if (val === ans) { input.classList.add('correct'); correct++; }
+      else if (val) input.classList.add('wrong');
+    });
+    correct += phScore;
+    document.getElementById('score10').textContent = correct === 10 ? '★ 10 / 10 ★' : correct + ' / 10';
+  }
+  document.querySelectorAll('#t10 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        item.querySelectorAll('.mc-opt').forEach(o => o.disabled = true);
+        const letter = ['a','b','c','d'][i];
+        if (letter === correct) { opt.classList.add('correct'); phScore++; }
+        else { opt.classList.add('wrong'); item.querySelectorAll('.mc-opt').forEach((o,j) => { if (['a','b','c','d'][j]===correct) o.classList.add('correct'); }); }
+      });
+    });
+  });
+</script>
+</body>
+</html>
