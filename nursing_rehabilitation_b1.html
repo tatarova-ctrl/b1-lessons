@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nursing in Post-Surgical Recovery — B1 English</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a1a2e;
+    --gold: #d4860e;
+    --beige: #f5f1e8;
+    --cream: #faf8f3;
+    --gold-light: #f5e6d3;
+    --dark-text: #2b2b2b;
+    --mint: #e8f5e9;
+    --mint-border: #4caf50;
+    --blue-light: #e3f2fd;
+    --blue-border: #1976d2;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--beige);
+    color: var(--dark-text);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(212,134,14,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(26,26,46,0.05) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+
+  header {
+    background: var(--cream); border: 2px solid var(--navy);
+    border-radius: 18px; padding: 32px 36px; margin-bottom: 28px;
+    position: relative; box-shadow: 6px 6px 0 var(--navy); overflow: hidden;
+  }
+  header::before {
+    content: "🏥"; position: absolute; top: 24px; right: 30px;
+    font-size: 100px; opacity: 0.12; z-index: 0;
+  }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label {
+    display: inline-block; font-family: 'Courier Prime', monospace;
+    font-size: 11px; letter-spacing: 3px;
+    background: var(--navy); color: var(--gold);
+    padding: 5px 12px; border-radius: 4px; margin-bottom: 14px;
+  }
+  h1 { font-family: 'DM Serif Display', serif; font-size: clamp(32px, 5vw, 52px); line-height: 1.08; color: var(--navy); letter-spacing: -1px; }
+  h1 .accent { color: var(--gold); font-style: italic; }
+  .sub { font-size: 16px; color: #4a4a4a; margin-top: 10px; max-width: 640px; }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag { font-family: 'Courier Prime', monospace; font-size: 11px; padding: 4px 10px; background: var(--gold-light); border: 1.5px solid var(--navy); border-radius: 20px; letter-spacing: 1px; color: var(--navy); }
+
+  .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .tab { padding: 12px 15px; background: var(--cream); border: 2px solid var(--navy); font-family: 'Inter', sans-serif; font-weight: 600; font-size: 13px; cursor: pointer; color: var(--navy); border-radius: 10px; box-shadow: 3px 3px 0 var(--navy); transition: all 0.15s; }
+  .tab:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--navy); }
+  .tab.active { background: var(--navy); color: var(--gold); }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)} }
+
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 29px; margin-bottom: 8px; color: var(--navy); }
+  .section-title .emoji { margin-right: 10px; }
+  .instr { color: #4a4a4a; margin-bottom: 22px; font-size: 15px; padding: 10px 14px; background: var(--gold-light); border-left: 4px solid var(--gold); border-radius: 0 8px 8px 0; }
+
+  /* GRAMMAR HIGHLIGHT BOX */
+  .grammar-highlight {
+    background: var(--blue-light); border: 2px solid var(--blue-border);
+    border-radius: 12px; padding: 18px 22px; margin-bottom: 22px;
+  }
+  .grammar-highlight h4 { font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--navy); margin-bottom: 10px; }
+  .grammar-highlight ul { margin-left: 20px; }
+  .grammar-highlight li { margin-bottom: 9px; line-height: 1.6; color: var(--navy); font-size: 14.5px; }
+  .grammar-highlight code { background: var(--cream); padding: 2px 6px; border-radius: 4px; font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--navy); }
+
+  /* WORD BANK */
+  .word-bank { background: var(--mint); border: 2px solid var(--mint-border); border-radius: 12px; padding: 14px 18px; margin-bottom: 22px; }
+  .word-bank-label { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 2px; color: var(--mint-border); font-weight: 700; margin-bottom: 8px; display: block; }
+  .word-bank-words { display: flex; flex-wrap: wrap; gap: 8px; }
+  .wb-word { background: var(--cream); border: 1.5px solid var(--mint-border); border-radius: 6px; padding: 4px 10px; font-family: 'Courier Prime', monospace; font-size: 13px; color: var(--navy); }
+
+  /* WARMUP */
+  .warmup-card { background: var(--cream); border: 2px solid var(--navy); border-left: 6px solid var(--gold); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: 4px 4px 0 var(--navy); }
+  .warmup-num { font-family: 'Courier Prime', monospace; color: var(--gold); font-weight: 700; font-size: 12px; letter-spacing: 2px; margin-bottom: 4px; }
+  .warmup-q { font-family: 'DM Serif Display', serif; font-size: 18px; line-height: 1.4; color: var(--navy); }
+
+  /* SPEAKING */
+  .speaking-card { background: var(--cream); border: 2px solid var(--navy); border-radius: 14px; padding: 22px 26px; margin-bottom: 18px; box-shadow: 4px 4px 0 var(--navy); }
+  .speaking-task-label { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 2px; color: var(--gold); font-weight: 700; margin-bottom: 6px; display: block; }
+  .speaking-q { font-family: 'DM Serif Display', serif; font-size: 18px; line-height: 1.4; color: var(--navy); margin-bottom: 14px; }
+  .try-use { background: var(--gold-light); border-left: 4px solid var(--gold); border-radius: 0 8px 8px 0; padding: 10px 14px; }
+  .try-use strong { color: var(--gold); font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 1px; display: block; margin-bottom: 6px; }
+  .try-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { background: var(--cream); border: 1.5px solid var(--navy); border-radius: 20px; padding: 3px 10px; font-size: 13px; font-style: italic; color: var(--navy); }
+
+  /* READING */
+  .reading { background: var(--cream); border: 2px solid var(--navy); border-radius: 16px; padding: 30px 34px; box-shadow: 6px 6px 0 var(--navy); margin-bottom: 24px; }
+  .reading h3 { font-family: 'DM Serif Display', serif; font-size: 26px; margin-bottom: 6px; line-height: 1.2; color: var(--navy); }
+  .reading .byline { font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--gold); margin-bottom: 16px; }
+  .reading p { margin-bottom: 14px; line-height: 1.75; font-size: 15.5px; }
+  .reading strong { color: var(--gold); font-weight: 700; }
+
+  /* VOCAB */
+  .vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(196px,1fr)); gap: 12px; margin-top: 18px; }
+  .vocab-card { background: var(--cream); border: 2px solid var(--navy); border-radius: 12px; padding: 16px; box-shadow: 4px 4px 0 var(--navy); }
+  .vocab-card .word { font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--gold); margin-bottom: 5px; }
+  .vocab-card .def { font-size: 13px; color: #4a4a4a; line-height: 1.5; margin-bottom: 9px; }
+  .vocab-card code { display: block; background: var(--gold-light); padding: 7px; border-radius: 6px; font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--navy); border-left: 3px solid var(--gold); }
+
+  /* COLLOCATIONS */
+  .grammar-box { background: var(--gold-light); border: 2px solid var(--gold); border-radius: 12px; padding: 18px 22px; margin-bottom: 22px; }
+  .grammar-box h4 { font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--navy); margin-bottom: 10px; }
+  .grammar-box ul { margin-left: 20px; }
+  .grammar-box li { margin-bottom: 9px; line-height: 1.6; color: var(--navy); font-size: 14.5px; }
+  .grammar-box code { background: var(--cream); padding: 2px 6px; border-radius: 4px; font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--navy); }
+
+  /* MATCHING */
+  .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+  .match-col { display: flex; flex-direction: column; gap: 9px; }
+  .match-item { background: var(--cream); border: 2px solid var(--navy); padding: 11px 14px; border-radius: 10px; cursor: pointer; transition: all 0.2s; box-shadow: 3px 3px 0 var(--navy); font-family: 'Inter', sans-serif; color: var(--navy); font-size: 14px; }
+  .match-item:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--navy); }
+  .match-item.selected { background: var(--gold-light); border-color: var(--gold); font-weight: 600; }
+  .match-item.matched { background: #e8f5e9; color: #2e7d32; border-color: #4caf50; cursor: default; }
+  .match-item.wrong { animation: shake 0.3s; }
+  @keyframes shake { 0%,100%{transform:translate(0)} 25%{transform:translate(-4px)} 75%{transform:translate(4px)} }
+
+  /* FILL */
+  .fill-item { margin-bottom: 18px; }
+  .fill-item p { font-size: 15px; line-height: 1.75; color: var(--navy); }
+  .fill-input { border: none; border-bottom: 2px solid var(--navy); padding: 4px 6px; font-family: 'Courier Prime', monospace; background: transparent; min-width: 130px; color: var(--navy); font-size: 14px; }
+  .fill-input.correct { border-bottom-color: #4caf50; background: #e8f5e9; color: #2e7d32; }
+  .fill-input.wrong { border-bottom-color: #c62828; background: #ffcdd2; color: var(--navy); }
+  .num { font-family: 'Courier Prime', monospace; font-weight: 700; color: var(--gold); margin-right: 8px; font-size: 14px; }
+
+  /* MC */
+  .mc-item { margin-bottom: 20px; }
+  .mc-q { font-weight: 600; margin-bottom: 10px; font-size: 15px; color: var(--navy); line-height: 1.5; }
+  .mc-options { display: flex; flex-direction: column; gap: 9px; }
+  .mc-opt { background: var(--cream); border: 2px solid var(--navy); padding: 11px 14px; border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 14px; cursor: pointer; text-align: left; transition: all 0.2s; box-shadow: 3px 3px 0 var(--navy); color: var(--navy); }
+  .mc-opt:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--navy); }
+  .mc-opt:disabled { cursor: default; }
+  .mc-opt.correct { background: var(--gold-light); border-color: var(--gold); color: var(--gold); font-weight: 600; box-shadow: 3px 3px 0 var(--gold); }
+  .mc-opt.wrong { background: #ffcdd2; border-color: #c62828; }
+
+  /* BUTTONS */
+  .check-btn { background: var(--navy); color: var(--cream); border: 2px solid var(--navy); padding: 12px 24px; font-weight: 600; font-size: 14px; border-radius: 10px; cursor: pointer; box-shadow: 4px 4px 0 var(--navy); transition: all 0.2s; margin-right: 16px; margin-top: 8px; }
+  .check-btn:hover { transform: translate(-1px,-1px); box-shadow: 5px 5px 0 var(--navy); }
+  .score { font-family: 'Courier Prime', monospace; font-weight: 700; color: var(--gold); font-size: 14px; }
+
+  footer { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 2px solid var(--navy); font-family: 'Courier Prime', monospace; font-size: 12px; color: #4a4a4a; letter-spacing: 2px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="header-content">
+      <span class="badge-label">LEVEL B1 · HEALTHCARE ENGLISH</span>
+      <h1>Nursing in Post-Surgical<br><span class="accent">Recovery & Rehabilitation</span></h1>
+      <p class="sub">The skills, responsibilities, and future of a rehabilitation nurse — and how artificial intelligence is changing the way patients heal.</p>
+      <div class="tags">
+        <span class="tag">#REHABILITATION</span>
+        <span class="tag">#POST-SURGICAL-CARE</span>
+        <span class="tag">#1ST-CONDITIONAL</span>
+        <span class="tag">#2ND-CONDITIONAL</span>
+        <span class="tag">#HEALTHCARE-AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="t1">1. Warm-up</button>
+    <button class="tab" data-tab="t2">2. Reading</button>
+    <button class="tab" data-tab="t3">3. Vocabulary</button>
+    <button class="tab" data-tab="t4">4. Collocations</button>
+    <button class="tab" data-tab="t5">5. Speaking</button>
+    <button class="tab" data-tab="t6">6. Matching</button>
+    <button class="tab" data-tab="t7">7. Fill</button>
+    <button class="tab" data-tab="t8">8. Multiple Choice</button>
+    <button class="tab" data-tab="t9">9. First Conditional</button>
+    <button class="tab" data-tab="t10">10. Second Conditional</button>
+  </div>
+
+  <!-- TAB 1: WARM-UP -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">💬</span>Warm-up</h2>
+    <p class="instr">Think about your daily work and discuss these questions with a partner.</p>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 01</div>
+      <div class="warmup-q">What does a typical shift look like for a nurse in post-surgical recovery? What are the first three things you do when you arrive?</div>
+    </div>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 02</div>
+      <div class="warmup-q">What do you think is the most important skill a rehabilitation nurse must have — and why?</div>
+    </div>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 03</div>
+      <div class="warmup-q">Have you ever used any technology or app in your clinical work? Did it help — or not?</div>
+    </div>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 04</div>
+      <div class="warmup-q">Do you think AI will replace nurses in the future? Why or why not?</div>
+    </div>
+  </section>
+
+  <!-- TAB 2: READING -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading</h2>
+    <p class="instr">Read about the work of a rehabilitation nurse and how AI is beginning to change patient care.</p>
+
+    <div class="reading">
+      <h3>"My Job is to Get Them Home Stronger"</h3>
+      <p class="byline">★ Interview with Anna K., Rehabilitation Nurse · Private Recovery Clinic · 2025</p>
+
+      <p>Anna has worked as a nurse in a private rehabilitation clinic for seven years. Her patients arrive straight from the operating theatre — after hip replacements, knee surgeries, spinal operations, or cardiac procedures — and her job is to <strong>guide them back</strong> to independence. "If a patient doesn't move in the first 24 hours after surgery," she says firmly, "their recovery will be significantly slower. <strong>Early mobilisation</strong> is everything." Anna checks <strong>vital signs</strong> every two hours, administers pain medication on schedule, monitors wounds for signs of infection, and works closely with physiotherapists on each patient's <strong>personalised recovery plan</strong>.</p>
+
+      <p>The skills required are broader than most people expect. "You need patience, obviously," Anna explains. "But you also need to <strong>spot complications early</strong> — a slight change in breathing, a small drop in blood pressure, unusual swelling. If you <strong>catch a problem early</strong>, you can often prevent something much more serious." Communication is equally critical. <strong>If a patient feels anxious</strong> about their progress, it directly affects their physical recovery. Anna spends considerable time <strong>explaining procedures</strong>, reassuring families, and motivating patients who feel frustrated or defeated during painful rehabilitation exercises.</p>
+
+      <p>The future of this work is already changing. At Anna's clinic, an AI monitoring system now tracks patient vital signs continuously and <strong>alerts the nursing team</strong> automatically if any reading falls outside the normal range. "It doesn't replace my judgment," she says carefully, "but <strong>if the AI flags something at 3am</strong>, I don't have to be standing next to the bed to know about it." Recovery time at her clinic has dropped by 28% since they introduced AI-assisted monitoring. Robotic exoskeletons — wearable devices that <strong>support movement</strong> — are helping post-surgical patients walk sooner and more safely than before.</p>
+
+      <p>"I'm not afraid of AI," Anna says. "If new technology helps my patients <strong>recover faster and with less pain</strong>, I'll embrace it completely. What no machine will ever replace is the moment a patient takes their first steps after surgery and looks at you — and you both know how far they've come. <strong>That's the job</strong>."</p>
+    </div>
+
+    <p class="instr"><strong>Answer these questions about the reading:</strong></p>
+    <div class="fill-item"><p><span class="num">01</span>Why does Anna say "early mobilisation is everything" in post-surgical care?</p></div>
+    <div class="fill-item"><p><span class="num">02</span>What does the AI monitoring system do at Anna's clinic — and what does Anna say it cannot replace?</p></div>
+    <div class="fill-item"><p><span class="num">03</span>What is Anna's attitude toward AI in nursing? Use her own words to support your answer.</p></div>
+  </section>
+
+  <!-- TAB 3: VOCABULARY -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">📚</span>Vocabulary</h2>
+    <p class="instr">Study these key words used in rehabilitation nursing and post-surgical care.</p>
+    <div class="vocab-grid">
+      <div class="vocab-card">
+        <div class="word">rehabilitation</div>
+        <div class="def">The process of helping a patient recover and regain strength after surgery or illness.</div>
+        <code>Good rehabilitation after a hip replacement can prevent long-term complications.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">vital signs</div>
+        <div class="def">Key measurements of the body's basic functions: pulse, blood pressure, temperature, breathing.</div>
+        <code>She checks the patient's vital signs every two hours throughout her shift.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">mobilisation</div>
+        <div class="def">Helping a patient start moving their body after surgery to speed up recovery.</div>
+        <code>Early mobilisation after surgery reduces the risk of blood clots.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">complication</div>
+        <div class="def">An unexpected problem that occurs during or after surgery or treatment.</div>
+        <code>If the nurse spots a complication early, she can prevent something more serious.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">personalised care plan</div>
+        <div class="def">A specific treatment and recovery plan designed for one individual patient.</div>
+        <code>Every patient has a personalised care plan based on their surgery and condition.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">physiotherapist</div>
+        <div class="def">A healthcare professional who helps patients regain movement and physical strength.</div>
+        <code>Nurses and physiotherapists work together closely in rehabilitation wards.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">AI monitoring</div>
+        <div class="def">Using artificial intelligence to continuously track and analyse patient health data.</div>
+        <code>AI monitoring alerts nurses automatically if a patient's condition changes overnight.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">exoskeleton</div>
+        <div class="def">A wearable robotic device that supports the body and helps patients move.</div>
+        <code>The robotic exoskeleton helped her walk again three days after spinal surgery.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">empathy</div>
+        <div class="def">The ability to understand and share the feelings of another person.</div>
+        <code>Empathy is one of the most important qualities a rehabilitation nurse must have.</code>
+      </div>
+      <div class="vocab-card">
+        <div class="word">post-surgical</div>
+        <div class="def">Relating to the period of time immediately after a patient has had surgery.</div>
+        <code>The post-surgical recovery period is critical for a patient's long-term health.</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 4: COLLOCATIONS -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">🎯</span>Common Collocations</h2>
+    <p class="instr">Learn these natural word combinations used in nursing and clinical care.</p>
+
+    <div class="grammar-box">
+      <h4>🩺 Patient care and monitoring</h4>
+      <ul>
+        <li><strong>monitor vital signs</strong> = to regularly check a patient's pulse, BP, and temperature. <code>Nurses monitor vital signs every two hours after major surgery.</code></li>
+        <li><strong>spot a complication</strong> = to notice an unexpected problem early. <code>If you spot a complication quickly, you can prevent serious harm.</code></li>
+        <li><strong>administer medication</strong> = to give a patient their prescribed drugs. <code>She administers pain medication according to the patient's care plan.</code></li>
+        <li><strong>carry out an assessment</strong> = to perform a formal evaluation of a patient's condition. <code>She carries out a full assessment when each patient arrives from theatre.</code></li>
+      </ul>
+    </div>
+
+    <div class="grammar-box">
+      <h4>💪 Recovery and rehabilitation</h4>
+      <ul>
+        <li><strong>speed up recovery</strong> = to make the healing process happen faster. <code>Early movement and good nutrition speed up recovery after surgery.</code></li>
+        <li><strong>regain strength</strong> = to get your physical power back after illness or surgery. <code>Physiotherapy helps patients regain strength in their muscles.</code></li>
+        <li><strong>manage pain</strong> = to control and reduce a patient's discomfort effectively. <code>Managing pain well is essential for successful post-surgical recovery.</code></li>
+        <li><strong>discharge a patient</strong> = to formally release them from hospital when they are ready to go home. <code>If a patient recovers well, the doctor will discharge them sooner.</code></li>
+      </ul>
+    </div>
+
+    <div class="grammar-box">
+      <h4>🤖 AI and technology in healthcare</h4>
+      <ul>
+        <li><strong>flag an issue</strong> = to signal or draw attention to a problem automatically. <code>The AI system flags an issue if the patient's breathing changes at night.</code></li>
+        <li><strong>continuous monitoring</strong> = tracking a patient's condition 24 hours a day without breaks. <code>AI enables continuous monitoring that human nurses cannot physically provide.</code></li>
+        <li><strong>reduce recovery time</strong> = to shorten the time a patient needs to heal. <code>AI-assisted care has helped reduce recovery time by up to 35%.</code></li>
+        <li><strong>support clinical judgment</strong> = to help — not replace — a nurse's professional decisions. <code>Technology should support clinical judgment, not override it.</code></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TAB 5: SPEAKING -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">🎤</span>Speaking Practice</h2>
+    <p class="instr">Speak for <strong>1–1½ minutes</strong> per question. Try to use <strong>at least 3 of the suggested words or expressions</strong> in each answer. The last task is a role-play — swap roles after!</p>
+
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 01 · YOUR CLINICAL ROLE</span>
+      <div class="speaking-q">Describe a typical shift in the rehabilitation ward. What are your main responsibilities — and what is the most challenging part of your working day?</div>
+      <div class="try-use">
+        <strong>TRY TO USE:</strong>
+        <div class="try-chips">
+          <span class="chip">monitor vital signs</span>
+          <span class="chip">carry out an assessment</span>
+          <span class="chip">administer medication</span>
+          <span class="chip">early mobilisation</span>
+          <span class="chip">personalised care plan</span>
+          <span class="chip">the most demanding part is...</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 02 · SKILLS OF A REHAB NURSE</span>
+      <div class="speaking-q">What skills does a nurse in post-surgical rehabilitation need that other nurses might not? Which skill is hardest to develop — technical knowledge or emotional support?</div>
+      <div class="try-use">
+        <strong>TRY TO USE:</strong>
+        <div class="try-chips">
+          <span class="chip">empathy</span>
+          <span class="chip">spot a complication</span>
+          <span class="chip">manage pain</span>
+          <span class="chip">clinical judgment</span>
+          <span class="chip">if a patient feels anxious...</span>
+          <span class="chip">on the one hand / on the other hand</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 03 · AI IN YOUR WARD</span>
+      <div class="speaking-q">How do you feel about AI being used in your clinical environment? What could it do well — and what should it never do?</div>
+      <div class="try-use">
+        <strong>TRY TO USE:</strong>
+        <div class="try-chips">
+          <span class="chip">continuous monitoring</span>
+          <span class="chip">flag an issue</span>
+          <span class="chip">support clinical judgment</span>
+          <span class="chip">if the AI detects something...</span>
+          <span class="chip">it would never replace...</span>
+          <span class="chip">I think / I believe</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 04 · PATIENT COMMUNICATION</span>
+      <div class="speaking-q">A post-surgical patient is scared and frustrated — they feel they are not recovering fast enough. What do you say to them? How do you motivate someone in pain?</div>
+      <div class="try-use">
+        <strong>TRY TO USE:</strong>
+        <div class="try-chips">
+          <span class="chip">regain strength</span>
+          <span class="chip">if you keep doing your exercises...</span>
+          <span class="chip">speed up recovery</span>
+          <span class="chip">every patient recovers at their own pace</span>
+          <span class="chip">I understand how you feel</span>
+          <span class="chip">let me explain...</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 05 · ROLE-PLAY (swap roles!)</span>
+      <div class="speaking-q"><strong>Student A (Nurse):</strong> Your patient has just come from surgery. Explain their recovery plan, what to expect in the next 48 hours, and why early movement is important. Answer their questions calmly and clearly.<br><br><strong>Student B (Patient):</strong> You are nervous and in pain. Ask questions about your medication, your recovery time, when you can go home, and whether everything is normal.</div>
+      <div class="try-use">
+        <strong>TRY TO USE:</strong>
+        <div class="try-chips">
+          <span class="chip">if you start moving today...</span>
+          <span class="chip">don't worry — it's completely normal to feel...</span>
+          <span class="chip">we will discharge you if...</span>
+          <span class="chip">how long will it take?</span>
+          <span class="chip">is this pain normal?</span>
+          <span class="chip">what happens if I don't...?</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 6: MATCHING -->
+  <section class="panel" id="t6">
+    <h2 class="section-title"><span class="emoji">🔗</span>Matching Exercise</h2>
+    <p class="instr">Match each nursing or medical term on the left with its correct definition. Click a term, then click its match.</p>
+    <div class="match-grid">
+      <div class="match-col">
+        <span class="match-item" data-word="rehab">Rehabilitation</span>
+        <span class="match-item" data-word="vitals">Vital signs</span>
+        <span class="match-item" data-word="mobil">Mobilisation</span>
+        <span class="match-item" data-word="comp">Complication</span>
+        <span class="match-item" data-word="physio">Physiotherapist</span>
+        <span class="match-item" data-word="exo">Exoskeleton</span>
+        <span class="match-item" data-word="empathy">Empathy</span>
+        <span class="match-item" data-word="discharge">Discharge</span>
+        <span class="match-item" data-word="ai-mon">AI monitoring</span>
+        <span class="match-item" data-word="postsurg">Post-surgical</span>
+      </div>
+      <div class="match-col">
+        <span class="match-item" data-def="mobil">Helping a patient start moving their body again after surgery</span>
+        <span class="match-item" data-def="vitals">Measurements of pulse, blood pressure, temperature and breathing rate</span>
+        <span class="match-item" data-def="rehab">The process of helping patients regain strength and independence after surgery</span>
+        <span class="match-item" data-def="exo">A wearable robotic device that supports body movement during recovery</span>
+        <span class="match-item" data-def="comp">An unexpected problem that occurs during or after treatment</span>
+        <span class="match-item" data-def="physio">A specialist who helps patients regain physical strength and movement</span>
+        <span class="match-item" data-def="empathy">The ability to understand and share how another person is feeling</span>
+        <span class="match-item" data-def="ai-mon">Using AI technology to continuously track patient health data automatically</span>
+        <span class="match-item" data-def="postsurg">The period of care immediately following a surgical procedure</span>
+        <span class="match-item" data-def="discharge">To formally release a patient from hospital when they are ready to go home</span>
+      </div>
+    </div>
+    <span class="score" id="score6">— / 10</span>
+  </section>
+
+  <!-- TAB 7: FILL -->
+  <section class="panel" id="t7">
+    <h2 class="section-title"><span class="emoji">✏️</span>Fill in the Blanks</h2>
+    <p class="instr">Use a word or phrase from the Word Bank to complete each sentence. Each item is used once.</p>
+
+    <div class="word-bank">
+      <span class="word-bank-label">📖 WORD BANK</span>
+      <div class="word-bank-words">
+        <span class="wb-word">rehabilitation</span>
+        <span class="wb-word">vital signs</span>
+        <span class="wb-word">mobilisation</span>
+        <span class="wb-word">complication</span>
+        <span class="wb-word">empathy</span>
+        <span class="wb-word">exoskeleton</span>
+        <span class="wb-word">AI monitoring</span>
+        <span class="wb-word">personalised care plan</span>
+        <span class="wb-word">physiotherapist</span>
+        <span class="wb-word">post-surgical</span>
+      </div>
+    </div>
+
+    <div class="fill-item">
+      <p><span class="num">01</span>Anna works in a private <input class="fill-input" data-answer="rehabilitation">, clinic helping patients recover after major operations.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">02</span>She checks each patient's <input class="fill-input" data-answer="vital signs">, every two hours throughout her shift.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">03</span>Early <input class="fill-input" data-answer="mobilisation">, after surgery reduces the risk of blood clots and speeds up healing.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">04</span>If a nurse spots a <input class="fill-input" data-answer="complication">, early, she can often prevent a more serious problem developing.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">05</span>Anna works together with a <input class="fill-input" data-answer="physiotherapist">, to design each patient's movement and exercise programme.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">06</span>Every patient in Anna's clinic receives a <input class="fill-input" data-answer="personalised care plan">, designed specifically for their surgery and needs.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">07</span>The <input class="fill-input" data-answer="AI monitoring">, system alerts nurses automatically if any reading is outside the normal range.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">08</span>A robotic <input class="fill-input" data-answer="exoskeleton">, helped one patient walk safely again just three days after spinal surgery.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">09</span><input class="fill-input" data-answer="empathy">, is one of the most important qualities in a rehabilitation nurse — patients need to feel understood.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">10</span>The <input class="fill-input" data-answer="post-surgical">, recovery period is one of the most critical phases in a patient's healing journey.</p>
+    </div>
+
+    <button class="check-btn" onclick="checkFill()">✓ Check Answers</button>
+    <span class="score" id="score7">— / 10</span>
+  </section>
+
+  <!-- TAB 8: MULTIPLE CHOICE -->
+  <section class="panel" id="t8">
+    <h2 class="section-title"><span class="emoji">❓</span>Multiple Choice</h2>
+    <p class="instr">Choose the best answer for each question about the reading.</p>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q01</span>What types of patients does Anna care for in her clinic?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Children with developmental conditions</button>
+        <button class="mc-opt">b) Patients recovering after hip replacements, knee surgeries, spinal operations, and cardiac procedures</button>
+        <button class="mc-opt">c) Patients with chronic long-term illnesses only</button>
+        <button class="mc-opt">d) Emergency trauma patients</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q02</span>Why does Anna say "early mobilisation is everything"?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) If a patient doesn't move in the first 24 hours after surgery, their recovery will be significantly slower</button>
+        <button class="mc-opt">b) Because moving prevents boredom during long hospital stays</button>
+        <button class="mc-opt">c) Because it is the only way to reduce medication</button>
+        <button class="mc-opt">d) Because hospital rules require movement after surgery</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q03</span>What does Anna monitor for signs of infection?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) The patient's temperature only</button>
+        <button class="mc-opt">b) Blood pressure and breathing</button>
+        <button class="mc-opt">c) Wounds and surgical sites</button>
+        <button class="mc-opt">d) The AI system alerts</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q04</span>According to Anna, what can "catching a problem early" prevent?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) The need for physiotherapy</button>
+        <button class="mc-opt">b) Patients becoming emotional</button>
+        <button class="mc-opt">c) The need for pain medication</button>
+        <button class="mc-opt">d) Something much more serious developing</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q05</span>How has recovery time changed at Anna's clinic since they introduced AI monitoring?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) It increased by 28%</button>
+        <button class="mc-opt">b) It dropped by 28%</button>
+        <button class="mc-opt">c) It stayed exactly the same</button>
+        <button class="mc-opt">d) It changed for some patients only</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q06</span>What does Anna say about the AI system at her clinic?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) She thinks it is dangerous and unreliable</button>
+        <button class="mc-opt">b) She feels it has completely replaced her clinical judgment</button>
+        <button class="mc-opt">c) It doesn't replace her judgment but alerts her when readings fall outside normal range</button>
+        <button class="mc-opt">d) She refuses to use it because she prefers traditional methods</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q07</span>What does "spot complications early" mean?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) To notice problems in their early stages before they become serious</button>
+        <button class="mc-opt">b) To mark patients with coloured stickers</button>
+        <button class="mc-opt">c) To arrive early to work and check records</button>
+        <button class="mc-opt">d) To take photographs of wound sites</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q08</span>What is Anna's overall attitude toward AI in nursing?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) She is strongly opposed and thinks it is dangerous</button>
+        <button class="mc-opt">b) She has no opinion either way</button>
+        <button class="mc-opt">c) She thinks AI should completely run hospitals</button>
+        <button class="mc-opt">d) She welcomes it if it helps patients recover faster, but believes human connection cannot be replaced</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q09</span>What is a "robotic exoskeleton" used for in post-surgical care?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) To deliver medication automatically</button>
+        <button class="mc-opt">b) To support patients' movement and help them walk sooner after surgery</button>
+        <button class="mc-opt">c) To replace physiotherapy sessions entirely</button>
+        <button class="mc-opt">d) To monitor vital signs remotely</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q10</span>Why does Anna say patient anxiety directly affects physical recovery?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Because anxious patients refuse to eat</button>
+        <button class="mc-opt">b) Because anxious patients ask for too much medication</button>
+        <button class="mc-opt">c) Because the emotional state of a patient influences how quickly they heal physically</button>
+        <button class="mc-opt">d) Because hospital rules say anxious patients must stay longer</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q11</span>What moment does Anna describe as the most meaningful in her job?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) When a patient takes their first steps after surgery and they both know how far they've come</button>
+        <button class="mc-opt">b) When a patient is discharged from hospital</button>
+        <button class="mc-opt">c) When the AI system gives a perfect report</button>
+        <button class="mc-opt">d) When a doctor approves her care plan</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q12</span>How long has Anna worked in rehabilitation nursing?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Three years</button>
+        <button class="mc-opt">b) Five years</button>
+        <button class="mc-opt">c) Ten years</button>
+        <button class="mc-opt">d) Seven years</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkMC()">✓ Check MC</button>
+    <span class="score" id="score8">— / 12</span>
+  </section>
+
+  <!-- TAB 9: FIRST CONDITIONAL -->
+  <section class="panel" id="t9">
+    <h2 class="section-title"><span class="emoji">➡️</span>First Conditional</h2>
+    <p class="instr">The First Conditional talks about real, likely situations in the future — very useful for nursing!</p>
+
+    <div class="grammar-highlight">
+      <h4>➡️ First Conditional — Structure & Use</h4>
+      <ul>
+        <li><strong>Structure:</strong> <code>If + present simple → will / won't + verb</code></li>
+        <li><strong>Use:</strong> For real, likely situations — what will happen if a condition is met.</li>
+        <li><strong>Nursing examples:</strong></li>
+        <li><code>If the patient moves today, their recovery will be faster.</code></li>
+        <li><code>If the AI system flags something, the nurse will be alerted immediately.</code></li>
+        <li><code>If you don't manage pain effectively, the patient won't cooperate with exercises.</code></li>
+        <li>⚠️ Remember: after "if" we use present simple — NOT "will". <br>✅ <code>If she takes her medication...</code> ❌ <code>If she will take her medication...</code></li>
+      </ul>
+    </div>
+
+    <p class="instr"><strong>Part A:</strong> Use a phrase from the Word Bank to complete each 1st conditional sentence.</p>
+
+    <div class="word-bank">
+      <span class="word-bank-label">📖 WORD BANK</span>
+      <div class="word-bank-words">
+        <span class="wb-word">will speed up</span>
+        <span class="wb-word">won't cooperate</span>
+        <span class="wb-word">will alert</span>
+        <span class="wb-word">will discharge</span>
+        <span class="wb-word">will get worse</span>
+      </div>
+    </div>
+
+    <div class="fill-item">
+      <p><span class="num">01</span>If the patient starts moving today, it <input class="fill-input" data-answer="will speed up">, their recovery significantly.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">02</span>If the AI system detects an abnormal reading, it <input class="fill-input" data-answer="will alert">, the nursing team automatically.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">03</span>If the nurse does not manage the patient's pain, the patient <input class="fill-input" data-answer="won't cooperate">, with the physiotherapy exercises.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">04</span>If the patient meets all recovery targets this week, the doctor <input class="fill-input" data-answer="will discharge">, her on Friday.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">05</span>If the wound is not cleaned properly every day, the infection <input class="fill-input" data-answer="will get worse">.</p>
+    </div>
+
+    <p class="instr"><strong>Part B:</strong> Now write your own 1st conditional sentences from your clinical experience!</p>
+
+    <div class="fill-item">
+      <p><span class="num">06</span>If a patient _____________________ (not do their exercises), their muscles _____________________.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">07</span>If I _____________________ (notice a change in vital signs), I _____________________.</p>
+    </div>
+
+    <p class="instr"><strong>Part C:</strong> Choose the correct 1st conditional sentence.</p>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q08</span>Which sentence is a correctly formed 1st conditional?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "If the patient will rest, she recovers faster."</button>
+        <button class="mc-opt">b) "If the patient rests, she will recover faster."</button>
+        <button class="mc-opt">c) "If the patient rested, she will recover faster."</button>
+        <button class="mc-opt">d) "If the patient rests, she would recover faster."</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q09</span>Which sentence uses the 1st conditional correctly in a clinical situation?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "If I will spot the complication, I call the doctor."</button>
+        <button class="mc-opt">b) "If I spotted the complication, I will call the doctor."</button>
+        <button class="mc-opt">c) "If I spot a complication, I will call the doctor immediately."</button>
+        <button class="mc-opt">d) "If I spot a complication, I would call the doctor."</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkFirst()">✓ Check 1st Conditional</button>
+    <span class="score" id="score9">— / 7</span>
+  </section>
+
+  <!-- TAB 10: SECOND CONDITIONAL -->
+  <section class="panel" id="t10">
+    <h2 class="section-title"><span class="emoji">💭</span>Second Conditional</h2>
+    <p class="instr">The Second Conditional talks about imaginary or unlikely situations — great for discussing hypothetical clinical scenarios and the future of AI in nursing!</p>
+
+    <div class="grammar-highlight">
+      <h4>💭 Second Conditional — Structure & Use</h4>
+      <ul>
+        <li><strong>Structure:</strong> <code>If + past simple → would / wouldn't + verb</code></li>
+        <li><strong>Use:</strong> For hypothetical, imaginary, or unlikely situations in the present or future.</li>
+        <li><strong>Nursing examples:</strong></li>
+        <li><code>If I had more time with each patient, I would do a longer assessment.</code></li>
+        <li><code>If AI did all the monitoring, nurses would have more time for emotional support.</code></li>
+        <li><code>If I were in charge of the ward, I would invest in robotic exoskeletons.</code></li>
+        <li>⚠️ We use <code>were</code> (not "was") with I/he/she in formal writing: <code>If I were a manager...</code></li>
+      </ul>
+    </div>
+
+    <p class="instr"><strong>Part A:</strong> Use a phrase from the Word Bank to complete each 2nd conditional sentence.</p>
+
+    <div class="word-bank">
+      <span class="word-bank-label">📖 WORD BANK</span>
+      <div class="word-bank-words">
+        <span class="wb-word">would have more time</span>
+        <span class="wb-word">would recover faster</span>
+        <span class="wb-word">wouldn't have to</span>
+        <span class="wb-word">would invest</span>
+        <span class="wb-word">would feel less anxious</span>
+      </div>
+    </div>
+
+    <div class="fill-item">
+      <p><span class="num">01</span>If AI handled all routine monitoring, nurses <input class="fill-input" data-answer="would have more time">, for direct patient care and emotional support.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">02</span>If every patient had a physiotherapist available 24 hours a day, they <input class="fill-input" data-answer="would recover faster">.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">03</span>If the clinic had better AI monitoring systems, the night nurse <input class="fill-input" data-answer="wouldn't have to">, check every patient manually every hour.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">04</span>If I were the hospital director, I <input class="fill-input" data-answer="would invest">, in robotic exoskeletons for every rehabilitation ward.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">05</span>If nurses had more time to talk to each patient, patients <input class="fill-input" data-answer="would feel less anxious">, about their recovery.</p>
+    </div>
+
+    <p class="instr"><strong>Part B:</strong> Write your own 2nd conditional sentences! Think about your ideal ward or future of nursing.</p>
+
+    <div class="fill-item">
+      <p><span class="num">06</span>If AI took over all administrative tasks, I _____________________.</p>
+    </div>
+    <div class="fill-item">
+      <p><span class="num">07</span>If I had a robotic assistant in the ward, I _____________________.</p>
+    </div>
+
+    <p class="instr"><strong>Part C:</strong> Choose the correct 2nd conditional sentence.</p>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q08</span>Which is a correctly formed 2nd conditional?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "If I have more staff, I will manage patients better."</button>
+        <button class="mc-opt">b) "If I would have more staff, I manage patients better."</button>
+        <button class="mc-opt">c) "If I had more staff, I would manage patients better."</button>
+        <button class="mc-opt">d) "If I had more staff, I will manage patients better."</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q09</span>What is the difference between these two sentences?<br><em>"If the patient rests, she will recover faster."</em> vs <em>"If the patient rested, she would recover faster."</em></div>
+      <div class="mc-options">
+        <button class="mc-opt">a) There is no difference — they mean exactly the same thing.</button>
+        <button class="mc-opt">b) The first is a real, likely situation (1st conditional); the second is hypothetical or less likely (2nd conditional).</button>
+        <button class="mc-opt">c) The first is in the past; the second is in the present.</button>
+        <button class="mc-opt">d) The second sentence has a grammar mistake.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q10</span>A nurse says: "If I were in charge of training, I would include more communication skills." What type of conditional is this?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Second conditional — she is imagining a hypothetical situation she is not currently in</button>
+        <button class="mc-opt">b) First conditional — she is planning to be in charge soon</button>
+        <button class="mc-opt">c) Zero conditional — she is describing a scientific fact</button>
+        <button class="mc-opt">d) Third conditional — she is talking about a past regret</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkSecond()">✓ Check 2nd Conditional</button>
+    <span class="score" id="score10">— / 8</span>
+  </section>
+
+  <footer>
+    🏥 ★ ★ &nbsp; NURSING IN POST-SURGICAL RECOVERY · B1 HEALTHCARE ENGLISH &nbsp; ★ ★ 🏥
+  </footer>
+</div>
+
+<script>
+  // TABS
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // MATCHING
+  let selectedWord = null, matched6 = 0;
+  document.querySelectorAll('#t6 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) {
+        document.querySelectorAll('#t6 [data-word]').forEach(w => w.classList.remove('selected'));
+        item.classList.add('selected'); selectedWord = item;
+      } else if (item.dataset.def && selectedWord) {
+        if (selectedWord.dataset.word === item.dataset.def) {
+          selectedWord.classList.remove('selected'); selectedWord.classList.add('matched');
+          item.classList.add('matched'); matched6++;
+          document.getElementById('score6').textContent = matched6 === 10 ? '★ 10 / 10 ★' : matched6 + ' / 10';
+          selectedWord = null;
+        } else { item.classList.add('wrong'); setTimeout(() => item.classList.remove('wrong'), 500); }
+      }
+    });
+  });
+
+  // FILL
+  function checkFill() {
+    let correct = 0;
+    document.querySelectorAll('#t7 .fill-input').forEach(input => {
+      const ans = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      if (val === ans) { input.classList.add('correct'); correct++; }
+      else if (val) input.classList.add('wrong');
+    });
+    document.getElementById('score7').textContent = correct === 10 ? '★ 10 / 10 ★' : correct + ' / 10';
+  }
+
+  // MC
+  let mcScore = 0;
+  document.querySelectorAll('#t8 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        item.querySelectorAll('.mc-opt').forEach(o => o.disabled = true);
+        const letter = ['a','b','c','d'][i];
+        if (letter === correct) { opt.classList.add('correct'); mcScore++; }
+        else { opt.classList.add('wrong'); item.querySelectorAll('.mc-opt').forEach((o,j) => { if (['a','b','c','d'][j]===correct) o.classList.add('correct'); }); }
+        document.getElementById('score8').textContent = mcScore === 12 ? '★ 12 / 12 ★' : mcScore + ' / 12';
+      });
+    });
+  });
+
+  // FIRST CONDITIONAL
+  let firstScore = 0;
+  function checkFirst() {
+    let correct = 0;
+    document.querySelectorAll('#t9 .fill-input').forEach(input => {
+      if (!input.dataset.answer) return;
+      const ans = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      if (val === ans) { input.classList.add('correct'); correct++; }
+      else if (val) input.classList.add('wrong');
+    });
+    correct += firstScore;
+    document.getElementById('score9').textContent = correct === 7 ? '★ 7 / 7 ★' : correct + ' / 7';
+  }
+  document.querySelectorAll('#t9 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        item.querySelectorAll('.mc-opt').forEach(o => o.disabled = true);
+        const letter = ['a','b','c','d'][i];
+        if (letter === correct) { opt.classList.add('correct'); firstScore++; }
+        else { opt.classList.add('wrong'); item.querySelectorAll('.mc-opt').forEach((o,j) => { if (['a','b','c','d'][j]===correct) o.classList.add('correct'); }); }
+      });
+    });
+  });
+
+  // SECOND CONDITIONAL
+  let secondScore = 0;
+  function checkSecond() {
+    let correct = 0;
+    document.querySelectorAll('#t10 .fill-input').forEach(input => {
+      if (!input.dataset.answer) return;
+      const ans = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      if (val === ans) { input.classList.add('correct'); correct++; }
+      else if (val) input.classList.add('wrong');
+    });
+    correct += secondScore;
+    document.getElementById('score10').textContent = correct === 8 ? '★ 8 / 8 ★' : correct + ' / 8';
+  }
+  document.querySelectorAll('#t10 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        item.querySelectorAll('.mc-opt').forEach(o => o.disabled = true);
+        const letter = ['a','b','c','d'][i];
+        if (letter === correct) { opt.classList.add('correct'); secondScore++; }
+        else { opt.classList.add('wrong'); item.querySelectorAll('.mc-opt').forEach((o,j) => { if (['a','b','c','d'][j]===correct) o.classList.add('correct'); }); }
+      });
+    });
+  });
+</script>
+</body>
+</html>
