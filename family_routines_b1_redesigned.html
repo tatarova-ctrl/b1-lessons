@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Routines, Hobbies & Interests — B1 English Lesson</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-burgundy: #8B3A3A;
+            --primary-dark: #5C2E2E;
+            --accent-beige: #F5E6D3;
+            --light-bg: #FAF8F3;
+            --black: #000000;
+            --dark-text: #2C2C2C;
+            --gold: #C4A969;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 0;
+        }
+
+        /* HEADER */
+        .header {
+            background: white;
+            padding: 40px 50px;
+            border-bottom: 4px solid var(--primary-burgundy);
+        }
+
+        .header-title {
+            font-size: 3.2em;
+            font-weight: 900;
+            margin-bottom: 5px;
+            letter-spacing: -2px;
+        }
+
+        .header-title-main {
+            color: var(--black);
+        }
+
+        .header-title-sub {
+            color: var(--primary-burgundy);
+            font-style: italic;
+            font-size: 0.65em;
+            margin-left: 15px;
+        }
+
+        .header-description {
+            font-size: 1.05em;
+            color: var(--dark-text);
+            margin-bottom: 20px;
+            line-height: 1.6;
+            max-width: 800px;
+        }
+
+        /* TEACHER NOTE */
+        .teacher-note {
+            background: #FFE4E1;
+            border: 2px dashed var(--primary-burgundy);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+
+        .teacher-note strong {
+            color: var(--primary-burgundy);
+        }
+
+        .teacher-note::before {
+            content: "💡 A note for teachers: ";
+            font-weight: 700;
+            color: var(--primary-burgundy);
+        }
+
+        /* TAGS */
+        .tags-section {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .tag {
+            background: white;
+            border: 2px solid var(--dark-text);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.85em;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* NAVIGATION TABS */
+        .nav-container {
+            display: flex;
+            overflow-x: auto;
+            border-bottom: 3px solid var(--black);
+            background: white;
+            padding: 0 50px;
+            gap: 10px;
+        }
+
+        .nav-button {
+            background: white;
+            border: 2px solid var(--dark-text);
+            padding: 12px 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 8px 8px 0 0;
+            transition: all 0.3s;
+            white-space: nowrap;
+            border-bottom: none;
+            margin-top: 10px;
+        }
+
+        .nav-button:hover {
+            background: var(--accent-beige);
+            border-color: var(--primary-burgundy);
+        }
+
+        .nav-button.active {
+            background: var(--primary-burgundy);
+            color: white;
+            border-color: var(--primary-burgundy);
+        }
+
+        .nav-button.grammar {
+            background: var(--accent-beige);
+            border-color: var(--primary-burgundy);
+        }
+
+        .nav-button.grammar:hover {
+            background: var(--primary-burgundy);
+            color: white;
+        }
+
+        /* CONTENT SECTIONS */
+        .content {
+            padding: 50px;
+            min-height: 600px;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* SECTION TITLES */
+        .section-title {
+            font-size: 2.2em;
+            font-weight: 900;
+            margin-bottom: 30px;
+            color: var(--dark-text);
+            border-bottom: 3px solid var(--primary-burgundy);
+            padding-bottom: 15px;
+        }
+
+        /* WARMUP SECTION */
+        .warmup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .warmup-item {
+            padding: 25px;
+            background: var(--accent-beige);
+            border: 2px solid var(--primary-burgundy);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .warmup-item:hover {
+            background: var(--primary-burgundy);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .warmup-emoji {
+            font-size: 2.5em;
+            margin-bottom: 12px;
+        }
+
+        .warmup-text {
+            font-size: 0.95em;
+            font-weight: 600;
+        }
+
+        /* READING SECTION */
+        .reading-box {
+            background: var(--accent-beige);
+            padding: 30px;
+            border-left: 5px solid var(--primary-burgundy);
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .reading-author {
+            color: var(--primary-burgundy);
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+
+        .reading-text {
+            font-size: 1.05em;
+            line-height: 2;
+            color: var(--dark-text);
+            text-align: justify;
+        }
+
+        .reading-text p {
+            margin-bottom: 15px;
+        }
+
+        .gold-highlight {
+            background: linear-gradient(120deg, #FFE4B5 0%, #FFD580 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+            color: #8B4513;
+        }
+
+        /* COMPREHENSION */
+        .comprehension-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .comp-item {
+            padding: 15px;
+            background: white;
+            border-left: 4px solid var(--primary-burgundy);
+            border-radius: 4px;
+        }
+
+        .comp-q {
+            font-weight: 700;
+            color: var(--primary-burgundy);
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .comp-a {
+            color: var(--dark-text);
+            font-size: 0.9em;
+        }
+
+        /* VOCABULARY SECTION */
+        .vocab-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        .vocab-table tr:nth-child(odd) {
+            background: var(--accent-beige);
+        }
+
+        .vocab-table td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .vocab-word {
+            font-weight: 700;
+            color: var(--primary-burgundy);
+            min-width: 150px;
+            width: 25%;
+        }
+
+        .vocab-meaning {
+            color: var(--dark-text);
+            width: 35%;
+        }
+
+        .vocab-example {
+            color: #666;
+            font-style: italic;
+            font-size: 0.9em;
+            width: 40%;
+        }
+
+        /* IDIOMS GRID */
+        .idioms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .idiom-card {
+            padding: 20px;
+            background: var(--accent-beige);
+            border-left: 5px solid var(--primary-burgundy);
+            border-radius: 4px;
+        }
+
+        .idiom-phrase {
+            font-weight: 700;
+            color: var(--primary-burgundy);
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        .idiom-meaning {
+            color: var(--dark-text);
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .idiom-example {
+            color: #666;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        /* MATCHING */
+        .matching-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--light-bg);
+            border-radius: 8px;
+        }
+
+        .matching-column h4 {
+            font-weight: 700;
+            color: var(--primary-burgundy);
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.05em;
+        }
+
+        .matching-item {
+            padding: 12px;
+            margin-bottom: 10px;
+            background: white;
+            border: 2px solid var(--primary-burgundy);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .matching-item:hover {
+            background: var(--accent-beige);
+            transform: translateX(5px);
+        }
+
+        /* EXERCISES */
+        .exercise-box {
+            background: var(--accent-beige);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--primary-burgundy);
+        }
+
+        .exercise-title {
+            font-weight: 700;
+            color: var(--primary-burgundy);
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+
+        .word-bank {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .word-bank-label {
+            font-weight: 700;
+            color: var(--primary-burgundy);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .word-bank-words {
+            color: var(--dark-text);
+            line-height: 1.8;
+            font-size: 0.95em;
+        }
+
+        .exercise-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding: 12px;
+            background: white;
+            border-radius: 5px;
+        }
+
+        .exercise-num {
+            font-weight: 700;
+            color: var(--primary-burgundy);
+            min-width: 30px;
+        }
+
+        .exercise-input {
+            padding: 8px;
+            border: 2px solid var(--primary-burgundy);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 0.95em;
+        }
+
+        /* MULTIPLE CHOICE */
+        .mc-question {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: var(--accent-beige);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-burgundy);
+        }
+
+        .mc-question-text {
+            font-weight: 700;
+            color: var(--dark-text);
+            margin-bottom: 12px;
+        }
+
+        .mc-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .mc-option {
+            padding: 10px;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .mc-option:hover {
+            border-color: var(--primary-burgundy);
+            background: var(--light-bg);
+        }
+
+        .mc-option input {
+            margin-right: 10px;
+        }
+
+        /* SPEAKING */
+        .speaking-box {
+            background: var(--accent-beige);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--primary-burgundy);
+        }
+
+        .speaking-task {
+            font-weight: 700;
+            color: var(--primary-burgundy);
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+
+        .speaking-prompt {
+            color: var(--dark-text);
+            margin-bottom: 12px;
+            font-size: 1em;
+        }
+
+        .speaking-tips {
+            color: var(--dark-text);
+            font-size: 0.95em;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            margin-top: 10px;
+            border-left: 3px solid var(--gold);
+        }
+
+        .speaking-tips strong {
+            color: var(--primary-burgundy);
+        }
+
+        /* GRAMMAR SECTION */
+        .grammar-section {
+            background: var(--accent-beige);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--primary-burgundy);
+        }
+
+        .grammar-title {
+            font-weight: 700;
+            color: var(--primary-burgundy);
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .grammar-rule {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .grammar-rule-title {
+            font-weight: 700;
+            color: var(--primary-burgundy);
+            margin-bottom: 8px;
+        }
+
+        .grammar-example {
+            color: #666;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        /* SCORE SECTION */
+        .score-section {
+            text-align: center;
+            padding: 12px;
+            background: white;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-weight: 700;
+            color: var(--primary-burgundy);
+            border: 2px solid var(--primary-burgundy);
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--primary-burgundy);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-weight: 700;
+            font-size: 0.9em;
+            margin-top: 50px;
+            border-top: 4px solid var(--black);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .header {
+                padding: 25px;
+            }
+
+            .header-title {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 25px;
+            }
+
+            .section-title {
+                font-size: 1.6em;
+            }
+
+            .nav-container {
+                padding: 0 20px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .matching-container {
+                grid-template-columns: 1fr;
+            }
+
+            .warmup-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .vocab-table td {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+
+            .header-title-sub {
+                display: block;
+                margin-left: 0;
+                margin-top: 5px;
+            }
+        }
+
+        /* INTRO SECTION */
+        .intro-text {
+            font-size: 1.05em;
+            color: var(--dark-text);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1 class="header-title">
+                <span class="header-title-main">Family Routines,</span>
+                <span class="header-title-main">Hobbies</span>
+                <span class="header-title-sub">&</span>
+                <span class="header-title-main">Interests</span>
+            </h1>
+            <p class="header-description">
+                The vocabulary, idioms and arguments behind daily routines and hobbies — from morning habits to passionate pursuits, from family bonding to personal growth.
+            </p>
+
+            <div class="teacher-note">
+                Family routines and hobbies are deeply personal topics. This lesson focuses on vocabulary, communication, and self-expression. Always be aware of your students' backgrounds and family situations. Everyone's routine is different — and that's beautiful.
+            </div>
+
+            <div class="tags-section">
+                <span class="tag">CEFR B1</span>
+                <span class="tag">Daily Life · Hobbies</span>
+                <span class="tag">Vocabulary · Collocations</span>
+                <span class="tag">Speaking · Grammar</span>
+            </div>
+        </div>
+
+        <!-- NAVIGATION -->
+        <div class="nav-container">
+            <button class="nav-button active" onclick="switchTab('warmup', this)">① Reading 📖</button>
+            <button class="nav-button" onclick="switchTab('vocabulary', this)">② Vocabulary</button>
+            <button class="nav-button" onclick="switchTab('idioms', this)">③ Idioms</button>
+            <button class="nav-button" onclick="switchTab('matching', this)">④ Matching</button>
+            <button class="nav-button" onclick="switchTab('exercises', this)">⑤ Fill the gaps</button>
+            <button class="nav-button" onclick="switchTab('multichoice', this)">⑥ Multiple choice</button>
+            <button class="nav-button" onclick="switchTab('speaking', this)">⑦ Speaking 🎤</button>
+            <button class="nav-button grammar" onclick="switchTab('grammar', this)">⑧ Grammar 📝</button>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content">
+
+            <!-- SECTION 1: READING & WARMUP -->
+            <div id="warmup" class="section active">
+                <div class="section-title">① Warm-up & Reading</div>
+
+                <p class="intro-text">Look at these activities below. For each one, say: "I love it", "It's okay", or "I don't enjoy it". Then read about Marina's family life and discover how they balance routines and hobbies.</p>
+
+                <div class="warmup-grid">
+                    <div class="warmup-item">
+                        <div class="warmup-emoji">📚</div>
+                        <div class="warmup-text">Reading books</div>
+                    </div>
+                    <div class="warmup-item">
+                        <div class="warmup-emoji">⚽</div>
+                        <div class="warmup-text">Playing sports</div>
+                    </div>
+                    <div class="warmup-item">
+                        <div class="warmup-emoji">🍳</div>
+                        <div class="warmup-text">Cooking meals</div>
+                    </div>
+                    <div class="warmup-item">
+                        <div class="warmup-emoji">🎮</div>
+                        <div class="warmup-text">Video games</div>
+                    </div>
+                    <div class="warmup-item">
+                        <div class="warmup-emoji">🎵</div>
+                        <div class="warmup-text">Music</div>
+                    </div>
+                    <div class="warmup-item">
+                        <div class="warmup-emoji">✈️</div>
+                        <div class="warmup-text">Travel</div>
+                    </div>
+                    <div class="warmup-item">
+                        <div class="warmup-emoji">🎬</div>
+                        <div class="warmup-text">Movies</div>
+                    </div>
+                    <div class="warmup-item">
+                        <div class="warmup-emoji">🧘</div>
+                        <div class="warmup-text">Yoga</div>
+                    </div>
+                </div>
+
+                <div class="reading-box">
+                    <p class="reading-author">★ Marina, 32 · Barcelona</p>
+                    <div class="reading-text">
+                        <p>My family and I have <span class="gold-highlight">built a routine</span> that makes us happy and keeps us <span class="gold-highlight">in touch</span> with what really matters. It hasn't always been easy to <span class="gold-highlight">strike a balance</span> between work and our hobbies, but we've managed to <span class="gold-highlight">make time</span> for the things we love.</p>
+
+                        <p>My day <span class="gold-highlight">kicks off</span> at 6:30 AM. I <span class="gold-highlight">get up early</span> to do yoga for thirty minutes. It helps me <span class="gold-highlight">set the tone</span> for the day and gives me energy. My husband, David, prefers to <span class="gold-highlight">sleep in</span> on weekends, but during the week he has to <span class="gold-highlight">stick to</span> an early schedule because of work. Our teenage daughter, Sofia, loves to <span class="gold-highlight">sleep till noon</span> on Saturdays!</p>
+
+                        <p>Breakfast is when we <span class="gold-highlight">catch up</span> with each other. We talk about our plans, our hobbies, and what's going on in our lives. My son enjoys <span class="gold-highlight">taking up</span> new activities — last month he <span class="gold-highlight">picked up</span> skateboarding, and now he's <span class="gold-highlight">hanging out</span> with his friends at the skate park every afternoon. Sofia is <span class="gold-highlight">keen on</span> photography. She spends hours <span class="gold-highlight">fiddling with</span> her camera, trying to <span class="gold-highlight">capture the perfect shot</span>. David is <span class="gold-highlight">passionate about</span> cooking. On weekends, he loves to <span class="gold-highlight">whip up</span> traditional Spanish dishes.</p>
+
+                        <p>Our biggest challenge? We all have different schedules and interests. But instead of <span class="gold-highlight">drifting apart</span>, we <span class="gold-highlight">make an effort</span> to stay connected. We <span class="gold-highlight">set aside</span> Sunday dinner as sacred family time — <span class="gold-highlight">no matter what</span>, we all gather around the table. During these dinners, we <span class="gold-highlight">bring up</span> topics that matter to us, laugh about funny stories, and support each other's dreams.</p>
+
+                        <p>Last year, Sofia <span class="gold-highlight">took up</span> tennis and asked us to watch her first match. We wouldn't <span class="gold-highlight">dream of</span> missing it! David has <span class="gold-highlight">given up</span> late-night television to <span class="gold-highlight">devote more time</span> to his cooking hobby. I've <span class="gold-highlight">cut back on</span> work stress by practicing meditation and yoga. My son is always <span class="gold-highlight">buzzing with</span> excitement about something new.</p>
+
+                        <p>The secret? We understand that life is not about doing everything — it's about <span class="gold-highlight">doing what matters</span>. We make conscious choices about how we spend our time. We celebrate each other's interests and <span class="gold-highlight">cheer each other on</span>. And we know that when you <span class="gold-highlight">make room</span> for hobbies and family time, everything else falls into place. Family routines are not boring — they are the foundation of happiness.</p>
+                    </div>
+                </div>
+
+                <div class="comprehension-grid">
+                    <div class="comp-item">
+                        <div class="comp-q">Q1: What time does Marina wake up?</div>
+                        <div class="comp-a">✓ 6:30 AM</div>
+                    </div>
+                    <div class="comp-item">
+                        <div class="comp-q">Q2: What activity does Sofia enjoy?</div>
+                        <div class="comp-a">✓ Photography and tennis</div>
+                    </div>
+                    <div class="comp-item">
+                        <div class="comp-q">Q3: What hobby does David have?</div>
+                        <div class="comp-a">✓ Cooking Spanish dishes</div>
+                    </div>
+                    <div class="comp-item">
+                        <div class="comp-q">Q4: When is their special family time?</div>
+                        <div class="comp-a">✓ Sunday dinner</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: VOCABULARY -->
+            <div id="vocabulary" class="section">
+                <div class="section-title">② Vocabulary & Collocations</div>
+                <p class="intro-text">Master these essential collocations and expressions for talking about daily routines and hobbies:</p>
+                <table class="vocab-table">
+                    <tr>
+                        <td class="vocab-word">to kick off</td>
+                        <td class="vocab-meaning">to start</td>
+                        <td class="vocab-example">"My day kicks off at 6 AM."</td>
+                    </tr>
+                    <tr>
+                        <td class="vocab-word">to get up early</td>
+                        <td class="vocab-meaning">to wake up at an early hour</td>
+                        <td class="vocab-example">"I get up early to exercise."</td>
+                    </tr>
+                    <tr>
+                        <td class="vocab-word">to set the tone</td>
+                        <td class="vocab-meaning">to establish the feeling/mood</td>
+                        <td class="vocab-example">"A good breakfast sets the tone for the day."</td>
+                    </tr>
+                    <tr>
+                        <td class="vocab-word">to sleep in</td>
+                        <td class="vocab-meaning">to sleep longer than usual</td>
+                        <td class="vocab-example">"I love to sleep in on weekends."</td>
+                    </tr>
+                    <tr>
+                        <td class="vocab-word">to stick to</td>
+                        <td class="vocab-meaning">to follow/maintain something consistently</td>
+                        <td class="vocab-example">"He sticks to his routine every day."</td>
+                    </tr>
+                    <tr>
+                        <td class="vocab-word">to catch up (with)</td>
+                        <td class="vocab-meaning">to talk and share news</td>
+                        <td class="vocab-example">"We catch up over breakfast."</td>
+                    </tr>
+                    <tr>
+                        <td class="vocab-word">to take up (a hobby)</td>
+                        <td class="vocab-meaning">to start a new activity</td>
+                        <td class="vocab-example">"I took up painting last year."</td>
+                    </tr>
+                    <tr>
+                        <td class="vocab-word">to pick up</td>
+                        <td class="vocab-meaning">to start a skill/hobby</td>
+                        <td class="vocab-example">"He picked up skateboarding recently."</td>
+                    </tr>
+                    <tr>
+                        <td class="vocab-word">to hang out</td>
+                        <td class="vocab-meaning">to spend time together for fun</td>
+                        <td class="vocab-example">"They hang out at the park daily."</td>
+                    </tr>
+                    <tr>
+                        <td class="vocab-word">to be keen on</td>
+                        <td class="vocab-meaning">to like something very much</td>
+                        <td class="vocab-example">"She's keen on photography."</td>
+                    </tr>
+                    <tr>
+                        <td class="vocab-word">to fiddle with</td>
+                        <td class="vocab-meaning">to adjust/play with something</td>
+                        <td class="vocab-example">"He's fiddling with his camera."</td>
+                    </tr>
+                    <tr>
+                        <td class="vocab-word">to be passionate about</td>
+                        <td class="vocab-meaning">to have strong interest</td>
+                        <td class="vocab-example">"He's passionate about cooking."</td>
+                    </tr>
+                    <tr>
+                        <td class="vocab-word">to whip up</td>
+                        <td class="vocab-meaning">to prepare food quickly</td>
+                        <td class="vocab-example">"He can whip up a meal in 20 minutes."</td>
+                    </tr>
+                    <tr>
+                        <td class="vocab-word">to drift apart</td>
+                        <td class="vocab-meaning">to slowly lose connection</td>
+                        <td class="vocab-example">"Families drift apart without making effort."</td>
+                    </tr>
+                    <tr>
+                        <td class="vocab-word">to make an effort</td>
+                        <td class="vocab-meaning">to try hard to do something</td>
+                        <td class="vocab-example">"We make an effort to stay connected."</td>
+                    </tr>
+                    <tr>
+                        <td class="vocab-word">to set aside</td>
+                        <td class="vocab-meaning">to keep time for something special</td>
+                        <td class="vocab-example">"We set aside Sunday for family."</td>
+                    </tr>
+                    <tr>
+                        <td class="vocab-word">no matter what</td>
+                        <td class="vocab-meaning">regardless; in any case</td>
+                        <td class="vocab-example">"No matter what, we have dinner together."</td>
+                    </tr>
+                    <tr>
+                        <td class="vocab-word">to bring up (a topic)</td>
+                        <td class="vocab-meaning">to mention/introduce a subject</td>
+                        <td class="vocab-example">"We bring up our plans at dinner."</td>
+                    </tr>
+                    <tr>
+                        <td class="vocab-word">to give up</td>
+                        <td class="vocab-meaning">to stop doing something</td>
+                        <td class="vocab-example">"He gave up TV for more hobbies."</td>
+                    </tr>
+                    <tr>
+                        <td class="vocab-word">to cheer on</td>
+                        <td class="vocab-meaning">to encourage/support someone</td>
+                        <td class="vocab-example">"We cheer each other on in hobbies."</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- SECTION 3: IDIOMS -->
+            <div id="idioms" class="section">
+                <div class="section-title">③ Idioms & Expressions</div>
+                <p class="intro-text">Pick 4-5 of these idioms and try to use them in your daily life!</p>
+
+                <div class="idioms-grid">
+                    <div class="idiom-card">
+                        <div class="idiom-phrase">to build a routine</div>
+                        <div class="idiom-meaning">create a regular pattern of activities</div>
+                        <div class="idiom-example">"She built a routine that includes exercise."</div>
+                    </div>
+
+                    <div class="idiom-card">
+                        <div class="idiom-phrase">to be in touch</div>
+                        <div class="idiom-meaning">maintain connection with someone/something</div>
+                        <div class="idiom-example">"We stay in touch through weekly calls."</div>
+                    </div>
+
+                    <div class="idiom-card">
+                        <div class="idiom-phrase">to strike a balance</div>
+                        <div class="idiom-meaning">find equilibrium between two things</div>
+                        <div class="idiom-example">"It's hard to strike a balance between work and hobbies."</div>
+                    </div>
+
+                    <div class="idiom-card">
+                        <div class="idiom-phrase">to make time</div>
+                        <div class="idiom-meaning">find time for something important</div>
+                        <div class="idiom-example">"Even busy people make time for family."</div>
+                    </div>
+
+                    <div class="idiom-card">
+                        <div class="idiom-phrase">to dream of</div>
+                        <div class="idiom-meaning">want something very much; imagine</div>
+                        <div class="idiom-example">"I wouldn't dream of missing it."</div>
+                    </div>
+
+                    <div class="idiom-card">
+                        <div class="idiom-phrase">to devote time to</div>
+                        <div class="idiom-meaning">spend time on something you care about</div>
+                        <div class="idiom-example">"She devotes time to her art every day."</div>
+                    </div>
+
+                    <div class="idiom-card">
+                        <div class="idiom-phrase">to cut back on</div>
+                        <div class="idiom-meaning">reduce the amount of something</div>
+                        <div class="idiom-example">"I cut back on work to enjoy family time."</div>
+                    </div>
+
+                    <div class="idiom-card">
+                        <div class="idiom-phrase">to buzz with</div>
+                        <div class="idiom-meaning">be full of energy and excitement</div>
+                        <div class="idiom-example">"He was buzzing with excitement."</div>
+                    </div>
+
+                    <div class="idiom-card">
+                        <div class="idiom-phrase">to do what matters</div>
+                        <div class="idiom-meaning">focus on important things in life</div>
+                        <div class="idiom-example">"Life is better when you do what matters."</div>
+                    </div>
+
+                    <div class="idiom-card">
+                        <div class="idiom-phrase">to make room for</div>
+                        <div class="idiom-meaning">create space or time for something</div>
+                        <div class="idiom-example">"Make room for things that make you happy."</div>
+                    </div>
+
+                    <div class="idiom-card">
+                        <div class="idiom-phrase">to sleep till noon</div>
+                        <div class="idiom-meaning">sleep until 12 o'clock</div>
+                        <div class="idiom-example">"She sleeps till noon on weekends."</div>
+                    </div>
+
+                    <div class="idiom-card">
+                        <div class="idiom-phrase">to capture a moment</div>
+                        <div class="idiom-meaning">record/photograph something important</div>
+                        <div class="idiom-example">"Photography captures beautiful moments."</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 4: MATCHING -->
+            <div id="matching" class="section">
+                <div class="section-title">④ Matching Exercise</div>
+                <p class="intro-text">Match the expression on the left with its meaning on the right.</p>
+
+                <div class="matching-container">
+                    <div>
+                        <h4>Expression</h4>
+                        <div class="matching-item">to build a routine</div>
+                        <div class="matching-item">to strike a balance</div>
+                        <div class="matching-item">to take up a hobby</div>
+                        <div class="matching-item">to hang out</div>
+                        <div class="matching-item">to be keen on</div>
+                        <div class="matching-item">to drift apart</div>
+                        <div class="matching-item">to devote time to</div>
+                        <div class="matching-item">to cheer on</div>
+                        <div class="matching-item">to cut back on</div>
+                        <div class="matching-item">to buzz with energy</div>
+                    </div>
+                    <div>
+                        <h4>Meaning</h4>
+                        <div class="matching-item">to reduce the amount of something</div>
+                        <div class="matching-item">to be full of excitement</div>
+                        <div class="matching-item">to spend time together for fun</div>
+                        <div class="matching-item">to start a new activity</div>
+                        <div class="matching-item">to support someone</div>
+                        <div class="matching-item">to like something very much</div>
+                        <div class="matching-item">to spend time on something important</div>
+                        <div class="matching-item">to slowly lose connection</div>
+                        <div class="matching-item">to create a regular pattern</div>
+                        <div class="matching-item">to find equilibrium between two things</div>
+                    </div>
+                </div>
+                <div class="score-section">0 / 10</div>
+            </div>
+
+            <!-- SECTION 5: FILL IN GAPS -->
+            <div id="exercises" class="section">
+                <div class="section-title">⑤ Fill in the Gaps</div>
+
+                <div class="exercise-box">
+                    <div class="exercise-title">Complete the Sentences</div>
+                    <div class="word-bank">
+                        <span class="word-bank-label">🚀 WORD BANK 🚀</span>
+                        <span class="word-bank-words">kick off · keen on · hung out · picked up · struck a balance · buzz with · cheer on · caught up · set aside · drifted apart</span>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">01</span>
+                        <div>My day always <input type="text" class="exercise-input" placeholder="______ ______"> at 7 AM.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">02</span>
+                        <div>My sister is very <input type="text" class="exercise-input" placeholder="______"> photography.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">03</span>
+                        <div>Last summer, I <input type="text" class="exercise-input" placeholder="______"> with my friends at the beach daily.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">04</span>
+                        <div>He <input type="text" class="exercise-input" placeholder="______"> <input type="text" class="exercise-input" placeholder="______"> guitar and now he's in a band.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">05</span>
+                        <div>We finally <input type="text" class="exercise-input" placeholder="______"> <input type="text" class="exercise-input" placeholder="______"> between work and family.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">06</span>
+                        <div>The children were <input type="text" class="exercise-input" placeholder="______"> <input type="text" class="exercise-input" placeholder="______"> excitement about the trip.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">07</span>
+                        <div>We always <input type="text" class="exercise-input" placeholder="______"> <input type="text" class="exercise-input" placeholder="______"> our sister at her tennis matches.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">08</span>
+                        <div>We <input type="text" class="exercise-input" placeholder="______"> <input type="text" class="exercise-input" placeholder="______"> Sunday morning for family breakfast.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">09</span>
+                        <div>We <input type="text" class="exercise-input" placeholder="______ ______"> over coffee about our week.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">10</span>
+                        <div>After years without talking, we feared we had <input type="text" class="exercise-input" placeholder="______ ______">.</div>
+                    </div>
+
+                    <div class="score-section">✓ Check my answers — / 10</div>
+                </div>
+            </div>
+
+            <!-- SECTION 6: MULTIPLE CHOICE -->
+            <div id="multichoice" class="section">
+                <div class="section-title">⑥ Multiple Choice</div>
+
+                <div class="mc-question">
+                    <div class="mc-question-text">Q1: "I always kick off my day with coffee." This means:</div>
+                    <div class="mc-options">
+                        <label class="mc-option"><input type="radio"> I start my day with coffee</label>
+                        <label class="mc-option"><input type="radio"> I kick something in the morning</label>
+                        <label class="mc-option"><input type="radio"> I drink coffee in the afternoon</label>
+                        <label class="mc-option"><input type="radio"> I avoid coffee in the morning</label>
+                    </div>
+                </div>
+
+                <div class="mc-question">
+                    <div class="mc-question-text">Q2: "To be keen on" means to:</div>
+                    <div class="mc-options">
+                        <label class="mc-option"><input type="radio"> dislike something</label>
+                        <label class="mc-option"><input type="radio"> like something very much</label>
+                        <label class="mc-option"><input type="radio"> be uncertain about something</label>
+                        <label class="mc-option"><input type="radio"> forget about something</label>
+                    </div>
+                </div>
+
+                <div class="mc-question">
+                    <div class="mc-question-text">Q3: If you "strike a balance," you:</div>
+                    <div class="mc-options">
+                        <label class="mc-option"><input type="radio"> hit something</label>
+                        <label class="mc-option"><input type="radio"> fall down</label>
+                        <label class="mc-option"><input type="radio"> find equilibrium between two things</label>
+                        <label class="mc-option"><input type="radio"> become angry</label>
+                    </div>
+                </div>
+
+                <div class="mc-question">
+                    <div class="mc-question-text">Q4: "To hang out" means to:</div>
+                    <div class="mc-options">
+                        <label class="mc-option"><input type="radio"> hang something on a wall</label>
+                        <label class="mc-option"><input type="radio"> spend time together for fun</label>
+                        <label class="mc-option"><input type="radio"> be tired and rest</label>
+                        <label class="mc-option"><input type="radio"> refuse to do something</label>
+                    </div>
+                </div>
+
+                <div class="mc-question">
+                    <div class="mc-question-text">Q5: "She picked up painting." This means she:</div>
+                    <div class="mc-options">
+                        <label class="mc-option"><input type="radio"> lifted something from the floor</label>
+                        <label class="mc-option"><input type="radio"> started doing painting as a hobby</label>
+                        <label class="mc-option"><input type="radio"> stopped painting</label>
+                        <label class="mc-option"><input type="radio"> sold a painting</label>
+                    </div>
+                </div>
+
+                <div class="mc-question">
+                    <div class="mc-question-text">Q6: "We catch up every morning." This means we:</div>
+                    <div class="mc-options">
+                        <label class="mc-option"><input type="radio"> run faster</label>
+                        <label class="mc-option"><input type="radio"> share news and talk together</label>
+                        <label class="mc-option"><input type="radio"> move forward</label>
+                        <label class="mc-option"><input type="radio"> stop running</label>
+                    </div>
+                </div>
+
+                <div class="mc-question">
+                    <div class="mc-question-text">Q7: "Don't give up on your hobby." This means:</div>
+                    <div class="mc-options">
+                        <label class="mc-option"><input type="radio"> continue trying</label>
+                        <label class="mc-option"><input type="radio"> stop doing something</label>
+                        <label class="mc-option"><input type="radio"> give something to someone</label>
+                        <label class="mc-option"><input type="radio"> improve at something</label>
+                    </div>
+                </div>
+
+                <div class="mc-question">
+                    <div class="mc-question-text">Q8: "To fiddle with" means to:</div>
+                    <div class="mc-options">
+                        <label class="mc-option"><input type="radio"> play a musical instrument</label>
+                        <label class="mc-option"><input type="radio"> adjust or play with something repeatedly</label>
+                        <label class="mc-option"><input type="radio"> tell lies</label>
+                        <label class="mc-option"><input type="radio"> waste money</label>
+                    </div>
+                </div>
+
+                <div class="mc-question">
+                    <div class="mc-question-text">Q9: "I would never dream of missing it." This means:</div>
+                    <div class="mc-options">
+                        <label class="mc-option"><input type="radio"> I usually dream about it</label>
+                        <label class="mc-option"><input type="radio"> I definitely won't miss it</label>
+                        <label class="mc-option"><input type="radio"> I always forget it</label>
+                        <label class="mc-option"><input type="radio"> I want to miss it</label>
+                    </div>
+                </div>
+
+                <div class="mc-question">
+                    <div class="mc-question-text">Q10: "They drift apart" means:</div>
+                    <div class="mc-options">
+                        <label class="mc-option"><input type="radio"> their relationship becomes stronger</label>
+                        <label class="mc-option"><input type="radio"> they slowly lose connection</label>
+                        <label class="mc-option"><input type="radio"> they start immediately</label>
+                        <label class="mc-option"><input type="radio"> they remain the same</label>
+                    </div>
+                </div>
+
+                <div class="score-section">0 / 10</div>
+            </div>
+
+            <!-- SECTION 7: SPEAKING -->
+            <div id="speaking" class="section">
+                <div class="section-title">⑦ Speaking Practice</div>
+                <p class="intro-text">Talk for 1-2 minutes on each question. Try to use 3-5 new words or expressions. Be honest — there are no wrong answers!</p>
+
+                <div class="speaking-box">
+                    <div class="speaking-task">◆ TASK 01 · YOUR DAILY ROUTINE</div>
+                    <div class="speaking-prompt">Tell me about your typical day. When does it kick off? What activities do you do? When do you go to bed? How do you feel about your routine?</div>
+                    <div class="speaking-tips"><strong>Try to use:</strong> kick off · get up early · stick to · set the tone · sleep in · a typical day</div>
+                </div>
+
+                <div class="speaking-box">
+                    <div class="speaking-task">◆ TASK 02 · YOUR HOBBIES & INTERESTS</div>
+                    <div class="speaking-prompt">What hobbies do you have? When did you take them up? How much time do you spend on them? Why are you keen on these activities?</div>
+                    <div class="speaking-tips"><strong>Try to use:</strong> take up · picked up · keen on · passionate about · hang out · spend time on</div>
+                </div>
+
+                <div class="speaking-box">
+                    <div class="speaking-task">◆ TASK 03 · YOUR FAMILY'S INTERESTS</div>
+                    <div class="speaking-prompt">Tell me about your family members' hobbies. What do they enjoy doing? How do you feel about their interests? Do you ever do these activities together?</div>
+                    <div class="speaking-tips"><strong>Try to use:</strong> be keen on · passion for · take up · enjoy · support · cheer on</div>
+                </div>
+
+                <div class="speaking-box">
+                    <div class="speaking-task">◆ TASK 04 · FAMILY TIME & BONDING</div>
+                    <div class="speaking-prompt">How do you spend quality time with your family? Do you have any special routines? How important is family time in your culture? How do you strike a balance between hobbies and family?</div>
+                    <div class="speaking-tips"><strong>Try to use:</strong> strike a balance · set aside · catch up · make time · in touch · family bonding</div>
+                </div>
+
+                <div class="speaking-box">
+                    <div class="speaking-task">◆ TASK 05 · A NEW HOBBY YOU WANT TO TRY</div>
+                    <div class="speaking-prompt">Is there a new hobby you want to take up? Why does it interest you? What challenges might you face? How would you start?</div>
+                    <div class="speaking-tips"><strong>Try to use:</strong> take up · pick up · curious about · challenge myself · devote time to · make an effort</div>
+                </div>
+
+                <div class="speaking-box">
+                    <div class="speaking-task">◆ TASK 06 · STAYING CONNECTED WITH LOVED ONES</div>
+                    <div class="speaking-prompt">How do you stay in touch with family and friends? Do you sometimes feel like you're drifting apart? How do you make an effort to stay close?</div>
+                    <div class="speaking-tips"><strong>Try to use:</strong> in touch · drift apart · make an effort · catch up · no matter what · devote time</div>
+                </div>
+
+                <div class="speaking-box">
+                    <div class="speaking-task">◆ TASK 07 · YOUR IDEAL WEEKEND</div>
+                    <div class="speaking-prompt">Describe your ideal weekend. How do you kick it off? What activities would you do? Would you include family? How is it different from your weekday routine?</div>
+                    <div class="speaking-tips"><strong>Try to use:</strong> kick off · sleep in · set aside · hang out · ideal weekend · activities</div>
+                </div>
+
+                <div class="speaking-box">
+                    <div class="speaking-task">◆ TASK 08 · ADVICE FOR SOMEONE</div>
+                    <div class="speaking-prompt">Your friend has no hobbies and feels bored. What advice would you give them? What hobbies might suit them? How should they start? Why is it important to have interests?</div>
+                    <div class="speaking-tips"><strong>Try to use:</strong> take up · pick up · devote time · make time · worth trying · give it a go</div>
+                </div>
+
+                <div class="speaking-box">
+                    <div class="speaking-task">◆ TASK 09 · QUICK QUESTIONS (30 SECONDS EACH)</div>
+                    <div class="speaking-prompt">
+                        ▸ What's your favorite hobby and when did you take it up?<br>
+                        ▸ What activity are you most passionate about?<br>
+                        ▸ How do you balance work/studies and hobbies?<br>
+                        ▸ What new hobby would you love to pick up?<br>
+                        ▸ Who do you like to hang out with the most?
+                    </div>
+                    <div class="speaking-tips"><strong>No thinking — just answer fast! Use natural expressions!</strong></div>
+                </div>
+            </div>
+
+            <!-- SECTION 8: GRAMMAR -->
+            <div id="grammar" class="section">
+                <div class="section-title">⑧ Grammar Exercises</div>
+                <p class="intro-text">Master the essential grammar for talking confidently about daily routines and hobbies.</p>
+
+                <div class="grammar-section">
+                    <div class="grammar-title">🚀 Grammar Rules You Need</div>
+
+                    <div class="grammar-rule">
+                        <div class="grammar-rule-title">PRESENT SIMPLE vs. PRESENT CONTINUOUS</div>
+                        <div class="grammar-example">
+                            <strong>Present Simple:</strong> For habits, routines, permanent facts<br>
+                            Example: "I wake up at 7 AM every day." / "She loves photography."<br><br>
+                            <strong>Present Continuous:</strong> For things happening RIGHT NOW<br>
+                            Example: "I am waking up right now." / "She is taking photos this moment."<br><br>
+                            <strong>Form:</strong> am/is/are + -ing
+                        </div>
+                    </div>
+
+                    <div class="grammar-rule">
+                        <div class="grammar-rule-title">PREPOSITIONS (Time, Place & Manner)</div>
+                        <div class="grammar-example">
+                            <strong>In / On / At:</strong> in the morning, on Monday, at 6 PM<br>
+                            <strong>Place:</strong> in the house, on the table, at the park<br>
+                            <strong>Other:</strong> before breakfast, after school, during the week, throughout the day
+                        </div>
+                    </div>
+
+                    <div class="grammar-rule">
+                        <div class="grammar-rule-title">ADJECTIVE + PREPOSITION</div>
+                        <div class="grammar-example">
+                            <strong>keen on</strong> (interested in): "She's keen on photography."<br>
+                            <strong>passionate about</strong> (very interested in): "He's passionate about cooking."<br>
+                            <strong>good at</strong> (skilled in): "She's good at sports."<br>
+                            <strong>interested in</strong> (like): "Are you interested in music?"
+                        </div>
+                    </div>
+
+                    <div class="grammar-rule">
+                        <div class="grammar-rule-title">COMPARATIVES</div>
+                        <div class="grammar-example">
+                            <strong>Short adjectives:</strong> Add -er: faster, bigger, slower<br>
+                            Example: "My brother is faster than me."<br><br>
+                            <strong>Long adjectives:</strong> Use "more": more interesting, more difficult<br>
+                            Example: "Reading is more relaxing than gaming."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EXERCISE 1 -->
+                <div class="exercise-box">
+                    <div class="exercise-title">EXERCISE 1: Present Simple vs. Present Continuous (20 sentences)</div>
+                    
+                    <div class="exercise-item">
+                        <span class="exercise-num">01</span>
+                        <div>Every morning, I <input type="text" class="exercise-input" placeholder="______"> (wake) up at 7 AM.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">02</span>
+                        <div>Right now, she <input type="text" class="exercise-input" placeholder="______"> (cook) dinner.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">03</span>
+                        <div>My father <input type="text" class="exercise-input" placeholder="______"> (love) gardening.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">04</span>
+                        <div>We <input type="text" class="exercise-input" placeholder="______"> (play) tennis this weekend.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">05</span>
+                        <div>They <input type="text" class="exercise-input" placeholder="______"> (eat) lunch together every Sunday.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">06</span>
+                        <div>He <input type="text" class="exercise-input" placeholder="______"> (watch) TV at the moment.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">07</span>
+                        <div>My sister <input type="text" class="exercise-input" placeholder="______"> (take) photos for her hobby.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">08</span>
+                        <div>I <input type="text" class="exercise-input" placeholder="______"> (do) yoga every morning.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">09</span>
+                        <div>The children <input type="text" class="exercise-input" placeholder="______"> (hang) out at the skate park right now.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">10</span>
+                        <div>She <input type="text" class="exercise-input" placeholder="______"> (catch) up with her friends every week.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">11</span>
+                        <div>We <input type="text" class="exercise-input" placeholder="______"> (have) dinner at this moment.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">12</span>
+                        <div>He <input type="text" class="exercise-input" placeholder="______"> (fiddle) with his camera every evening.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">13</span>
+                        <div>They <input type="text" class="exercise-input" placeholder="______"> (sleep) right now.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">14</span>
+                        <div>My family <input type="text" class="exercise-input" placeholder="______"> (spend) weekends together.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">15</span>
+                        <div>She <input type="text" class="exercise-input" placeholder="______"> (run) in the park this morning.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">16</span>
+                        <div>I <input type="text" class="exercise-input" placeholder="______"> (read) a book right now.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">17</span>
+                        <div>They usually <input type="text" class="exercise-input" placeholder="______"> (kick) off their day with breakfast.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">18</span>
+                        <div>We <input type="text" class="exercise-input" placeholder="______"> (set) aside Sunday for family time.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">19</span>
+                        <div>He <input type="text" class="exercise-input" placeholder="______"> (take) up tennis at the moment.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">20</span>
+                        <div>She <input type="text" class="exercise-input" placeholder="______"> (buzz) with excitement about her new hobby.</div>
+                    </div>
+
+                    <div class="score-section">✓ Check my answers — / 20</div>
+                </div>
+
+                <!-- EXERCISE 2 -->
+                <div class="exercise-box">
+                    <div class="exercise-title">EXERCISE 2: Prepositions (Place, Time & Manner) (20 sentences)</div>
+                    
+                    <div class="exercise-item">
+                        <span class="exercise-num">01</span>
+                        <div>I wake up <input type="text" class="exercise-input" placeholder="______"> 7 AM every day.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">02</span>
+                        <div>My family eats dinner <input type="text" class="exercise-input" placeholder="______"> the table.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">03</span>
+                        <div>We hang out <input type="text" class="exercise-input" placeholder="______"> the park every weekend.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">04</span>
+                        <div>She takes yoga classes <input type="text" class="exercise-input" placeholder="______"> the morning.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">05</span>
+                        <div>He studies <input type="text" class="exercise-input" placeholder="______"> his room.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">06</span>
+                        <div>We always catch up <input type="text" class="exercise-input" placeholder="______"> breakfast.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">07</span>
+                        <div>They play tennis <input type="text" class="exercise-input" placeholder="______"> Wednesday.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">08</span>
+                        <div>My sister takes photos <input type="text" class="exercise-input" placeholder="______"> a professional manner.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">09</span>
+                        <div>The family spends time together <input type="text" class="exercise-input" placeholder="______"> the evening.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">10</span>
+                        <div>She plays the guitar <input type="text" class="exercise-input" placeholder="______"> a beautiful way.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">11</span>
+                        <div>We meet <input type="text" class="exercise-input" placeholder="______"> the coffee shop.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">12</span>
+                        <div>He exercises <input type="text" class="exercise-input" placeholder="______"> the gym every day.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">13</span>
+                        <div><input type="text" class="exercise-input" placeholder="______"> the weekend, we always rest.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">14</span>
+                        <div>I do yoga <input type="text" class="exercise-input" placeholder="______"> a calm manner.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">15</span>
+                        <div>The hobby keeps us <input type="text" class="exercise-input" placeholder="______"> touch.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">16</span>
+                        <div>We sing <input type="text" class="exercise-input" placeholder="______"> joy.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">17</span>
+                        <div>She reads books <input type="text" class="exercise-input" placeholder="______"> her free time.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">18</span>
+                        <div>He cooks <input type="text" class="exercise-input" placeholder="______"> the kitchen <input type="text" class="exercise-input" placeholder="______"> a passionate way.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">19</span>
+                        <div>We set aside <input type="text" class="exercise-input" placeholder="______"> Sunday <input type="text" class="exercise-input" placeholder="______"> family time.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">20</span>
+                        <div>They skateboard <input type="text" class="exercise-input" placeholder="______"> the park <input type="text" class="exercise-input" placeholder="______"> every afternoon.</div>
+                    </div>
+
+                    <div class="score-section">✓ Check my answers — / 20</div>
+                </div>
+
+                <!-- EXERCISE 3 -->
+                <div class="exercise-box">
+                    <div class="exercise-title">EXERCISE 3: Adjectives with Prepositions</div>
+                    
+                    <div class="exercise-item">
+                        <span class="exercise-num">01</span>
+                        <div>I am very keen <input type="text" class="exercise-input" placeholder="______"> hiking.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">02</span>
+                        <div>He is passionate <input type="text" class="exercise-input" placeholder="______"> cooking.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">03</span>
+                        <div>She is interested <input type="text" class="exercise-input" placeholder="______"> photography.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">04</span>
+                        <div>They are excited <input type="text" class="exercise-input" placeholder="______"> the trip.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">05</span>
+                        <div>We are good <input type="text" class="exercise-input" placeholder="______"> sports.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">06</span>
+                        <div>She's bad <input type="text" class="exercise-input" placeholder="______"> remembering names.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">07</span>
+                        <div>I am proud <input type="text" class="exercise-input" placeholder="______"> my hobbies.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">08</span>
+                        <div>He's afraid <input type="text" class="exercise-input" placeholder="______"> trying new things.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">09</span>
+                        <div>We're worried <input type="text" class="exercise-input" placeholder="______"> her schedule.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">10</span>
+                        <div>She's responsible <input type="text" class="exercise-input" placeholder="______"> organizing family time.</div>
+                    </div>
+
+                    <div class="score-section">✓ Check my answers — / 10</div>
+                </div>
+
+                <!-- EXERCISE 4 -->
+                <div class="exercise-box">
+                    <div class="exercise-title">EXERCISE 4: Comparatives</div>
+                    
+                    <div class="exercise-item">
+                        <span class="exercise-num">01</span>
+                        <div>Reading is <input type="text" class="exercise-input" placeholder="______"> (relaxing) than gaming.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">02</span>
+                        <div>My sister's hobby is <input type="text" class="exercise-input" placeholder="______"> (interesting) than mine.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">03</span>
+                        <div>Cooking is <input type="text" class="exercise-input" placeholder="______"> (difficult) than I thought.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">04</span>
+                        <div>She is <input type="text" class="exercise-input" placeholder="______"> (passionate) about art than sports.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">05</span>
+                        <div>Family time is <input type="text" class="exercise-input" placeholder="______"> (important) than work.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">06</span>
+                        <div>This hobby is <input type="text" class="exercise-input" placeholder="______"> (fun) than that one.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">07</span>
+                        <div>He is <input type="text" class="exercise-input" placeholder="______"> (good) at sports than at art.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">08</span>
+                        <div>This activity is <input type="text" class="exercise-input" placeholder="______"> (challenging) than expected.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">09</span>
+                        <div>Mornings are <input type="text" class="exercise-input" placeholder="______"> (busy) than evenings.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">10</span>
+                        <div>My routine is <input type="text" class="exercise-input" placeholder="______"> (structured) than yours.</div>
+                    </div>
+
+                    <div class="score-section">✓ Check my answers — / 10</div>
+                </div>
+
+                <!-- EXERCISE 5 -->
+                <div class="exercise-box">
+                    <div class="exercise-title">EXERCISE 5: Present Simple, Present Continuous & Past Simple (With Time Adverbs) (20 sentences)</div>
+                    
+                    <div class="exercise-item">
+                        <span class="exercise-num">01</span>
+                        <div><input type="text" class="exercise-input" placeholder="______"> (Yesterday) he <input type="text" class="exercise-input" placeholder="______"> (take) up tennis.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">02</span>
+                        <div>She <input type="text" class="exercise-input" placeholder="______"> (usually) <input type="text" class="exercise-input" placeholder="______"> (wake) up at 7 AM.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">03</span>
+                        <div><input type="text" class="exercise-input" placeholder="______"> (Right now) they <input type="text" class="exercise-input" placeholder="______"> (hang) out at the park.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">04</span>
+                        <div><input type="text" class="exercise-input" placeholder="______"> (Last week) we <input type="text" class="exercise-input" placeholder="______"> (catch) up over coffee.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">05</span>
+                        <div>He <input type="text" class="exercise-input" placeholder="______"> (always) <input type="text" class="exercise-input" placeholder="______"> (set) aside time for his hobby.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">06</span>
+                        <div><input type="text" class="exercise-input" placeholder="______"> (Currently) she <input type="text" class="exercise-input" placeholder="______"> (fiddle) with her camera.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">07</span>
+                        <div><input type="text" class="exercise-input" placeholder="______"> (Two years ago) he <input type="text" class="exercise-input" placeholder="______"> (pick) up guitar.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">08</span>
+                        <div>They <input type="text" class="exercise-input" placeholder="______"> (rarely) <input type="text" class="exercise-input" placeholder="______"> (miss) family dinner.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">09</span>
+                        <div><input type="text" class="exercise-input" placeholder="______"> (At the moment) I <input type="text" class="exercise-input" placeholder="______"> (build) a new routine.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">10</span>
+                        <div><input type="text" class="exercise-input" placeholder="______"> (Every weekend) we <input type="text" class="exercise-input" placeholder="______"> (do) something together.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">11</span>
+                        <div><input type="text" class="exercise-input" placeholder="______"> (Last month) she <input type="text" class="exercise-input" placeholder="______"> (start) a new hobby.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">12</span>
+                        <div><input type="text" class="exercise-input" placeholder="______"> (Just) he <input type="text" class="exercise-input" placeholder="______"> (give) up television for more hobbies.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">13</span>
+                        <div>She <input type="text" class="exercise-input" placeholder="______"> (often) <input type="text" class="exercise-input" placeholder="______"> (take) photos.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">14</span>
+                        <div><input type="text" class="exercise-input" placeholder="______"> (Right now) they <input type="text" class="exercise-input" placeholder="______"> (buzz) with excitement.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">15</span>
+                        <div><input type="text" class="exercise-input" placeholder="______"> (In the past) we <input type="text" class="exercise-input" placeholder="______"> (drift) apart.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">16</span>
+                        <div>I <input type="text" class="exercise-input" placeholder="______"> (never) <input type="text" class="exercise-input" placeholder="______"> (sleep) in on weekdays.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">17</span>
+                        <div><input type="text" class="exercise-input" placeholder="______"> (Lately) she <input type="text" class="exercise-input" placeholder="______"> (be) keen on photography.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">18</span>
+                        <div><input type="text" class="exercise-input" placeholder="______"> (Last year) he <input type="text" class="exercise-input" placeholder="______"> (devote) more time to cooking.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">19</span>
+                        <div><input type="text" class="exercise-input" placeholder="______"> (Generally) we <input type="text" class="exercise-input" placeholder="______"> (spend) Sundays together.</div>
+                    </div>
+
+                    <div class="exercise-item">
+                        <span class="exercise-num">20</span>
+                        <div><input type="text" class="exercise-input" placeholder="______"> (Today) they <input type="text" class="exercise-input" placeholder="______"> (kick) off a new project.</div>
+                    </div>
+
+                    <div class="score-section">✓ Check my answers — / 20</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            🚀 ★ ⚡ FAMILY ROUTINES, HOBBIES & INTERESTS · B1 ENGLISH LESSON ⚡ ★ 🚀
+            <br><br>
+            Keep practicing every day. Your fluency will improve with consistency and engagement with real content!
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabName, button) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(tabName).classList.add('active');
+
+            // Update active button
+            const buttons = document.querySelectorAll('.nav-button');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            button.classList.add('active');
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
