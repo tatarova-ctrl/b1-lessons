@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Role of Nurses in Managing Postoperative Pain — B1 English</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root { --navy: #1a1a2e; --medical: #0d5a6f; --accent: #d4860e; --beige: #f5f1e8; --cream: #faf8f3; --gold-light: #f5e6d3; --dark-text: #2b2b2b; --mint: #e8f5e9; --mint-border: #4caf50; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--beige); color: var(--dark-text); line-height: 1.65; min-height: 100vh; background-image: radial-gradient(ellipse at top left, rgba(13,90,111,0.08) 0%, transparent 50%), radial-gradient(ellipse at bottom right, rgba(26,26,46,0.05) 0%, transparent 50%); }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+  header { background: var(--cream); border: 2px solid var(--medical); border-radius: 18px; padding: 32px 36px; margin-bottom: 28px; position: relative; box-shadow: 6px 6px 0 var(--medical); overflow: hidden; }
+  header::before { content: "⚕️"; position: absolute; top: 24px; right: 30px; font-size: 100px; opacity: 0.12; z-index: 0; }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label { display: inline-block; font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 3px; background: var(--medical); color: var(--accent); padding: 5px 12px; border-radius: 4px; margin-bottom: 14px; }
+  h1 { font-family: 'DM Serif Display', serif; font-size: clamp(32px, 5vw, 50px); line-height: 1.07; color: var(--medical); letter-spacing: -1px; }
+  h1 .accent { color: var(--accent); font-style: italic; }
+  .sub { font-size: 17px; color: #4a4a4a; margin-top: 10px; max-width: 640px; }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag { font-family: 'Courier Prime', monospace; font-size: 11px; padding: 4px 10px; background: var(--gold-light); border: 1.5px solid var(--medical); border-radius: 20px; letter-spacing: 1px; color: var(--medical); }
+  .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .tab { padding: 12px 15px; background: var(--cream); border: 2px solid var(--medical); font-family: 'Inter', sans-serif; font-weight: 600; font-size: 13px; cursor: pointer; color: var(--medical); border-radius: 10px; box-shadow: 3px 3px 0 var(--medical); transition: all 0.15s; }
+  .tab:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--medical); }
+  .tab.active { background: var(--medical); color: var(--accent); }
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)} }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 28px; margin-bottom: 8px; color: var(--medical); }
+  .section-title .emoji { margin-right: 10px; }
+  .instr { color: #4a4a4a; margin-bottom: 22px; font-size: 15px; padding: 10px 14px; background: var(--gold-light); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; }
+  .word-bank { background: var(--mint); border: 2px solid var(--mint-border); border-radius: 12px; padding: 14px 18px; margin-bottom: 22px; }
+  .word-bank-label { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 2px; color: var(--mint-border); font-weight: 700; margin-bottom: 8px; display: block; }
+  .word-bank-words { display: flex; flex-wrap: wrap; gap: 8px; }
+  .wb-word { background: var(--cream); border: 1.5px solid var(--mint-border); border-radius: 6px; padding: 4px 10px; font-family: 'Courier Prime', monospace; font-size: 13px; color: var(--medical); }
+  .warmup-card { background: var(--cream); border: 2px solid var(--medical); border-left: 6px solid var(--accent); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: 4px 4px 0 var(--medical); }
+  .warmup-num { font-family: 'Courier Prime', monospace; color: var(--accent); font-weight: 700; font-size: 12px; letter-spacing: 2px; margin-bottom: 4px; }
+  .warmup-q { font-family: 'DM Serif Display', serif; font-size: 18px; line-height: 1.4; color: var(--medical); }
+  .speaking-card { background: var(--cream); border: 2px solid var(--medical); border-radius: 14px; padding: 22px 26px; margin-bottom: 18px; box-shadow: 4px 4px 0 var(--medical); }
+  .speaking-task-label { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 2px; color: var(--accent); font-weight: 700; margin-bottom: 6px; display: block; }
+  .speaking-q { font-family: 'DM Serif Display', serif; font-size: 18px; line-height: 1.4; color: var(--medical); margin-bottom: 14px; }
+  .try-use { background: var(--gold-light); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; padding: 10px 14px; }
+  .try-use strong { color: var(--accent); font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 1px; display: block; margin-bottom: 6px; }
+  .try-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { background: var(--cream); border: 1.5px solid var(--medical); border-radius: 20px; padding: 3px 10px; font-size: 13px; font-style: italic; color: var(--medical); }
+  .reading { background: var(--cream); border: 2px solid var(--medical); border-radius: 16px; padding: 30px 34px; box-shadow: 6px 6px 0 var(--medical); margin-bottom: 24px; }
+  .reading h3 { font-family: 'DM Serif Display', serif; font-size: 26px; margin-bottom: 6px; line-height: 1.2; color: var(--medical); }
+  .reading .byline { font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--accent); margin-bottom: 16px; }
+  .reading p { margin-bottom: 14px; line-height: 1.75; font-size: 15.5px; }
+  .reading strong { color: var(--accent); font-weight: 700; }
+  .grammar-box { background: var(--gold-light); border: 2px solid var(--accent); border-radius: 12px; padding: 18px 22px; margin-bottom: 22px; }
+  .grammar-box h4 { font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--medical); margin-bottom: 10px; }
+  .grammar-box ul { margin-left: 20px; }
+  .grammar-box li { margin-bottom: 9px; line-height: 1.6; color: var(--medical); font-size: 14.5px; }
+  .grammar-box code { background: var(--cream); padding: 2px 6px; border-radius: 4px; font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--medical); }
+  .grammar-highlight { background: #e3f2fd; border: 2px solid var(--medical); border-radius: 12px; padding: 18px 22px; margin-bottom: 24px; }
+  .grammar-highlight h4 { font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--medical); margin-bottom: 10px; }
+  .grammar-highlight ul { margin-left: 20px; }
+  .grammar-highlight li { margin-bottom: 9px; line-height: 1.6; color: var(--medical); font-size: 14.5px; }
+  .grammar-highlight code { background: var(--cream); padding: 2px 6px; border-radius: 4px; font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--medical); }
+  .grammar-sub { font-family: 'DM Serif Display', serif; font-size: 15px; color: var(--medical); margin: 18px 0 8px 0; font-weight: 600; }
+  .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+  .match-col { display: flex; flex-direction: column; gap: 9px; }
+  .match-item { background: var(--cream); border: 2px solid var(--medical); padding: 11px 14px; border-radius: 10px; cursor: pointer; transition: all 0.2s; box-shadow: 3px 3px 0 var(--medical); font-family: 'Inter', sans-serif; color: var(--medical); font-size: 14px; }
+  .match-item:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--medical); }
+  .match-item.selected { background: var(--gold-light); border-color: var(--accent); font-weight: 600; }
+  .match-item.matched { background: #e8f5e9; color: #2e7d32; border-color: #4caf50; cursor: default; }
+  .match-item.wrong { animation: shake 0.3s; }
+  @keyframes shake { 0%,100%{transform:translate(0)} 25%{transform:translate(-4px)} 75%{transform:translate(4px)} }
+  .fill-item { margin-bottom: 16px; }
+  .fill-item p { font-size: 15px; line-height: 1.75; color: var(--medical); }
+  .fill-input { border: none; border-bottom: 2px solid var(--medical); padding: 4px 6px; font-family: 'Courier Prime', monospace; background: transparent; min-width: 140px; color: var(--medical); font-size: 14px; }
+  .fill-input.correct { border-bottom-color: #4caf50; background: #e8f5e9; color: #2e7d32; }
+  .fill-input.wrong { border-bottom-color: #c62828; background: #ffcdd2; color: var(--medical); }
+  .num { font-family: 'Courier Prime', monospace; font-weight: 700; color: var(--accent); margin-right: 8px; font-size: 14px; }
+  .mc-item { margin-bottom: 20px; }
+  .mc-q { font-weight: 600; margin-bottom: 10px; font-size: 15px; color: var(--medical); line-height: 1.5; }
+  .mc-options { display: flex; flex-direction: column; gap: 9px; }
+  .mc-opt { background: var(--cream); border: 2px solid var(--medical); padding: 11px 14px; border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 14px; cursor: pointer; text-align: left; transition: all 0.2s; box-shadow: 3px 3px 0 var(--medical); color: var(--medical); }
+  .mc-opt:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--medical); }
+  .mc-opt:disabled { cursor: default; }
+  .mc-opt.correct { background: var(--gold-light); border-color: var(--accent); color: var(--accent); font-weight: 600; box-shadow: 3px 3px 0 var(--accent); }
+  .mc-opt.wrong { background: #ffcdd2; border-color: #c62828; }
+  .check-btn { background: var(--medical); color: var(--cream); border: 2px solid var(--medical); padding: 12px 24px; font-weight: 600; font-size: 14px; border-radius: 10px; cursor: pointer; box-shadow: 4px 4px 0 var(--medical); transition: all 0.2s; margin-right: 16px; margin-top: 8px; }
+  .check-btn:hover { transform: translate(-1px,-1px); box-shadow: 5px 5px 0 var(--medical); }
+  .score { font-family: 'Courier Prime', monospace; font-weight: 700; color: var(--accent); font-size: 14px; }
+  footer { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 2px solid var(--medical); font-family: 'Courier Prime', monospace; font-size: 12px; color: #4a4a4a; letter-spacing: 2px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <span class="badge-label">LEVEL B1 · INTERMEDIATE</span>
+      <h1>Role of Nurses in Managing<br>Postoperative <span class="accent">Pain</span></h1>
+      <p class="sub">Discover how nurses play a critical role in patient recovery. Learn about pain management techniques, patient care, and the skills that make nurses essential healthcare professionals.</p>
+      <div class="tags">
+        <span class="tag">#NURSING</span>
+        <span class="tag">#HEALTHCARE</span>
+        <span class="tag">#PAIN-MANAGEMENT</span>
+        <span class="tag">#PATIENT-CARE</span>
+        <span class="tag">#PROFESSIONAL-SKILLS</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="t1">1. Warm-up</button>
+    <button class="tab" data-tab="t2">2. Reading</button>
+    <button class="tab" data-tab="t3">3. Collocations</button>
+    <button class="tab" data-tab="t4">4. Speaking</button>
+    <button class="tab" data-tab="t5">5. Matching</button>
+    <button class="tab" data-tab="t6">6. Fill</button>
+    <button class="tab" data-tab="t7">7. Multiple Choice</button>
+    <button class="tab" data-tab="t8">8. Grammar: Present & Past</button>
+  </div>
+
+  <!-- PANEL 1: WARM-UP -->
+  <section id="t1" class="panel active">
+    <h2 class="section-title"><span class="emoji">🔥</span>Warm-up</h2>
+    
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 1</div>
+      <div class="warmup-q">Why do you think pain management is important after surgery? How might it affect recovery?</div>
+    </div>
+
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 2</div>
+      <div class="warmup-q">What qualities do you think a good nurse should have? Why are these qualities important?</div>
+    </div>
+
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 3</div>
+      <div class="warmup-q">Have you ever stayed in a hospital? Describe your experience and how the nurses helped you.</div>
+    </div>
+
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 4</div>
+      <div class="warmup-q">What methods do you know about for managing pain without strong medicines?</div>
+    </div>
+  </section>
+
+  <!-- PANEL 2: READING -->
+  <section id="t2" class="panel">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading</h2>
+    
+    <div class="reading">
+      <h3>Nurses and Postoperative Pain Management</h3>
+      <div class="byline">· HEALTHCARE & PROFESSIONAL PRACTICE ·</div>
+      
+      <p>After surgery, managing pain is one of the most important parts of patient care. Nurses play a crucial role in this process. They are responsible for helping patients feel comfortable and supporting their recovery. Effective pain management not only reduces patient suffering but also helps the body heal faster and prevents serious complications.</p>
+
+      <p>Nurses use different methods to manage postoperative pain. The first method is <strong>medication</strong>. Nurses give patients painkillers at the right times. They monitor how well the medicine works and observe if the patient has any negative effects. Common pain medications include acetaminophen, ibuprofen, and stronger drugs like morphine. Nurses must understand these medications carefully because they need to give the correct dose to each patient.</p>
+
+      <p>However, medication is not the only solution. Nurses also use <strong>non-pharmacological methods</strong>. These are techniques that do not use medicine. They include positioning the patient correctly to reduce pain, applying ice or heat to the area, and teaching patients breathing and relaxation exercises. Nurses also encourage patients to move and walk when possible, as this can improve blood circulation and reduce stiffness. Another important technique is <strong>distraction</strong>—talking to patients, helping them listen to music, or encouraging them to watch television can take their mind off the pain.</p>
+
+      <p>Communication is essential in pain management. Nurses regularly ask patients about their pain level on a scale from 0 to 10. This information helps them decide what treatment to give. Additionally, nurses provide <strong>emotional support</strong> by listening to patient concerns and explaining what to expect during recovery. A patient who feels cared for and understood often experiences less pain.</p>
+
+      <p>Nurses also work closely with doctors to develop a pain management plan for each patient. This plan considers the patient's medical history, the type of surgery, and the patient's personal preferences. Throughout the patient's hospital stay, nurses adjust the plan based on how the patient responds to treatment.</p>
+
+      <p>The role of nurses in postoperative pain management is complex and demanding. It requires both technical skills and human compassion. By managing pain effectively, nurses help patients recover quickly, return to normal activities, and improve their overall quality of life.</p>
+    </div>
+
+    <h3 class="section-title" style="margin-top: 28px;">Reading Comprehension</h3>
+    
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">1</span>Why is managing pain after surgery important?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) It costs less money</button>
+        <button class="mc-opt">b) It helps the body heal faster and prevents complications</button>
+        <button class="mc-opt">c) It helps doctors work better</button>
+        <button class="mc-opt">d) It is not very important</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">2</span>What are non-pharmacological methods?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Techniques that do not use medicine</button>
+        <button class="mc-opt">b) Methods that use strong drugs</button>
+        <button class="mc-opt">c) Treatments that doctors only give</button>
+        <button class="mc-opt">d) Exercises that are dangerous</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">3</span>What does the text say about distraction as a pain management technique?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) It is not helpful</button>
+        <button class="mc-opt">b) It should only be used with children</button>
+        <button class="mc-opt">c) It costs a lot of money</button>
+        <button class="mc-opt">d) It can take the patient's mind off pain</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">4</span>How do nurses measure a patient's pain level?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) By asking the doctor</button>
+        <button class="mc-opt">b) By looking at the patient's face</button>
+        <button class="mc-opt">c) By using a scale from 0 to 10</button>
+        <button class="mc-opt">d) By checking the medication</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">5</span>What skills do nurses need for postoperative pain management?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Only technical medical skills</button>
+        <button class="mc-opt">b) Technical skills and human compassion</button>
+        <button class="mc-opt">c) Only communication skills</button>
+        <button class="mc-opt">d) Only medication knowledge</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkR()">✓ Check Answers</button>
+    <span class="score" id="scoreR">— / 5</span>
+  </section>
+
+  <!-- PANEL 3: COLLOCATIONS -->
+  <section id="t3" class="panel">
+    <h2 class="section-title"><span class="emoji">🎯</span>Collocations</h2>
+    
+    <div class="instr">Match each word on the left with its correct collocation on the right.</div>
+
+    <div class="match-grid">
+      <div class="match-col">
+        <div class="match-item" data-word="1">manage</div>
+        <div class="match-item" data-word="2">monitor</div>
+        <div class="match-item" data-word="3">provide</div>
+        <div class="match-item" data-word="4">develop</div>
+        <div class="match-item" data-word="5">reduce</div>
+      </div>
+      <div class="match-col">
+        <div class="match-item" data-def="1">pain</div>
+        <div class="match-item" data-def="2">patient progress</div>
+        <div class="match-item" data-def="3">emotional support</div>
+        <div class="match-item" data-def="4">a treatment plan</div>
+        <div class="match-item" data-def="5">complications</div>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="void(0)" style="margin-top: 20px; visibility: hidden;">Auto-tracked</button>
+    <span class="score" id="score3">— / 5</span>
+  </section>
+
+  <!-- PANEL 4: SPEAKING -->
+  <section id="t4" class="panel">
+    <h2 class="section-title"><span class="emoji">🗣️</span>Speaking</h2>
+    
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 1</span>
+      <div class="speaking-q">Describe the most important qualities of a good nurse. Which quality do you think is most important and why?</div>
+    </div>
+
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 2</span>
+      <div class="speaking-q">Imagine you are a nurse. Explain to a patient how you will help manage their pain after surgery.</div>
+    </div>
+
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 3</span>
+      <div class="speaking-q">What do you think are the challenges nurses face when managing postoperative pain? How can they deal with these challenges?</div>
+    </div>
+
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 4</span>
+      <div class="speaking-q">Compare medication and non-medication methods for pain management. Which do you think is more effective and why?</div>
+    </div>
+
+    <div style="margin-top: 24px; padding: 16px 18px; background: var(--gold-light); border-radius: 10px; border-left: 4px solid var(--accent);">
+      <strong style="display: block; margin-bottom: 8px; color: var(--accent); font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 1px;">TRY USING THESE EXPRESSIONS:</strong>
+      <div class="try-chips">
+        <span class="chip">I think... is important because...</span>
+        <span class="chip">In my opinion...</span>
+        <span class="chip">The main challenge is...</span>
+        <span class="chip">To deal with this, they can...</span>
+        <span class="chip">For example...</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANEL 5: MATCHING -->
+  <section id="t5" class="panel">
+    <h2 class="section-title"><span class="emoji">🔗</span>Matching Medical Vocabulary</h2>
+    
+    <div class="instr">Match each medical term on the left with its definition on the right.</div>
+
+    <div class="match-grid">
+      <div class="match-col">
+        <div class="match-item" data-word="a">postoperative</div>
+        <div class="match-item" data-word="b">medication</div>
+        <div class="match-item" data-word="c">dose</div>
+        <div class="match-item" data-word="d">distraction</div>
+        <div class="match-item" data-word="e">complication</div>
+        <div class="match-item" data-word="f">circulation</div>
+        <div class="match-item" data-word="g">position</div>
+        <div class="match-item" data-word="h">recovery</div>
+        <div class="match-item" data-word="i">morphine</div>
+        <div class="match-item" data-word="j">emotional support</div>
+      </div>
+      <div class="match-col">
+        <div class="match-item" data-def="a">After surgery</div>
+        <div class="match-item" data-def="b">Medicine given to patients</div>
+        <div class="match-item" data-def="c">The amount of medicine to give</div>
+        <div class="match-item" data-def="d">Keeping the patient's mind off pain</div>
+        <div class="match-item" data-def="e">A problem that develops after surgery</div>
+        <div class="match-item" data-def="f">Movement of blood through the body</div>
+        <div class="match-item" data-def="g">How the patient is placed in bed</div>
+        <div class="match-item" data-def="h">Process of getting better after illness</div>
+        <div class="match-item" data-def="i">A strong pain medicine</div>
+        <div class="match-item" data-def="j">Caring and listening to patients</div>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="void(0)" style="margin-top: 20px; visibility: hidden;">Auto-tracked</button>
+    <span class="score" id="score5">— / 10</span>
+  </section>
+
+  <!-- PANEL 6: FILL IN THE GAPS -->
+  <section id="t6" class="panel">
+    <h2 class="section-title"><span class="emoji">⚡</span>Fill in the Gaps</h2>
+    
+    <div class="instr">Complete the sentences with the correct word from the word bank.</div>
+
+    <div class="word-bank">
+      <span class="word-bank-label">WORD BANK</span>
+      <div class="word-bank-words">
+        <span class="wb-word">pain</span>
+        <span class="wb-word">medication</span>
+        <span class="wb-word">monitor</span>
+        <span class="wb-word">support</span>
+        <span class="wb-word">complication</span>
+        <span class="wb-word">movement</span>
+        <span class="wb-word">recovery</span>
+        <span class="wb-word">breathing</span>
+        <span class="wb-word">technique</span>
+        <span class="wb-word">measure</span>
+      </div>
+    </div>
+
+    <div class="fill-item"><p><span class="num">1</span>Nurses use different methods to <input type="text" class="fill-input" data-answer="manage"> postoperative <input type="text" class="fill-input" data-answer="pain">.</p></div>
+    <div class="fill-item"><p><span class="num">2</span>The nurse gives the patient <input type="text" class="fill-input" data-answer="medication"> to help with pain.</p></div>
+    <div class="fill-item"><p><span class="num">3</span>Nurses <input type="text" class="fill-input" data-answer="monitor"> how well the medicine works.</p></div>
+    <div class="fill-item"><p><span class="num">4</span>Distraction is a <input type="text" class="fill-input" data-answer="technique"> that does not use medicine.</p></div>
+    <div class="fill-item"><p><span class="num">5</span>Nurses teach patients relaxation and <input type="text" class="fill-input" data-answer="breathing"> exercises.</p></div>
+    <div class="fill-item"><p><span class="num">6</span>Walking and <input type="text" class="fill-input" data-answer="movement"> help improve blood circulation.</p></div>
+    <div class="fill-item"><p><span class="num">7</span>Nurses <input type="text" class="fill-input" data-answer="measure"> pain on a scale from 0 to 10.</p></div>
+    <div class="fill-item"><p><span class="num">8</span>Effective pain management prevents serious <input type="text" class="fill-input" data-answer="complication">.</p></div>
+    <div class="fill-item"><p><span class="num">9</span>Emotional <input type="text" class="fill-input" data-answer="support"> helps patients feel less pain.</p></div>
+    <div class="fill-item"><p><span class="num">10</span>Good nursing care speeds up patient <input type="text" class="fill-input" data-answer="recovery">.</p></div>
+
+    <button class="check-btn" onclick="checkFill()">✓ Check Answers</button>
+    <span class="score" id="score6">— / 10</span>
+  </section>
+
+  <!-- PANEL 7: MULTIPLE CHOICE -->
+  <section id="t7" class="panel">
+    <h2 class="section-title"><span class="emoji">❓</span>Multiple Choice Questions</h2>
+    
+    <div class="instr">Choose the correct answer for each question.</div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">1</span>Which of these is NOT a non-pharmacological pain management method?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Positioning the patient correctly</button>
+        <button class="mc-opt">b) Applying ice or heat</button>
+        <button class="mc-opt">c) Teaching breathing exercises</button>
+        <button class="mc-opt">d) Giving morphine</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">2</span>What is the purpose of monitoring a patient's pain level?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) To punish patients who complain too much</button>
+        <button class="mc-opt">b) To decide what treatment to give</button>
+        <button class="mc-opt">c) To make the pain worse</button>
+        <button class="mc-opt">d) To prevent the patient from sleeping</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">3</span>What does the pain scale from 0 to 10 mean?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) 0 = no pain, 10 = very bad pain</button>
+        <button class="mc-opt">b) 0 = very bad pain, 10 = no pain</button>
+        <button class="mc-opt">c) It shows the patient's age</button>
+        <button class="mc-opt">d) It shows how much medicine to give</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">4</span>Why is patient movement important after surgery?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) To make the patient tired</button>
+        <button class="mc-opt">b) To prevent the patient from sleeping</button>
+        <button class="mc-opt">c) To improve blood circulation and reduce stiffness</button>
+        <button class="mc-opt">d) Because patients must always move</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">5</span>What is the main goal of postoperative pain management?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) To help patients recover quickly and improve quality of life</button>
+        <button class="mc-opt">b) To make sure the patient cannot feel anything</button>
+        <button class="mc-opt">c) To keep patients in the hospital longer</button>
+        <button class="mc-opt">d) To save money for the hospital</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">6</span>How do nurses work with doctors regarding pain management?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) They work independently without doctor input</button>
+        <button class="mc-opt">b) They do not communicate with doctors</button>
+        <button class="mc-opt">c) Only doctors decide the pain management plan</button>
+        <button class="mc-opt">d) They work together to develop a plan for each patient</button>
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkMC7()">✓ Check Answers</button>
+    <span class="score" id="score7">— / 6</span>
+  </section>
+
+  <!-- PANEL 8: GRAMMAR - PRESENT & PAST -->
+  <section id="t8" class="panel">
+    <h2 class="section-title"><span class="emoji">📚</span>Grammar: Present Simple & Past Simple / Present Continuous & Past Continuous</h2>
+    
+    <div class="grammar-box">
+      <h4>Present Simple vs Present Continuous</h4>
+      <ul>
+        <li><code>Present Simple</code> = regular actions, facts: "Nurses manage pain every day."</li>
+        <li><code>Present Continuous</code> = happening now: "The nurse is helping the patient right now."</li>
+      </ul>
+    </div>
+
+    <div class="grammar-box">
+      <h4>Past Simple vs Past Continuous</h4>
+      <ul>
+        <li><code>Past Simple</code> = completed actions: "The surgery finished at 3 PM."</li>
+        <li><code>Past Continuous</code> = actions in progress: "While the nurse was giving medicine, the patient woke up."</li>
+      </ul>
+    </div>
+
+    <div class="grammar-sub">Part A: Present Simple vs Present Continuous</div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">1</span>Every day, nurses ________ patients with pain management.</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) help</button>
+        <button class="mc-opt">b) are helping</button>
+        <button class="mc-opt">c) have helped</button>
+        <button class="mc-opt">d) helped</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">2</span>Right now, the nurse ________ the patient's pain level.</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) measures</button>
+        <button class="mc-opt">b) is measuring</button>
+        <button class="mc-opt">c) measured</button>
+        <button class="mc-opt">d) has measured</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">3</span>Morphine ________ a strong pain medication.</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) is</button>
+        <button class="mc-opt">b) is being</button>
+        <button class="mc-opt">c) has been</button>
+        <button class="mc-opt">d) were</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">4</span>Currently, the hospital ________ new pain management techniques.</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) develops</button>
+        <button class="mc-opt">b) is developing</button>
+        <button class="mc-opt">c) developed</button>
+        <button class="mc-opt">d) develops</button>
+      </div>
+    </div>
+
+    <div class="grammar-sub">Part B: Past Simple vs Past Continuous</div>
+
+    <div class="fill-item"><p><span class="num">5</span>When the doctor <input type="text" class="fill-input" data-answer="arrived">, the nurse <input type="text" class="fill-input" data-answer="was checking"> the patient.</p></div>
+
+    <div class="fill-item"><p><span class="num">6</span>The patient <input type="text" class="fill-input" data-answer="complained"> about pain while I <input type="text" class="fill-input" data-answer="was working"> in the ward.</p></div>
+
+    <div class="fill-item"><p><span class="num">7</span>The surgery <input type="text" class="fill-input" data-answer="finished"> at 3 PM, and the nurse <input type="text" class="fill-input" data-answer="began"> pain management immediately.</p></div>
+
+    <div class="fill-item"><p><span class="num">8</span>While the nurse <input type="text" class="fill-input" data-answer="was giving"> the patient a massage, the patient <input type="text" class="fill-input" data-answer="fell"> asleep.</p></div>
+
+    <div class="fill-item"><p><span class="num">9</span>Last week, I <input type="text" class="fill-input" data-answer="studied"> about pain management techniques.</p></div>
+
+    <div class="fill-item"><p><span class="num">10</span>The patient <input type="text" class="fill-input" data-answer="recovered"> quickly because the nurse <input type="text" class="fill-input" data-answer="monitored"> their pain carefully.</p></div>
+
+    <button class="check-btn" onclick="checkGr8()">✓ Check Parts A & B</button>
+    <span class="score" id="score8">— / 10</span>
+  </section>
+
+  <footer>⚕️ ★ ★ &nbsp; ROLE OF NURSES IN MANAGING POSTOPERATIVE PAIN · B1 ENGLISH &nbsp; ★ ★ ⚕️</footer>
+</div>
+
+<script>
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // READING COMPREHENSION
+  let scoreR = 0;
+  function checkR() {
+    scoreR = 0;
+    document.querySelectorAll('#t2 .mc-item').forEach(item => {
+      const correct = item.dataset.correct;
+      item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+        const letter = ['a','b','c','d'][i];
+        opt.disabled = true;
+        if (letter === correct) { opt.classList.add('correct'); scoreR++; } 
+        else if (opt.classList.contains('correct') || opt.classList.contains('wrong')) {} 
+        else { opt.classList.remove('wrong'); }
+      });
+    });
+    document.getElementById('scoreR').textContent = scoreR === 5 ? '★ 5 / 5 ★' : scoreR + ' / 5';
+  }
+
+  // COLLOCATIONS MATCHING
+  let sel = null, m3 = 0;
+  document.querySelectorAll('#t3 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) { document.querySelectorAll('#t3 [data-word]').forEach(w => w.classList.remove('selected')); item.classList.add('selected'); sel = item; }
+      else if (item.dataset.def && sel) {
+        if (sel.dataset.word === item.dataset.def) { sel.classList.remove('selected'); sel.classList.add('matched'); item.classList.add('matched'); m3++; document.getElementById('score3').textContent = m3 === 5 ? '★ 5 / 5 ★' : m3 + ' / 5'; sel = null; }
+        else { item.classList.add('wrong'); setTimeout(() => item.classList.remove('wrong'), 500); }
+      }
+    });
+  });
+
+  // MEDICAL VOCABULARY MATCHING
+  let sel5 = null, m5 = 0;
+  document.querySelectorAll('#t5 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) { document.querySelectorAll('#t5 [data-word]').forEach(w => w.classList.remove('selected')); item.classList.add('selected'); sel5 = item; }
+      else if (item.dataset.def && sel5) {
+        if (sel5.dataset.word === item.dataset.def) { sel5.classList.remove('selected'); sel5.classList.add('matched'); item.classList.add('matched'); m5++; document.getElementById('score5').textContent = m5 === 10 ? '★ 10 / 10 ★' : m5 + ' / 10'; sel5 = null; }
+        else { item.classList.add('wrong'); setTimeout(() => item.classList.remove('wrong'), 500); }
+      }
+    });
+  });
+
+  // FILL IN THE GAPS
+  function checkFill() {
+    let c = 0;
+    document.querySelectorAll('#t6 .fill-input').forEach(i => {
+      const a = i.dataset.answer.toLowerCase().trim(), v = i.value.toLowerCase().trim();
+      i.classList.remove('correct','wrong');
+      if (v === a) { i.classList.add('correct'); c++; } else if (v) i.classList.add('wrong');
+    });
+    document.getElementById('score6').textContent = c === 10 ? '★ 10 / 10 ★' : c + ' / 10';
+  }
+
+  // MULTIPLE CHOICE - T7
+  let mc7 = 0;
+  document.querySelectorAll('#t7 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        item.querySelectorAll('.mc-opt').forEach(o => o.disabled = true);
+        const letter = ['a','b','c','d'][i];
+        if (letter === correct) { opt.classList.add('correct'); mc7++; } else { opt.classList.add('wrong'); item.querySelectorAll('.mc-opt').forEach((o,j) => { if (['a','b','c','d'][j]===correct) o.classList.add('correct'); }); }
+        document.getElementById('score7').textContent = mc7 === 6 ? '★ 6 / 6 ★' : mc7 + ' / 6';
+      });
+    });
+  });
+
+  // GRAMMAR 8
+  let g8mc = 0;
+  function checkGr8() {
+    let c = 0;
+    document.querySelectorAll('#t8 .fill-input').forEach(i => {
+      if (!i.dataset.answer) return;
+      const a = i.dataset.answer.toLowerCase().trim(), v = i.value.toLowerCase().trim();
+      i.classList.remove('correct','wrong');
+      if (v === a) { i.classList.add('correct'); c++; } else if (v) i.classList.add('wrong');
+    });
+    c += g8mc;
+    document.getElementById('score8').textContent = c === 10 ? '★ 10 / 10 ★' : c + ' / 10';
+  }
+  document.querySelectorAll('#t8 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        item.querySelectorAll('.mc-opt').forEach(o => o.disabled = true);
+        const letter = ['a','b','c','d'][i];
+        if (letter === correct) { opt.classList.add('correct'); g8mc++; } else { opt.classList.add('wrong'); item.querySelectorAll('.mc-opt').forEach((o,j) => { if (['a','b','c','d'][j]===correct) o.classList.add('correct'); }); }
+      });
+    });
+  });
+</script>
+</body>
+</html>
