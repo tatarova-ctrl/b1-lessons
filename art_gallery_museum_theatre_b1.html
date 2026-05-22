@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Art Galleries, Museums & Theatre — B1 English</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root { --navy: #1a1a2e; --gold: #d4860e; --beige: #f5f1e8; --cream: #faf8f3; --gold-light: #f5e6d3; --dark-text: #2b2b2b; --mint: #e8f5e9; --mint-border: #4caf50; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--beige); color: var(--dark-text); line-height: 1.65; min-height: 100vh; background-image: radial-gradient(ellipse at top left, rgba(212,134,14,0.08) 0%, transparent 50%), radial-gradient(ellipse at bottom right, rgba(26,26,46,0.05) 0%, transparent 50%); }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+  header { background: var(--cream); border: 2px solid var(--navy); border-radius: 18px; padding: 32px 36px; margin-bottom: 28px; position: relative; box-shadow: 6px 6px 0 var(--navy); overflow: hidden; }
+  header::before { content: "🎭"; position: absolute; top: 24px; right: 30px; font-size: 100px; opacity: 0.12; z-index: 0; }
+  .header-content { position: relative; z-index: 1; }
+  .badge-label { display: inline-block; font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 3px; background: var(--navy); color: var(--gold); padding: 5px 12px; border-radius: 4px; margin-bottom: 14px; }
+  h1 { font-family: 'DM Serif Display', serif; font-size: clamp(32px, 5vw, 50px); line-height: 1.07; color: var(--navy); letter-spacing: -1px; }
+  h1 .accent { color: var(--gold); font-style: italic; }
+  .sub { font-size: 16px; color: #4a4a4a; margin-top: 10px; max-width: 640px; }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag { font-family: 'Courier Prime', monospace; font-size: 11px; padding: 4px 10px; background: var(--gold-light); border: 1.5px solid var(--navy); border-radius: 20px; letter-spacing: 1px; color: var(--navy); }
+  .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .tab { padding: 12px 15px; background: var(--cream); border: 2px solid var(--navy); font-family: 'Inter', sans-serif; font-weight: 600; font-size: 13px; cursor: pointer; color: var(--navy); border-radius: 10px; box-shadow: 3px 3px 0 var(--navy); transition: all 0.15s; }
+  .tab:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--navy); }
+  .tab.active { background: var(--navy); color: var(--gold); }
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)} }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 28px; margin-bottom: 8px; color: var(--navy); }
+  .section-title .emoji { margin-right: 10px; }
+  .instr { color: #4a4a4a; margin-bottom: 22px; font-size: 15px; padding: 10px 14px; background: var(--gold-light); border-left: 4px solid var(--gold); border-radius: 0 8px 8px 0; }
+  .word-bank { background: var(--mint); border: 2px solid var(--mint-border); border-radius: 12px; padding: 14px 18px; margin-bottom: 22px; }
+  .word-bank-label { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 2px; color: var(--mint-border); font-weight: 700; margin-bottom: 8px; display: block; }
+  .word-bank-words { display: flex; flex-wrap: wrap; gap: 8px; }
+  .wb-word { background: var(--cream); border: 1.5px solid var(--mint-border); border-radius: 6px; padding: 4px 10px; font-family: 'Courier Prime', monospace; font-size: 13px; color: var(--navy); }
+  .warmup-card { background: var(--cream); border: 2px solid var(--navy); border-left: 6px solid var(--gold); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: 4px 4px 0 var(--navy); }
+  .warmup-num { font-family: 'Courier Prime', monospace; color: var(--gold); font-weight: 700; font-size: 12px; letter-spacing: 2px; margin-bottom: 4px; }
+  .warmup-q { font-family: 'DM Serif Display', serif; font-size: 18px; line-height: 1.4; color: var(--navy); }
+  .speaking-card { background: var(--cream); border: 2px solid var(--navy); border-radius: 14px; padding: 22px 26px; margin-bottom: 18px; box-shadow: 4px 4px 0 var(--navy); }
+  .speaking-task-label { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 2px; color: var(--gold); font-weight: 700; margin-bottom: 6px; display: block; }
+  .speaking-q { font-family: 'DM Serif Display', serif; font-size: 18px; line-height: 1.4; color: var(--navy); margin-bottom: 14px; }
+  .try-use { background: var(--gold-light); border-left: 4px solid var(--gold); border-radius: 0 8px 8px 0; padding: 10px 14px; }
+  .try-use strong { color: var(--gold); font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 1px; display: block; margin-bottom: 6px; }
+  .try-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { background: var(--cream); border: 1.5px solid var(--navy); border-radius: 20px; padding: 3px 10px; font-size: 13px; font-style: italic; color: var(--navy); }
+  .reading { background: var(--cream); border: 2px solid var(--navy); border-radius: 16px; padding: 30px 34px; box-shadow: 6px 6px 0 var(--navy); margin-bottom: 24px; }
+  .reading h3 { font-family: 'DM Serif Display', serif; font-size: 26px; margin-bottom: 6px; line-height: 1.2; color: var(--navy); }
+  .reading .byline { font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--gold); margin-bottom: 16px; }
+  .reading p { margin-bottom: 14px; line-height: 1.75; font-size: 15.5px; }
+  .reading strong { color: var(--gold); font-weight: 700; }
+  .grammar-box { background: var(--gold-light); border: 2px solid var(--gold); border-radius: 12px; padding: 18px 22px; margin-bottom: 22px; }
+  .grammar-box h4 { font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--navy); margin-bottom: 10px; }
+  .grammar-box ul { margin-left: 20px; }
+  .grammar-box li { margin-bottom: 9px; line-height: 1.6; color: var(--navy); font-size: 14.5px; }
+  .grammar-box code { background: var(--cream); padding: 2px 6px; border-radius: 4px; font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--navy); }
+  .grammar-highlight { background: #e3f2fd; border: 2px solid #1976d2; border-radius: 12px; padding: 18px 22px; margin-bottom: 24px; }
+  .grammar-highlight h4 { font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--navy); margin-bottom: 10px; }
+  .grammar-highlight ul { margin-left: 20px; }
+  .grammar-highlight li { margin-bottom: 9px; line-height: 1.6; color: var(--navy); font-size: 14.5px; }
+  .grammar-highlight code { background: var(--cream); padding: 2px 6px; border-radius: 4px; font-family: 'Courier Prime', monospace; font-size: 12px; color: var(--navy); }
+  .grammar-sub { font-family: 'DM Serif Display', serif; font-size: 15px; color: var(--navy); margin: 18px 0 8px 0; font-weight: 600; }
+  .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+  .match-col { display: flex; flex-direction: column; gap: 9px; }
+  .match-item { background: var(--cream); border: 2px solid var(--navy); padding: 11px 14px; border-radius: 10px; cursor: pointer; transition: all 0.2s; box-shadow: 3px 3px 0 var(--navy); font-family: 'Inter', sans-serif; color: var(--navy); font-size: 14px; }
+  .match-item:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--navy); }
+  .match-item.selected { background: var(--gold-light); border-color: var(--gold); font-weight: 600; }
+  .match-item.matched { background: #e8f5e9; color: #2e7d32; border-color: #4caf50; cursor: default; }
+  .match-item.wrong { animation: shake 0.3s; }
+  @keyframes shake { 0%,100%{transform:translate(0)} 25%{transform:translate(-4px)} 75%{transform:translate(4px)} }
+  .fill-item { margin-bottom: 16px; }
+  .fill-item p { font-size: 15px; line-height: 1.75; color: var(--navy); }
+  .fill-input { border: none; border-bottom: 2px solid var(--navy); padding: 4px 6px; font-family: 'Courier Prime', monospace; background: transparent; min-width: 130px; color: var(--navy); font-size: 14px; }
+  .fill-input.correct { border-bottom-color: #4caf50; background: #e8f5e9; color: #2e7d32; }
+  .fill-input.wrong { border-bottom-color: #c62828; background: #ffcdd2; color: var(--navy); }
+  .num { font-family: 'Courier Prime', monospace; font-weight: 700; color: var(--gold); margin-right: 8px; font-size: 14px; }
+  .mc-item { margin-bottom: 20px; }
+  .mc-q { font-weight: 600; margin-bottom: 10px; font-size: 15px; color: var(--navy); line-height: 1.5; }
+  .mc-options { display: flex; flex-direction: column; gap: 9px; }
+  .mc-opt { background: var(--cream); border: 2px solid var(--navy); padding: 11px 14px; border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 14px; cursor: pointer; text-align: left; transition: all 0.2s; box-shadow: 3px 3px 0 var(--navy); color: var(--navy); }
+  .mc-opt:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--navy); }
+  .mc-opt:disabled { cursor: default; }
+  .mc-opt.correct { background: var(--gold-light); border-color: var(--gold); color: var(--gold); font-weight: 600; box-shadow: 3px 3px 0 var(--gold); }
+  .mc-opt.wrong { background: #ffcdd2; border-color: #c62828; }
+  .check-btn { background: var(--navy); color: var(--cream); border: 2px solid var(--navy); padding: 12px 24px; font-weight: 600; font-size: 14px; border-radius: 10px; cursor: pointer; box-shadow: 4px 4px 0 var(--navy); transition: all 0.2s; margin-right: 16px; margin-top: 8px; }
+  .check-btn:hover { transform: translate(-1px,-1px); box-shadow: 5px 5px 0 var(--navy); }
+  .score { font-family: 'Courier Prime', monospace; font-weight: 700; color: var(--gold); font-size: 14px; }
+  footer { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 2px solid var(--navy); font-family: 'Courier Prime', monospace; font-size: 12px; color: #4a4a4a; letter-spacing: 2px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <span class="badge-label">LEVEL B1 · INTERMEDIATE</span>
+      <h1>Art Galleries, Museums & Theatre:<br><span class="accent">Culture or a Hang-out?</span></h1>
+      <p class="sub">Is visiting a gallery or museum something only certain people do — or can it be fun, social, and even surprising for everyone?</p>
+      <div class="tags">
+        <span class="tag">#CULTURE</span>
+        <span class="tag">#ARTS-AND-LEISURE</span>
+        <span class="tag">#MODAL-VERBS</span>
+        <span class="tag">#QUESTION-FORMS</span>
+        <span class="tag">#SPEAKING</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="t1">1. Warm-up</button>
+    <button class="tab" data-tab="t2">2. Reading</button>
+    <button class="tab" data-tab="t3">3. Collocations</button>
+    <button class="tab" data-tab="t4">4. Speaking</button>
+    <button class="tab" data-tab="t5">5. Matching</button>
+    <button class="tab" data-tab="t6">6. Fill</button>
+    <button class="tab" data-tab="t7">7. Multiple Choice</button>
+    <button class="tab" data-tab="t8">8. Grammar: Modal Verbs</button>
+    <button class="tab" data-tab="t9">9. Grammar: Question Forms</button>
+  </div>
+
+  <!-- TAB 1 -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">💬</span>Warm-up</h2>
+    <p class="instr">Think about your experience with cultural places. Discuss these questions.</p>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 01</div>
+      <div class="warmup-q">When did you last visit a museum, gallery, or theatre? Did you enjoy it — or did you go because you felt you "should"?</div>
+    </div>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 02</div>
+      <div class="warmup-q">Do you think cultural places like galleries and museums are only for certain types of people? Or should everyone go?</div>
+    </div>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 03</div>
+      <div class="warmup-q">What makes a cultural experience enjoyable — the art itself, the people you go with, or the atmosphere?</div>
+    </div>
+    <div class="warmup-card">
+      <div class="warmup-num">QUESTION 04</div>
+      <div class="warmup-q">Would you rather spend a Saturday afternoon at a gallery or a shopping centre? Why?</div>
+    </div>
+  </section>
+
+  <!-- TAB 2 -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading</h2>
+    <p class="instr">Read about Marcus — who went to a gallery expecting to be bored, and came out a changed man.</p>
+    <div class="reading">
+      <h3>"I Thought I'd Hate It. I Didn't."</h3>
+      <p class="byline">★ Marcus Petrov, 26 · IT Support Technician · Warsaw · 2025</p>
+      <p>Marcus had never been to an art gallery in his life. Not once. "I always thought it was for a certain type of person," he says, "the kind who uses words like <strong>perspective</strong> and <strong>chiaroscuro</strong> and actually knows what they mean." Then his girlfriend bought two tickets to a modern art exhibition at Warsaw's Centre for Contemporary Art, and he had absolutely no excuse to say no.</p>
+      <p>He arrived <strong>expecting to be bored</strong>. He was not bored. The first room stopped him dead — a giant installation of hanging mirrors and coloured light that transformed the space into something that felt like being inside a dream. "I just stood there," Marcus says. "I didn't know what it meant. I didn't need to know. It just looked <strong>incredible</strong>." His girlfriend — who studies art history — explained some of the ideas behind the work, but Marcus didn't find the explanations as interesting as the experience itself. "You <strong>should go</strong> to art and just feel it," he says. "You don't <strong>have to understand</strong> everything."</p>
+      <p>What surprised Marcus most was the <strong>social atmosphere</strong>. He had imagined silent rooms where you <strong>weren't allowed to speak</strong>. Instead, people were chatting, pointing at things, laughing, taking photos. A group of teenagers were debating loudly in front of a painting. A couple was having a quiet argument about whether something counted as art. "It felt more like a café than a church," Marcus says. "In a good way." They stayed for two and a half hours — twice as long as he had planned — and then went for coffee and <strong>talked about it for another hour</strong>.</p>
+      <p>Marcus now visits the gallery roughly once a month. He has <strong>bought a membership card</strong>. He still doesn't always understand what he's looking at. But he's <strong>stopped pretending that matters</strong>. "Could I explain what modern art is? No. <strong>Can I</strong> enjoy it? Absolutely."</p>
+    </div>
+    <p class="instr"><strong>Comprehension questions:</strong></p>
+    <div class="fill-item"><p><span class="num">01</span>What made Marcus change his mind about art galleries?</p></div>
+    <div class="fill-item"><p><span class="num">02</span>What surprised Marcus about the social atmosphere in the gallery?</p></div>
+    <div class="fill-item"><p><span class="num">03</span>What is Marcus's conclusion about understanding art?</p></div>
+  </section>
+
+  <!-- TAB 3 -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">🎯</span>Collocations</h2>
+    <p class="instr">Learn these natural word combinations used when talking about arts, culture, and leisure.</p>
+    <div class="grammar-box">
+      <h4>🎨 Art and culture</h4>
+      <ul>
+        <li><strong>visit an exhibition</strong> = to go and see a display of art or objects. <code>We visited a photography exhibition at the National Museum last weekend.</code></li>
+        <li><strong>permanent / temporary collection</strong> = art always on display / shown for a limited time. <code>The museum has a permanent collection of Impressionist paintings.</code></li>
+        <li><strong>guided tour</strong> = a visit led by an expert who explains what you are seeing. <code>The guided tour was fascinating — the guide knew everything about each painting.</code></li>
+        <li><strong>contemporary art</strong> = art created in modern times, often experimental or challenging. <code>She finds contemporary art more exciting than classical paintings.</code></li>
+      </ul>
+    </div>
+    <div class="grammar-box">
+      <h4>🎭 Theatre and performance</h4>
+      <ul>
+        <li><strong>book / buy tickets</strong> = to reserve seats in advance. <code>You should book tickets early — the show sells out quickly.</code></li>
+        <li><strong>live performance</strong> = something you watch happening in real time on stage. <code>There's nothing quite like watching a live performance of a great play.</code></li>
+        <li><strong>standing ovation</strong> = when the entire audience stands to clap enthusiastically. <code>The cast received a standing ovation at the end of the show.</code></li>
+        <li><strong>interval / intermission</strong> = the break in the middle of a show. <code>Let's get a drink during the interval — there are twenty minutes.</code></li>
+      </ul>
+    </div>
+    <div class="grammar-box">
+      <h4>😊 Reactions and opinions</h4>
+      <ul>
+        <li><strong>be moved by</strong> = to feel strong emotions because of something. <code>She was deeply moved by the final scene of the play.</code></li>
+        <li><strong>make an impression</strong> = to have a strong effect on someone. <code>The installation made a huge impression on Marcus.</code></li>
+        <li><strong>thought-provoking</strong> = making you think seriously about ideas. <code>The exhibition was thought-provoking — I kept thinking about it for days.</code></li>
+        <li><strong>leave someone cold</strong> = to fail to produce any emotional reaction. <code>Abstract painting completely leaves me cold — I just don't connect with it.</code></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TAB 4 -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">🎤</span>Speaking Practice</h2>
+    <p class="instr">Speak for <strong>1–1½ minutes</strong> per question. Try to use <strong>at least 3 suggested expressions</strong>. Last task is a role-play — swap roles!</p>
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 01 · YOUR CULTURAL EXPERIENCE</span>
+      <div class="speaking-q">Tell us about a time you visited a gallery, museum, or theatre. Did you enjoy it? What do you remember most about the experience?</div>
+      <div class="try-use">
+        <strong>TRY TO USE:</strong>
+        <div class="try-chips">
+          <span class="chip">visit an exhibition</span>
+          <span class="chip">I was moved by...</span>
+          <span class="chip">it made a big impression on me</span>
+          <span class="chip">I didn't expect to...</span>
+          <span class="chip">thought-provoking</span>
+          <span class="chip">I would recommend it because...</span>
+        </div>
+      </div>
+    </div>
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 02 · DO YOU NEED TO "UNDERSTAND" ART?</span>
+      <div class="speaking-q">Marcus says "you should just feel art — you don't have to understand everything." Do you agree? Can you enjoy art without knowing anything about it?</div>
+      <div class="try-use">
+        <strong>TRY TO USE:</strong>
+        <div class="try-chips">
+          <span class="chip">you don't have to understand</span>
+          <span class="chip">you should just feel it</span>
+          <span class="chip">contemporary art</span>
+          <span class="chip">I think / I believe</span>
+          <span class="chip">on the other hand</span>
+          <span class="chip">it depends on...</span>
+        </div>
+      </div>
+    </div>
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 03 · CULTURE AS SOCIAL ACTIVITY</span>
+      <div class="speaking-q">Marcus went with his girlfriend and they talked about art for an hour after. Can visiting a gallery or theatre be a great social experience? Is it better to go alone or with others?</div>
+      <div class="try-use">
+        <strong>TRY TO USE:</strong>
+        <div class="try-chips">
+          <span class="chip">social atmosphere</span>
+          <span class="chip">live performance</span>
+          <span class="chip">you could go with...</span>
+          <span class="chip">it might be more fun if...</span>
+          <span class="chip">I prefer going...</span>
+          <span class="chip">we talked about it for hours</span>
+        </div>
+      </div>
+    </div>
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 04 · SHOULD CULTURE BE FREE?</span>
+      <div class="speaking-q">Should museums and galleries be free for everyone? Or is it fair to charge entrance fees? What are the advantages and disadvantages of each system?</div>
+      <div class="try-use">
+        <strong>TRY TO USE:</strong>
+        <div class="try-chips">
+          <span class="chip">free entry</span>
+          <span class="chip">should be accessible to everyone</span>
+          <span class="chip">book tickets in advance</span>
+          <span class="chip">I think it would be better if...</span>
+          <span class="chip">on the other hand</span>
+          <span class="chip">it could be argued that...</span>
+        </div>
+      </div>
+    </div>
+    <div class="speaking-card">
+      <span class="speaking-task-label">TASK 05 · ROLE-PLAY (swap!)</span>
+      <div class="speaking-q"><strong>Student A:</strong> Suggest a cultural outing to your friend — a gallery, museum, or theatre show. Convince them it will be fun.<br><br><strong>Student B:</strong> You are sceptical — you usually prefer cinemas, concerts, or cafés. Ask questions about the place. Let yourself be persuaded — or not!</div>
+      <div class="try-use">
+        <strong>TRY TO USE:</strong>
+        <div class="try-chips">
+          <span class="chip">you should come — it's...</span>
+          <span class="chip">we could go to...</span>
+          <span class="chip">what's it actually like?</span>
+          <span class="chip">do you have to book tickets?</span>
+          <span class="chip">I might enjoy it if...</span>
+          <span class="chip">I'm not sure it's really my thing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 5 -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">🔗</span>Matching</h2>
+    <p class="instr">Match each cultural term with its correct definition.</p>
+    <div class="match-grid">
+      <div class="match-col">
+        <span class="match-item" data-word="exhibition">Exhibition</span>
+        <span class="match-item" data-word="installation">Installation</span>
+        <span class="match-item" data-word="guided">Guided tour</span>
+        <span class="match-item" data-word="contemporary">Contemporary art</span>
+        <span class="match-item" data-word="ovation">Standing ovation</span>
+        <span class="match-item" data-word="interval">Interval</span>
+        <span class="match-item" data-word="permanent">Permanent collection</span>
+        <span class="match-item" data-word="moved">Be moved by</span>
+        <span class="match-item" data-word="tprov">Thought-provoking</span>
+        <span class="match-item" data-word="cold">Leave someone cold</span>
+      </div>
+      <div class="match-col">
+        <span class="match-item" data-def="tprov">Making you think deeply about ideas or issues</span>
+        <span class="match-item" data-def="exhibition">A public display of art, objects, or photographs</span>
+        <span class="match-item" data-def="cold">To fail to produce any emotional reaction in someone</span>
+        <span class="match-item" data-def="installation">A large-scale artwork created within and responding to a specific space</span>
+        <span class="match-item" data-def="guided">A visit led by an expert who explains what you are seeing</span>
+        <span class="match-item" data-def="contemporary">Art created in the modern era, often experimental or challenging</span>
+        <span class="match-item" data-def="ovation">When the whole audience stands up to applaud enthusiastically</span>
+        <span class="match-item" data-def="permanent">Artworks always on display at a museum, not changing seasonally</span>
+        <span class="match-item" data-def="interval">A break in the middle of a theatrical performance</span>
+        <span class="match-item" data-def="moved">To feel strong emotions because of something you see or hear</span>
+      </div>
+    </div>
+    <span class="score" id="score5">— / 10</span>
+  </section>
+
+  <!-- TAB 6 -->
+  <section class="panel" id="t6">
+    <h2 class="section-title"><span class="emoji">✏️</span>Fill in the Blanks</h2>
+    <p class="instr">Use a word or phrase from the Word Bank to complete each sentence.</p>
+    <div class="word-bank">
+      <span class="word-bank-label">📖 WORD BANK</span>
+      <div class="word-bank-words">
+        <span class="wb-word">exhibition</span>
+        <span class="wb-word">installation</span>
+        <span class="wb-word">guided tour</span>
+        <span class="wb-word">contemporary art</span>
+        <span class="wb-word">standing ovation</span>
+        <span class="wb-word">interval</span>
+        <span class="wb-word">be moved by</span>
+        <span class="wb-word">thought-provoking</span>
+        <span class="wb-word">live performance</span>
+        <span class="wb-word">book tickets</span>
+      </div>
+    </div>
+    <div class="fill-item"><p><span class="num">01</span>Marcus visited a modern art <input class="fill-input" data-answer="exhibition">, at Warsaw's Centre for Contemporary Art.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>The first room had a giant <input class="fill-input" data-answer="installation">, of hanging mirrors and coloured light.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>His girlfriend booked a <input class="fill-input" data-answer="guided tour">, which helped explain the ideas behind the artworks.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>Marcus wasn't sure about <input class="fill-input" data-answer="contemporary art">, but the exhibition completely changed his mind.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>The audience gave the actors a <input class="fill-input" data-answer="standing ovation">, at the end of the performance.</p></div>
+    <div class="fill-item"><p><span class="num">06</span>Let's get a drink during the <input class="fill-input" data-answer="interval">, before the second act starts.</p></div>
+    <div class="fill-item"><p><span class="num">07</span>She didn't expect to <input class="fill-input" data-answer="be moved by">, the painting, but she found it deeply emotional.</p></div>
+    <div class="fill-item"><p><span class="num">08</span>The documentary was incredibly <input class="fill-input" data-answer="thought-provoking">, — I couldn't stop thinking about it.</p></div>
+    <div class="fill-item"><p><span class="num">09</span>There is nothing better than watching a <input class="fill-input" data-answer="live performance">, — streaming just isn't the same.</p></div>
+    <div class="fill-item"><p><span class="num">10</span>You should <input class="fill-input" data-answer="book tickets">, in advance — popular exhibitions sell out very quickly.</p></div>
+    <button class="check-btn" onclick="checkFill()">✓ Check Answers</button>
+    <span class="score" id="score6">— / 10</span>
+  </section>
+
+  <!-- TAB 7 -->
+  <section class="panel" id="t7">
+    <h2 class="section-title"><span class="emoji">❓</span>Multiple Choice</h2>
+    <p class="instr">Choose the best answer based on the reading.</p>
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q01</span>Why did Marcus go to the gallery?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) He had always loved contemporary art</button>
+        <button class="mc-opt">b) His girlfriend bought tickets and he had no reason to refuse</button>
+        <button class="mc-opt">c) His boss recommended the exhibition</button>
+        <button class="mc-opt">d) He was studying art at college</button>
+      </div>
+    </div>
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q02</span>What stopped Marcus in the first room?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) A famous painting he recognised from school</button>
+        <button class="mc-opt">b) A sign telling him he couldn't take photos</button>
+        <button class="mc-opt">c) A large installation of hanging mirrors and coloured light</button>
+        <button class="mc-opt">d) His girlfriend explaining the artwork to him</button>
+      </div>
+    </div>
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q03</span>What surprised Marcus about the gallery atmosphere?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) People were chatting, laughing, and debating — it felt social and lively</button>
+        <button class="mc-opt">b) It was completely silent and very formal</button>
+        <button class="mc-opt">c) Everyone was on their phones taking photos</button>
+        <button class="mc-opt">d) The gallery was almost empty</button>
+      </div>
+    </div>
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q04</span>How does Marcus compare the gallery to a church?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Both are very quiet and spiritual</button>
+        <button class="mc-opt">b) Both have beautiful architecture</button>
+        <button class="mc-opt">c) He preferred going to church on Sundays</button>
+        <button class="mc-opt">d) He expected the gallery to be silent like a church, but it felt more like a café</button>
+      </div>
+    </div>
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q05</span>What is Marcus's conclusion about understanding art?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) You must study art history before visiting galleries</button>
+        <button class="mc-opt">b) You don't need to understand art to enjoy it — just feel it</button>
+        <button class="mc-opt">c) Art is only for people who already know about it</button>
+        <button class="mc-opt">d) Guided tours are the only way to appreciate art</button>
+      </div>
+    </div>
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q06</span>What does Marcus do now, after his first gallery visit?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) He has started studying art history</button>
+        <button class="mc-opt">b) He takes his friends to galleries every week</button>
+        <button class="mc-opt">c) He visits the gallery roughly once a month and has a membership card</button>
+        <button class="mc-opt">d) He works as a guide at the gallery</button>
+      </div>
+    </div>
+    <button class="check-btn" onclick="checkMC()">✓ Check MC</button>
+    <span class="score" id="score7">— / 6</span>
+  </section>
+
+  <!-- TAB 8: MODAL VERBS -->
+  <section class="panel" id="t8">
+    <h2 class="section-title"><span class="emoji">⚙️</span>Modal Verbs for Opinions & Suggestions</h2>
+    <p class="instr">Modal verbs are very common when discussing culture, giving advice, and expressing opinions. Study the rules, then complete all three parts.</p>
+
+    <div class="grammar-highlight">
+      <h4>⚙️ Modal Verbs — Key Meanings</h4>
+      <ul>
+        <li><strong>should / ought to</strong> — advice or recommendation. <code>You should visit the Tate Modern — it's amazing. / You ought to book tickets in advance.</code></li>
+        <li><strong>must / have to</strong> — strong obligation or necessity. <code>You must see this exhibition before it closes! / You have to book — it's fully booked.</code></li>
+        <li><strong>don't have to / needn't</strong> — no obligation. <code>You don't have to understand art to enjoy it. / You needn't dress formally for the gallery.</code></li>
+        <li><strong>can / could</strong> — ability or possibility. <code>You can take photos in most rooms. / We could go together on Saturday.</code></li>
+        <li><strong>might / may</strong> — possibility (less certain). <code>You might enjoy it more than you expect. / It may be a bit challenging at first.</code></li>
+        <li><strong>can't / couldn't</strong> — impossibility. <code>You can't speak loudly during the performance. / We couldn't get seats — it was sold out.</code></li>
+      </ul>
+    </div>
+
+    <p class="grammar-sub">Part A — Choose the correct modal</p>
+    <div class="word-bank">
+      <span class="word-bank-label">📖 WORD BANK</span>
+      <div class="word-bank-words">
+        <span class="wb-word">should</span>
+        <span class="wb-word">don't have to</span>
+        <span class="wb-word">must</span>
+        <span class="wb-word">might</span>
+        <span class="wb-word">can't</span>
+        <span class="wb-word">could</span>
+        <span class="wb-word">needn't</span>
+        <span class="wb-word">can</span>
+      </div>
+    </div>
+    <div class="fill-item"><p><span class="num">01</span>You <input class="fill-input" data-answer="should">, visit this exhibition — I think you'd love it. (recommendation)</p></div>
+    <div class="fill-item"><p><span class="num">02</span>You <input class="fill-input" data-answer="don't have to">, understand every artwork to enjoy an exhibition. (no obligation)</p></div>
+    <div class="fill-item"><p><span class="num">03</span>You <input class="fill-input" data-answer="must">, see this play before it finishes — it's absolutely incredible! (strong recommendation)</p></div>
+    <div class="fill-item"><p><span class="num">04</span>You <input class="fill-input" data-answer="might">, enjoy it more than you expect — give it a chance. (weak possibility)</p></div>
+    <div class="fill-item"><p><span class="num">05</span>You <input class="fill-input" data-answer="can't">, take photographs in that particular room — there's a sign on the door. (not allowed)</p></div>
+    <div class="fill-item"><p><span class="num">06</span>We <input class="fill-input" data-answer="could">, go to the gallery on Saturday afternoon if you're free. (suggestion)</p></div>
+    <div class="fill-item"><p><span class="num">07</span>You <input class="fill-input" data-answer="needn't">, buy a programme — the guided tour explains everything. (unnecessary)</p></div>
+    <div class="fill-item"><p><span class="num">08</span>Visitors <input class="fill-input" data-answer="can">, take photos in most rooms — just turn off the flash. (permission)</p></div>
+
+    <p class="grammar-sub">Part B — Choose the correct sentence</p>
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q09</span>Which sentence gives correct advice about visiting a gallery?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "You should to book tickets before you go."</button>
+        <button class="mc-opt">b) "You should book tickets before you go."</button>
+        <button class="mc-opt">c) "You should booking tickets before you go."</button>
+        <button class="mc-opt">d) "You should booked tickets before you go."</button>
+      </div>
+    </div>
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q10</span>Which correctly expresses "no obligation"?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "You mustn't buy a programme — it's optional."</button>
+        <button class="mc-opt">b) "You can't buy a programme — they don't have one."</button>
+        <button class="mc-opt">c) "You don't have to buy a programme — it's optional."</button>
+        <button class="mc-opt">d) "You shouldn't buy a programme — it's expensive."</button>
+      </div>
+    </div>
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q11</span>Which correctly uses "might" to express possibility?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "You might find the exhibition surprising — it's very different from what you expect."</button>
+        <button class="mc-opt">b) "You might to enjoy the gallery more if you go with someone."</button>
+        <button class="mc-opt">c) "You might enjoyed the show more if you had read the programme."</button>
+        <button class="mc-opt">d) "You mights enjoy the exhibition."</button>
+      </div>
+    </div>
+
+    <p class="grammar-sub">Part C — Write your own! Use a modal verb to complete each sentence about your own cultural preferences.</p>
+    <div class="fill-item"><p><span class="num">12</span>If someone has never visited a gallery, they <strong>should</strong> ___________________________________.</p></div>
+    <div class="fill-item"><p><span class="num">13</span>You <strong>don't have to</strong> ___________________________________ to enjoy a theatre performance.</p></div>
+    <div class="fill-item"><p><span class="num">14</span>We <strong>could</strong> ___________________________________ this weekend — would you be interested?</p></div>
+
+    <button class="check-btn" onclick="checkGr8()">✓ Check Parts A & B</button>
+    <span class="score" id="score8">— / 11</span>
+  </section>
+
+  <!-- TAB 9: QUESTION FORMS -->
+  <section class="panel" id="t9">
+    <h2 class="section-title"><span class="emoji">❔</span>Question Forms & Indirect Questions</h2>
+    <p class="instr">Asking questions correctly — and using indirect, polite question forms — is essential for social and cultural situations.</p>
+
+    <div class="grammar-highlight">
+      <h4>❔ Direct Questions — Key Rules</h4>
+      <ul>
+        <li><strong>Yes/No questions:</strong> auxiliary + subject + verb. <code>Do you enjoy going to galleries? / Have you ever been to the theatre?</code></li>
+        <li><strong>Wh- questions:</strong> question word + auxiliary + subject + verb. <code>What did you think of the exhibition? / How much does it cost?</code></li>
+        <li><strong>Subject questions</strong> (who/what is the subject): no auxiliary needed. <code>Who painted this? / What happened at the end?</code></li>
+        <li>⚠️ <code>What did you enjoy?</code> ✅ &nbsp;&nbsp; <code>What you enjoyed?</code> ❌</li>
+      </ul>
+      <br>
+      <h4>❔ Indirect / Polite Questions</h4>
+      <ul>
+        <li>We use indirect questions to sound more polite. The word order becomes normal (no inversion).</li>
+        <li><strong>Structures:</strong> <code>Could you tell me...? / Do you know...? / I'd like to know... / I was wondering if/whether...</code></li>
+        <li><code>Direct: Where is the exit?</code> → <code>Indirect: Could you tell me where the exit is?</code></li>
+        <li><code>Direct: Is there a café here?</code> → <code>Indirect: Do you know if there is a café here?</code></li>
+        <li>⚠️ After indirect opener, NO inversion: <code>Could you tell me where is the toilet?</code> ❌ → <code>Could you tell me where the toilet is?</code> ✅</li>
+      </ul>
+    </div>
+
+    <p class="grammar-sub">Part A — Form direct questions from the answers given</p>
+    <div class="fill-item"><p><span class="num">01</span>Answer: "The exhibition closes at 8pm."<br>Question: <input class="fill-input" data-answer="what time does the exhibition close">,?</p></div>
+    <div class="fill-item"><p><span class="num">02</span>Answer: "Tickets cost €15 for adults."<br>Question: <input class="fill-input" data-answer="how much do tickets cost">,?</p></div>
+    <div class="fill-item"><p><span class="num">03</span>Answer: "Picasso painted it in 1937."<br>Question: <input class="fill-input" data-answer="who painted it">, / <input class="fill-input" data-answer="when did picasso paint it">,?</p></div>
+    <div class="fill-item"><p><span class="num">04</span>Answer: "Yes, I've visited this gallery before — about three times."<br>Question: <input class="fill-input" data-answer="have you visited this gallery before">,?</p></div>
+    <div class="fill-item"><p><span class="num">05</span>Answer: "I enjoyed it because the light installation was incredible."<br>Question: <input class="fill-input" data-answer="why did you enjoy it">,?</p></div>
+
+    <p class="grammar-sub">Part B — Rewrite as indirect (polite) questions</p>
+    <div class="fill-item"><p><span class="num">06</span>Direct: "Where is the cloakroom?"<br>Indirect: Could you tell me <input class="fill-input" data-answer="where the cloakroom is">,?</p></div>
+    <div class="fill-item"><p><span class="num">07</span>Direct: "Is photography allowed here?"<br>Indirect: Do you know <input class="fill-input" data-answer="if photography is allowed here">,?</p></div>
+    <div class="fill-item"><p><span class="num">08</span>Direct: "What time does the guided tour start?"<br>Indirect: I'd like to know <input class="fill-input" data-answer="what time the guided tour starts">,.</p></div>
+    <div class="fill-item"><p><span class="num">09</span>Direct: "Are there any student discounts?"<br>Indirect: I was wondering <input class="fill-input" data-answer="if there are any student discounts">,.</p></div>
+
+    <p class="grammar-sub">Part C — Choose the correctly formed question</p>
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q10</span>Which is a correctly formed indirect question?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "Could you tell me where is the exit?"</button>
+        <button class="mc-opt">b) "Could you tell me where the exit is?"</button>
+        <button class="mc-opt">c) "Could you tell me where does the exit go?"</button>
+        <button class="mc-opt">d) "Could you tell me where the exit does go?"</button>
+      </div>
+    </div>
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q11</span>Which is a correct subject question?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) "Who painted this?"</button>
+        <button class="mc-opt">b) "Who did paint this?"</button>
+        <button class="mc-opt">c) "Who does painted this?"</button>
+        <button class="mc-opt">d) "Who has paint this?"</button>
+      </div>
+    </div>
+
+    <p class="grammar-sub">Part D — Write your own questions! Imagine you are at a museum information desk.</p>
+    <div class="fill-item"><p><span class="num">12</span>Ask about the closing time (direct): _________________________________________?</p></div>
+    <div class="fill-item"><p><span class="num">13</span>Ask about café location (indirect, politely): Could you tell me ___________________?</p></div>
+    <div class="fill-item"><p><span class="num">14</span>Ask if guided tours are available (indirect): I was wondering ___________________.</p></div>
+
+    <button class="check-btn" onclick="checkGr9()">✓ Check Parts A, B & C</button>
+    <span class="score" id="score9">— / 11</span>
+  </section>
+
+  <footer>🎭 ★ ★ &nbsp; ART GALLERIES, MUSEUMS & THEATRE · B1 ENGLISH &nbsp; ★ ★ 🎭</footer>
+</div>
+
+<script>
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+  let sel = null, m5 = 0;
+  document.querySelectorAll('#t5 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) { document.querySelectorAll('#t5 [data-word]').forEach(w => w.classList.remove('selected')); item.classList.add('selected'); sel = item; }
+      else if (item.dataset.def && sel) {
+        if (sel.dataset.word === item.dataset.def) { sel.classList.remove('selected'); sel.classList.add('matched'); item.classList.add('matched'); m5++; document.getElementById('score5').textContent = m5 === 10 ? '★ 10 / 10 ★' : m5 + ' / 10'; sel = null; }
+        else { item.classList.add('wrong'); setTimeout(() => item.classList.remove('wrong'), 500); }
+      }
+    });
+  });
+  function checkFill() {
+    let c = 0;
+    document.querySelectorAll('#t6 .fill-input').forEach(i => {
+      const a = i.dataset.answer.toLowerCase().trim(), v = i.value.toLowerCase().trim();
+      i.classList.remove('correct','wrong');
+      if (v === a) { i.classList.add('correct'); c++; } else if (v) i.classList.add('wrong');
+    });
+    document.getElementById('score6').textContent = c === 10 ? '★ 10 / 10 ★' : c + ' / 10';
+  }
+  let mc7 = 0;
+  document.querySelectorAll('#t7 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        item.querySelectorAll('.mc-opt').forEach(o => o.disabled = true);
+        const letter = ['a','b','c','d'][i];
+        if (letter === correct) { opt.classList.add('correct'); mc7++; } else { opt.classList.add('wrong'); item.querySelectorAll('.mc-opt').forEach((o,j) => { if (['a','b','c','d'][j]===correct) o.classList.add('correct'); }); }
+        document.getElementById('score7').textContent = mc7 === 6 ? '★ 6 / 6 ★' : mc7 + ' / 6';
+      });
+    });
+  });
+  let g8mc = 0;
+  function checkGr8() {
+    let c = 0;
+    document.querySelectorAll('#t8 .fill-input').forEach(i => {
+      if (!i.dataset.answer) return;
+      const a = i.dataset.answer.toLowerCase().trim(), v = i.value.toLowerCase().trim();
+      i.classList.remove('correct','wrong');
+      if (v === a) { i.classList.add('correct'); c++; } else if (v) i.classList.add('wrong');
+    });
+    c += g8mc;
+    document.getElementById('score8').textContent = c === 11 ? '★ 11 / 11 ★' : c + ' / 11';
+  }
+  document.querySelectorAll('#t8 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        item.querySelectorAll('.mc-opt').forEach(o => o.disabled = true);
+        const letter = ['a','b','c','d'][i];
+        if (letter === correct) { opt.classList.add('correct'); g8mc++; } else { opt.classList.add('wrong'); item.querySelectorAll('.mc-opt').forEach((o,j) => { if (['a','b','c','d'][j]===correct) o.classList.add('correct'); }); }
+      });
+    });
+  });
+  let g9mc = 0;
+  function checkGr9() {
+    let c = 0;
+    document.querySelectorAll('#t9 .fill-input').forEach(i => {
+      if (!i.dataset.answer) return;
+      const a = i.dataset.answer.toLowerCase().trim(), v = i.value.toLowerCase().trim();
+      i.classList.remove('correct','wrong');
+      if (v === a) { i.classList.add('correct'); c++; } else if (v) i.classList.add('wrong');
+    });
+    c += g9mc;
+    document.getElementById('score9').textContent = c === 11 ? '★ 11 / 11 ★' : c + ' / 11';
+  }
+  document.querySelectorAll('#t9 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    item.querySelectorAll('.mc-opt').forEach((opt, i) => {
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        item.querySelectorAll('.mc-opt').forEach(o => o.disabled = true);
+        const letter = ['a','b','c','d'][i];
+        if (letter === correct) { opt.classList.add('correct'); g9mc++; } else { opt.classList.add('wrong'); item.querySelectorAll('.mc-opt').forEach((o,j) => { if (['a','b','c','d'][j]===correct) o.classList.add('correct'); }); }
+      });
+    });
+  });
+</script>
+</body>
+</html>
