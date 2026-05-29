@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travelling & Flying — B1 English Lesson</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #4A90E2;
+    --deep-sky: #2E5C8A;
+    --sunset: #F4A261;
+    --coral: #E76F51;
+    --cream: #FFF8EC;
+    --sand: #F5E6D3;
+    --ink: #1A2332;
+    --cloud: #ffffff;
+    --soft: #EBF4FB;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at top, rgba(74,144,226,0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(244,162,97,0.1) 0%, transparent 50%);
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; padding: 30px 22px 80px; }
+
+  header {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 18px;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow: 6px 6px 0 var(--ink);
+    overflow: hidden;
+  }
+  header::before {
+    content: "✈";
+    position: absolute;
+    top: -30px;
+    right: -20px;
+    font-size: 180px;
+    color: var(--soft);
+    transform: rotate(-20deg);
+    z-index: 0;
+  }
+  .header-content { position: relative; z-index: 1; }
+  .ticket-label {
+    display: inline-block;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    background: var(--ink);
+    color: var(--sunset);
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(42px, 7vw, 68px);
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -1px;
+  }
+  h1 .accent { color: var(--coral); font-style: italic; }
+  .sub {
+    font-size: 17px;
+    color: var(--deep-sky);
+    margin-top: 10px;
+    max-width: 600px;
+  }
+  .tags { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--sand);
+    border: 1.5px solid var(--ink);
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .tab {
+    padding: 12px 18px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--ink);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .tab:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .tab.active {
+    background: var(--ink);
+    color: var(--cream);
+  }
+
+  .panel { display: none; animation: fadeIn 0.3s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .section-title .emoji { margin-right: 10px; }
+  .instr {
+    color: var(--deep-sky);
+    margin-bottom: 22px;
+    font-size: 15px;
+    padding: 10px 14px;
+    background: var(--soft);
+    border-left: 4px solid var(--sky);
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* READING */
+  .reading {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    padding: 32px 36px;
+    box-shadow: 6px 6px 0 var(--ink);
+    margin-bottom: 24px;
+  }
+  .reading h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .reading .byline {
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--coral);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .reading p {
+    font-size: 16.5px;
+    line-height: 1.8;
+    margin-bottom: 14px;
+    color: #2a3441;
+  }
+  .reading b, .reading strong {
+    background: linear-gradient(transparent 55%, rgba(244,162,97,0.45) 55%);
+    padding: 0 2px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .reading .dialogue {
+    background: var(--soft);
+    padding: 14px 18px;
+    border-radius: 10px;
+    border-left: 4px solid var(--sky);
+    margin: 16px 0;
+    font-style: italic;
+  }
+
+  /* VOCAB LIST */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .vocab-card {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .vocab-term {
+    font-weight: 700;
+    color: var(--coral);
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+  .vocab-def {
+    font-size: 13.5px;
+    color: var(--ink);
+  }
+
+  /* MATCHING */
+  .match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .match-col h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: var(--deep-sky);
+  }
+  .match-item {
+    padding: 12px 14px;
+    border: 2px solid var(--ink);
+    background: var(--cloud);
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 14.5px;
+    border-radius: 8px;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .match-item:hover { background: var(--soft); }
+  .match-item.selected { background: var(--sky); color: var(--cloud); border-color: var(--deep-sky); }
+  .match-item.matched { background: #a8d5a2; border-color: #2d6a2a; color: #1a3d17; cursor: default; pointer-events: none; }
+  .match-item.wrong { background: var(--coral); color: var(--cloud); animation: shake 0.4s; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+
+  /* FILL */
+  .fill-item {
+    padding: 14px 18px;
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .fill-item p { font-size: 15px; }
+  .fill-item .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .fill-input {
+    padding: 6px 10px;
+    border: 2px solid var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    background: var(--sand);
+    width: 180px;
+    border-radius: 5px;
+  }
+  .fill-input:focus { outline: none; border-color: var(--sky); background: var(--cream); }
+  .fill-input.correct { background: #d1f0cc; border-color: #2d6a2a; color: #1a3d17; }
+  .fill-input.wrong { background: #ffd5cc; border-color: var(--coral); }
+
+  .word-bank {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    box-shadow: 4px 4px 0 var(--coral);
+  }
+  .word-bank strong {
+    display: block;
+    color: var(--sunset);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-family: 'Courier Prime', monospace;
+  }
+
+  /* MC */
+  .mc-item {
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .mc-q { font-size: 15px; margin-bottom: 10px; font-weight: 500; }
+  .mc-q .num {
+    font-family: 'Courier Prime', monospace;
+    color: var(--coral);
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .mc-options { display: grid; gap: 6px; }
+  .mc-opt {
+    padding: 9px 12px;
+    border: 2px solid var(--sand);
+    background: var(--cream);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    font-family: inherit;
+    border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .mc-opt:hover:not(:disabled) { border-color: var(--sky); }
+  .mc-opt.correct { background: #d1f0cc; border-color: #2d6a2a; color: #1a3d17; font-weight: 600; }
+  .mc-opt.wrong { background: #ffd5cc; border-color: var(--coral); }
+  .mc-opt:disabled { cursor: default; }
+
+  .check-btn {
+    background: var(--coral);
+    color: var(--cream);
+    border: 2px solid var(--ink);
+    padding: 12px 24px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 14px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: all 0.15s;
+  }
+  .check-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .check-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+
+  .score {
+    display: inline-block;
+    margin-left: 12px;
+    font-family: 'Courier Prime', monospace;
+    font-weight: 700;
+    padding: 8px 14px;
+    background: var(--ink);
+    color: var(--sunset);
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  /* GRAMMAR BOX */
+  .grammar-box {
+    background: var(--soft);
+    border: 2px dashed var(--deep-sky);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 22px;
+  }
+  .grammar-box h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--deep-sky);
+    margin-bottom: 10px;
+  }
+  .grammar-box ul { padding-left: 20px; }
+  .grammar-box li { margin-bottom: 4px; font-size: 14px; }
+  .grammar-box code {
+    background: var(--cloud);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    border: 1px solid var(--sand);
+  }
+
+  footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px dashed var(--ink);
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--deep-sky);
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 650px) {
+    .match-grid { grid-template-columns: 1fr; }
+    .reading { padding: 22px; }
+    header { padding: 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="header-content">
+      <div class="ticket-label">✈ BOARDING PASS · B1 ENGLISH</div>
+      <h1>Travelling <span class="accent">& Flying</span></h1>
+      <div class="sub">Everyday airport & flight English — the words, phrases and little expressions that native speakers actually use.</div>
+      <div class="tags">
+        <span class="tag">CEFR B1</span>
+        <span class="tag">Airport · Flight</span>
+        <span class="tag">Colloquial English</span>
+        <span class="tag">Grammar: Tenses</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="t1">① Reading</button>
+    <button class="tab" data-tab="t2">② Vocabulary</button>
+    <button class="tab" data-tab="t3">③ Matching</button>
+    <button class="tab" data-tab="t4">④ Fill the gaps</button>
+    <button class="tab" data-tab="t5">⑤ Multiple choice</button>
+    <button class="tab" data-tab="t6">⑥ Grammar</button>
+  </nav>
+
+  <!-- ============== READING ============== -->
+  <section class="panel active" id="t1">
+    <h2 class="section-title"><span class="emoji">📖</span>Reading text</h2>
+    <p class="instr">Read Tom's story about his crazy trip to Spain. The important words and expressions are in <b>orange bold</b> — these are the ones you'll practise later.</p>
+
+    <article class="reading">
+      <h3>Almost Missed My Flight!</h3>
+      <div class="byline">★ Tom, 28 · from his travel blog</div>
+
+      <p>So, last summer I flew to Barcelona with my girlfriend, and honestly, it was one of those trips where everything that could go wrong, did go wrong — but we still had an amazing time.</p>
+
+      <p>It all started when we <b>booked our flights</b> pretty last minute. We got a nice deal with a <b>low-cost airline</b>, but of course, that meant no free food and a tiny <b>baggage allowance</b>. My girlfriend, Kate, spent about three hours trying to squeeze everything into her <b>carry-on</b>. I kept telling her, "Just pay for a <b>checked bag</b>!" but she wasn't having any of it.</p>
+
+      <p>On the day of the flight, we left the house way too late. Traffic was a nightmare, and we only got to the airport about an hour before <b>take-off</b>. I was panicking. We ran to the <b>check-in desk</b>, dropped off our bags, and then had to <b>go through security</b>. Of course, Kate had forgotten to take the water out of her bag, so they stopped her. Classic.</p>
+
+      <p>Then came the worst part — we looked up at the <b>departures board</b>, and our gate was at the other end of the terminal. We basically sprinted. When we finally got to the gate, they were <b>boarding</b> the last passengers. The <b>flight attendant</b> gave us this look, like, "seriously?" But she smiled and said:</p>
+
+      <p class="dialogue">"Cutting it a bit close, guys. Welcome aboard."</p>
+
+      <p>The flight itself was fine, although we had a <b>bumpy ride</b> for about twenty minutes because of some turbulence. Kate hates flying, so she was gripping my hand like crazy. The pilot came on and said, <b>"fasten your seatbelts"</b> and warned us about <b>bad weather</b>. Not exactly what you want to hear.</p>
+
+      <p>When we <b>landed</b> in Barcelona, there was another surprise waiting for us. We went to <b>pick up our luggage</b>, and Kate's suitcase didn't come out. We stood there forever watching the same bags <b>go round and round on the belt</b>. In the end, we had to report it as <b>lost luggage</b>. It showed up two days later at our hotel, but by then Kate had already bought a whole new outfit!</p>
+
+      <p>Honestly, next time I'm flying, I'm leaving the house five hours early. No joke. But yeah — despite all that, Spain was incredible. I'd do it all again tomorrow.</p>
+    </article>
+  </section>
+
+  <!-- ============== VOCAB PRESENTATION ============== -->
+  <section class="panel" id="t2">
+    <h2 class="section-title"><span class="emoji">💬</span>Key words & expressions</h2>
+    <p class="instr">These are the expressions native speakers really use at the airport and on planes. Learn them — they'll come up again in the exercises!</p>
+
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-term">to book a flight</div><div class="vocab-def">to reserve a seat on a plane</div></div>
+      <div class="vocab-card"><div class="vocab-term">low-cost airline</div><div class="vocab-def">a cheap airline (e.g. Ryanair, easyJet)</div></div>
+      <div class="vocab-card"><div class="vocab-term">baggage allowance</div><div class="vocab-def">how much luggage you're allowed to take</div></div>
+      <div class="vocab-card"><div class="vocab-term">carry-on / hand luggage</div><div class="vocab-def">the small bag you take on the plane with you</div></div>
+      <div class="vocab-card"><div class="vocab-term">checked bag / hold luggage</div><div class="vocab-def">the big bag that goes in the plane's hold</div></div>
+      <div class="vocab-card"><div class="vocab-term">take-off</div><div class="vocab-def">the moment the plane leaves the ground</div></div>
+      <div class="vocab-card"><div class="vocab-term">check-in desk</div><div class="vocab-def">where you get your boarding pass and drop bags</div></div>
+      <div class="vocab-card"><div class="vocab-term">to go through security</div><div class="vocab-def">the bag and body check before you fly</div></div>
+      <div class="vocab-card"><div class="vocab-term">departures board</div><div class="vocab-def">big screen showing flights, gates and times</div></div>
+      <div class="vocab-card"><div class="vocab-term">to board (a plane)</div><div class="vocab-def">to get on the plane</div></div>
+      <div class="vocab-card"><div class="vocab-term">flight attendant</div><div class="vocab-def">the staff who look after you on the plane</div></div>
+      <div class="vocab-card"><div class="vocab-term">"Cutting it a bit close"</div><div class="vocab-def">arriving almost too late (friendly, casual)</div></div>
+      <div class="vocab-card"><div class="vocab-term">a bumpy ride / turbulence</div><div class="vocab-def">when the plane shakes during the flight</div></div>
+      <div class="vocab-card"><div class="vocab-term">to fasten your seatbelt</div><div class="vocab-def">to put your seatbelt on</div></div>
+      <div class="vocab-card"><div class="vocab-term">to land</div><div class="vocab-def">when the plane arrives and touches the ground</div></div>
+      <div class="vocab-card"><div class="vocab-term">to pick up your luggage</div><div class="vocab-def">to collect your bags after landing</div></div>
+      <div class="vocab-card"><div class="vocab-term">lost luggage</div><div class="vocab-def">bags that don't arrive with you</div></div>
+      <div class="vocab-card"><div class="vocab-term">"Welcome aboard"</div><div class="vocab-def">friendly way to say "welcome on the plane"</div></div>
+      <div class="vocab-card"><div class="vocab-term">a nightmare (traffic, queue…)</div><div class="vocab-def">casual way to say "really bad / awful"</div></div>
+      <div class="vocab-card"><div class="vocab-term">to squeeze (stuff) into a bag</div><div class="vocab-def">to fit things in when there's not much room</div></div>
+    </div>
+  </section>
+
+  <!-- ============== MATCHING ============== -->
+  <section class="panel" id="t3">
+    <h2 class="section-title"><span class="emoji">🔗</span>Match the word with its meaning</h2>
+    <p class="instr">Click a word on the left, then click the matching meaning on the right. Green = correct!</p>
+
+    <div class="match-grid">
+      <div class="match-col">
+        <h3>Word / phrase</h3>
+        <div class="match-item" data-word="1">carry-on</div>
+        <div class="match-item" data-word="2">to board</div>
+        <div class="match-item" data-word="3">turbulence</div>
+        <div class="match-item" data-word="4">check-in desk</div>
+        <div class="match-item" data-word="5">to land</div>
+        <div class="match-item" data-word="6">lost luggage</div>
+        <div class="match-item" data-word="7">low-cost airline</div>
+        <div class="match-item" data-word="8">departures board</div>
+      </div>
+      <div class="match-col">
+        <h3>Meaning</h3>
+        <div class="match-item" data-def="3">when the plane shakes during the flight</div>
+        <div class="match-item" data-def="1">the small bag you take onto the plane</div>
+        <div class="match-item" data-def="8">the big screen showing flight times and gates</div>
+        <div class="match-item" data-def="5">to arrive and touch the ground</div>
+        <div class="match-item" data-def="7">a cheap airline like Ryanair or easyJet</div>
+        <div class="match-item" data-def="2">to get on the plane</div>
+        <div class="match-item" data-def="6">bags that don't arrive with you</div>
+        <div class="match-item" data-def="4">the place where you get your boarding pass</div>
+      </div>
+    </div>
+    <div style="margin-top:18px;">
+      <span class="score" id="score3">0 / 8</span>
+    </div>
+  </section>
+
+  <!-- ============== FILL ============== -->
+  <section class="panel" id="t4">
+    <h2 class="section-title"><span class="emoji">✏️</span>Fill in the gaps</h2>
+    <p class="instr">Use one word or phrase from the bank in each gap. Use the correct form!</p>
+
+    <div class="word-bank">
+      <strong>✈ WORD BANK ✈</strong>
+      book · take-off · carry-on · go through security · boarding · flight attendant · a nightmare · pick up · landed · bumpy
+    </div>
+
+    <div class="fill-item"><p><span class="num">01</span>I usually <input class="fill-input" data-answer="book"> my flights online because it's much cheaper than at the travel agency.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>You have to <input class="fill-input" data-answer="go through security"> before you can go to your gate.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>My bag was too big to be a <input class="fill-input" data-answer="carry-on">, so I had to check it in.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>The traffic to the airport was <input class="fill-input" data-answer="a nightmare"> — we were stuck for nearly an hour!</p></div>
+    <div class="fill-item"><p><span class="num">05</span>The <input class="fill-input" data-answer="flight attendant"> asked me to put my bag in the overhead locker.</p></div>
+    <div class="fill-item"><p><span class="num">06</span>Please switch off your phones — we're ready for <input class="fill-input" data-answer="take-off">.</p></div>
+    <div class="fill-item"><p><span class="num">07</span>It was a really <input class="fill-input" data-answer="bumpy"> flight because of the bad weather.</p></div>
+    <div class="fill-item"><p><span class="num">08</span>Flight BA214 is now <input class="fill-input" data-answer="boarding"> at gate 23.</p></div>
+    <div class="fill-item"><p><span class="num">09</span>We <input class="fill-input" data-answer="landed"> in Rome about ten minutes ago and we're taxiing to the gate.</p></div>
+    <div class="fill-item"><p><span class="num">10</span>Don't forget to <input class="fill-input" data-answer="pick up"> your luggage from belt number 4.</p></div>
+
+    <button class="check-btn" onclick="checkFill()">✓ Check my answers</button>
+    <span class="score" id="score4">— / 10</span>
+  </section>
+
+  <!-- ============== MC ============== -->
+  <section class="panel" id="t5">
+    <h2 class="section-title"><span class="emoji">🎯</span>Choose the best answer</h2>
+    <p class="instr">Pick the option that sounds most natural — the way a native speaker would actually say it.</p>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q1</span>You're late for your flight. Your friend says, "We're cutting it a bit close." What does that mean?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) We have loads of time.</button>
+        <button class="mc-opt">b) We're almost too late.</button>
+        <button class="mc-opt">c) We should take a taxi.</button>
+        <button class="mc-opt">d) We need to cut our bags.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q2</span>Which phrase does the flight attendant usually say when you get on the plane?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) Nice to meet you.</button>
+        <button class="mc-opt">b) Have a good one.</button>
+        <button class="mc-opt">c) Welcome aboard.</button>
+        <button class="mc-opt">d) Long time no see.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q3</span>The captain says, "Please fasten your seatbelts." You should…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) put your seatbelt on.</button>
+        <button class="mc-opt">b) take your seatbelt off.</button>
+        <button class="mc-opt">c) ask the flight attendant for a seatbelt.</button>
+        <button class="mc-opt">d) stand up slowly.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="d">
+      <div class="mc-q"><span class="num">Q4</span>Your friend says, "The queue at security was a nightmare." They mean it was…</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) really short.</button>
+        <button class="mc-opt">b) very funny.</button>
+        <button class="mc-opt">c) scary at night.</button>
+        <button class="mc-opt">d) really long and annoying.</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q5</span>The plane is shaking because of some <strong>_____</strong>.</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) traffic</button>
+        <button class="mc-opt">b) turbulence</button>
+        <button class="mc-opt">c) rush hour</button>
+        <button class="mc-opt">d) boarding</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="b">
+      <div class="mc-q"><span class="num">Q6</span>At the airport, you go to the <strong>_____</strong> to collect your big suitcase after the flight.</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) check-in desk</button>
+        <button class="mc-opt">b) baggage claim</button>
+        <button class="mc-opt">c) departures board</button>
+        <button class="mc-opt">d) gate</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="a">
+      <div class="mc-q"><span class="num">Q7</span>"Sorry, your bag's too heavy. It's over the <strong>_____</strong>." What word fits best?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) baggage allowance</button>
+        <button class="mc-opt">b) boarding pass</button>
+        <button class="mc-opt">c) hand luggage</button>
+        <button class="mc-opt">d) flight attendant</button>
+      </div>
+    </div>
+
+    <div class="mc-item" data-correct="c">
+      <div class="mc-q"><span class="num">Q8</span>Which is the most natural, spoken way to describe a bad flight?</div>
+      <div class="mc-options">
+        <button class="mc-opt">a) The flight was not pleasant.</button>
+        <button class="mc-opt">b) The flight was undesirable.</button>
+        <button class="mc-opt">c) The flight was a nightmare.</button>
+        <button class="mc-opt">d) The flight was bumpy-like.</button>
+      </div>
+    </div>
+
+    <span class="score" id="score5">0 / 8</span>
+  </section>
+
+  <!-- ============== GRAMMAR ============== -->
+  <section class="panel" id="t6">
+    <h2 class="section-title"><span class="emoji">📝</span>Grammar: 3 tenses in action</h2>
+    <p class="instr">Mini quick review first, then an exercise mixing all three tenses — in a travel context, of course.</p>
+
+    <div class="grammar-box">
+      <h4>Quick reminder — when to use each</h4>
+      <ul>
+        <li><strong>Present Simple</strong> → habits, routines, facts. <code>I usually fly with Ryanair.</code></li>
+        <li><strong>Present Continuous</strong> → happening right now or around now. <code>We're boarding in five minutes.</code></li>
+        <li><strong>Past Simple</strong> → finished actions in the past. <code>We landed at 8 p.m. yesterday.</code></li>
+      </ul>
+    </div>
+
+    <p class="instr">Put the verb in brackets into the correct tense. Think carefully — is it a habit, happening now, or finished in the past?</p>
+
+    <div class="fill-item"><p><span class="num">01</span>Every summer, my family <input class="fill-input" data-answer="flies"> (fly) to Greece for two weeks.</p></div>
+    <div class="fill-item"><p><span class="num">02</span>Be quiet! The pilot <input class="fill-input" data-answer="is speaking"> (speak) to the passengers right now.</p></div>
+    <div class="fill-item"><p><span class="num">03</span>Last year, we <input class="fill-input" data-answer="booked"> (book) our tickets six months in advance.</p></div>
+    <div class="fill-item"><p><span class="num">04</span>Kate usually <input class="fill-input" data-answer="takes"> (take) only a carry-on because she hates waiting for luggage.</p></div>
+    <div class="fill-item"><p><span class="num">05</span>Look — that plane <input class="fill-input" data-answer="is landing"> (land) at the moment.</p></div>
+    <div class="fill-item"><p><span class="num">06</span>I <input class="fill-input" data-answer="lost"> (lose) my passport at the airport once — it was horrible!</p></div>
+    <div class="fill-item"><p><span class="num">07</span>Low-cost airlines <input class="fill-input" data-answer="do not"> (not / do) usually include meals in the price. <em style="color:var(--deep-sky); font-size:13px;">(write "do not" or "don't")</em></p></div>
+    <div class="fill-item"><p><span class="num">08</span>I can't talk now — I <input class="fill-input" data-answer="am waiting"> (wait) to go through security.</p></div>
+    <div class="fill-item"><p><span class="num">09</span>We <input class="fill-input" data-answer="missed"> (miss) our flight last Saturday because of the traffic.</p></div>
+    <div class="fill-item"><p><span class="num">10</span>Tom <input class="fill-input" data-answer="is boarding"> (board) the plane right now — he just sent me a photo.</p></div>
+    <div class="fill-item"><p><span class="num">11</span>How often <input class="fill-input" data-answer="do"> (do) you travel by plane?</p></div>
+    <div class="fill-item"><p><span class="num">12</span>Where <input class="fill-input" data-answer="did"> (do) you go on holiday last year?</p></div>
+
+    <button class="check-btn" onclick="checkGrammar()">✓ Check grammar</button>
+    <span class="score" id="score6">— / 12</span>
+  </section>
+
+  <footer>
+    ✈ ✈ ✈ &nbsp; TRAVELLING & FLYING · B1 ENGLISH WORKSHEET &nbsp; ✈ ✈ ✈
+  </footer>
+</div>
+
+<script>
+  // TABS
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // MATCHING (tab 3)
+  let selectedWord = null;
+  let matched3 = 0;
+  document.querySelectorAll('#t3 .match-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      if (item.dataset.word) {
+        document.querySelectorAll('#t3 [data-word]').forEach(w => w.classList.remove('selected'));
+        item.classList.add('selected');
+        selectedWord = item;
+      } else if (item.dataset.def && selectedWord) {
+        if (selectedWord.dataset.word === item.dataset.def) {
+          selectedWord.classList.remove('selected');
+          selectedWord.classList.add('matched');
+          item.classList.add('matched');
+          matched3++;
+          document.getElementById('score3').textContent = matched3 + ' / 8';
+          selectedWord = null;
+          if (matched3 === 8) document.getElementById('score3').textContent = '★ 8 / 8 ★';
+        } else {
+          item.classList.add('wrong');
+          setTimeout(() => item.classList.remove('wrong'), 500);
+        }
+      }
+    });
+  });
+
+  // FILL IN THE GAPS (tab 4)
+  function checkFill() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t4 .fill-input');
+    const alternates = {
+      'carry-on': ['carry-on','carry on','carryon'],
+      'a nightmare': ['a nightmare','nightmare'],
+      'pick up': ['pick up','pick-up'],
+      'go through security': ['go through security','go through the security'],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score4').textContent = correct + ' / 10';
+    if (correct === 10) document.getElementById('score4').textContent = '★ 10 / 10 ★';
+  }
+
+  // MC (tab 5)
+  let mcScore = 0;
+  document.querySelectorAll('#t5 .mc-item').forEach(item => {
+    const correct = item.dataset.correct;
+    const opts = item.querySelectorAll('.mc-opt');
+    opts.forEach((opt, i) => {
+      const letter = ['a','b','c','d'][i];
+      opt.addEventListener('click', () => {
+        if (opt.disabled) return;
+        opts.forEach(o => o.disabled = true);
+        if (letter === correct) {
+          opt.classList.add('correct');
+          mcScore++;
+        } else {
+          opt.classList.add('wrong');
+          opts.forEach((o, j) => { if (['a','b','c','d'][j] === correct) o.classList.add('correct'); });
+        }
+        document.getElementById('score5').textContent = mcScore + ' / 8';
+        if (mcScore === 8) document.getElementById('score5').textContent = '★ 8 / 8 ★';
+      });
+    });
+  });
+
+  // GRAMMAR (tab 6)
+  function checkGrammar() {
+    let correct = 0;
+    const inputs = document.querySelectorAll('#t6 .fill-input');
+    const alternates = {
+      'is speaking': ['is speaking',"'s speaking"],
+      'is landing': ['is landing',"'s landing"],
+      'do not': ['do not',"don't"],
+      'am waiting': ['am waiting',"'m waiting"],
+      'is boarding': ['is boarding',"'s boarding"],
+    };
+    inputs.forEach(input => {
+      const answer = input.dataset.answer.toLowerCase().trim();
+      const val = input.value.toLowerCase().trim();
+      input.classList.remove('correct','wrong');
+      const valid = alternates[answer] || [answer];
+      if (valid.includes(val)) {
+        input.classList.add('correct');
+        correct++;
+      } else if (val !== '') {
+        input.classList.add('wrong');
+      }
+    });
+    document.getElementById('score6').textContent = correct + ' / 12';
+    if (correct === 12) document.getElementById('score6').textContent = '★ 12 / 12 ★';
+  }
+</script>
+</body>
+</html>
